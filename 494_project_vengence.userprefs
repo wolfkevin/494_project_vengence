@@ -1,12 +1,16 @@
-﻿<Properties StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/playerMovement.cs">
+﻿<Properties StartupConfiguration="{0125038F-91A2-DB25-6EE8-3A42BAD79532}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Ball.cs">
     <Files>
-      <File FileName="Assets/playerMovement.cs" Line="35" Column="24" />
+      <File FileName="Assets/_scripts/playerMovement.cs" Line="11" Column="37" />
+      <File FileName="Assets/GameManager.cs" Line="12" Column="3" />
+      <File FileName="Assets/Ball.cs" Line="19" Column="33" />
     </Files>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.494__project__vengence PreferredExecutionTarget="Unity.Editor" />
 </Properties>

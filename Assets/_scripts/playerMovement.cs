@@ -7,8 +7,8 @@ public class playerMovement : MonoBehaviour {
 
 	public int playerNum = 0;
 
-	public float movementSpeed;
-	public float jumpSpeed;
+	private static float movementSpeed = 6;
+	private static float jumpSpeed = 30;
 
 	private Rigidbody rb;
 	private InputDevice inputDevice;
@@ -28,11 +28,13 @@ public class playerMovement : MonoBehaviour {
 		}
 
 		var horizontal = inputDevice.LeftStickX;
-		rb.velocity = Vector2.right * horizontal * movementSpeed;
+        var vertical = rb.velocity.y;
+        rb.velocity = new Vector2(horizontal * movementSpeed, vertical);
+		//rb.velocity = Vector2.right * horizontal * movementSpeed;
 
 		var jump = inputDevice.Action1.WasPressed;
-		if (jump) {
-			rb.AddForce(Vector3.up * jumpSpeed);
+        if (jump && transform.position.y < 1.51) {
+            rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
 		}
 			
 
