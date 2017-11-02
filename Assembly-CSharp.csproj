@@ -162,6 +162,7 @@
      <Compile Include="Assets\InControl\Source\XInput\XInputDotNetPure\Utils.cs" />
      <Compile Include="Assets\InControl\Test\TestInputManager.cs" />
      <Compile Include="Assets\playerMovement.cs" />
+     <Compile Include="Assets\playerSelectionMovement.cs" />
      <None Include="Assets\InControl\README\README.txt" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>/Users/kevinwolf/Google Drive/494_p3_take2/494_project_vengence/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
