@@ -53,6 +53,14 @@ public class GameManager : MonoBehaviour {
         ResetPlayers();
     }
 
+    public int GetLeftTeamScore() {
+        return leftSideScore;
+    }
+
+    public int GetRightTeamScore() {
+        return rightSideScore;
+    }
+
     private void ResetBall() {
         ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
         ball.transform.position = ballHomePosition;
@@ -63,4 +71,6 @@ public class GameManager : MonoBehaviour {
             players[i].transform.position = playerHomePositions[i];
         }
     }
+
+
 }
