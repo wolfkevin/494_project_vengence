@@ -5,9 +5,14 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
+    public GameObject ball;
+    public GameObject[] players;
 
     private int leftSideScore = 0;
     private int rightSideScore = 0;
+
+    private Vector2 ballHomePosition;
+    private Vector2[] playerHomePositions;
 
     private void Awake()
     {
@@ -25,7 +30,12 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        ballHomePosition = ball.transform.position;
+
+        playerHomePositions = new Vector2[players.Length];
+        for (int i = 0; i < players.Length; ++i) {
+            playerHomePositions[i] = players[i].transform.position;
+        }
 	}
 	
 	// Update is called once per frame
@@ -38,6 +48,19 @@ public class GameManager : MonoBehaviour {
             leftSideScore += 1;
         } else {
             rightSideScore += 1;
+        }
+        ResetBall();
+        ResetPlayers();
+    }
+
+    private void ResetBall() {
+        ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        ball.transform.position = ballHomePosition;
+    }
+
+    private void ResetPlayers() {
+        for (int i = 0; i < players.Length; ++i) {
+            players[i].transform.position = playerHomePositions[i];
         }
     }
 }

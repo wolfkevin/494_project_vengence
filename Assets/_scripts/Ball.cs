@@ -16,8 +16,8 @@ public class Ball : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collider.gameObject.CompareTag("ground")) {
-            GameManager.instance.BallDown(this);
+        if (collision.gameObject.CompareTag("ground")) {
+            GameManager.instance.BallDown(gameObject);
         }
     }
 }
