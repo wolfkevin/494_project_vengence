@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{5DDB5CA8-62DF-F816-C656-0669487F4C64}</ProjectGuid>
+    <ProjectGuid>{CF6C63D3-DE80-B502-516F-AC84F2C7F44D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -164,7 +164,7 @@
      <Compile Include="Assets\playerMovement.cs" />
      <None Include="Assets\InControl\README\README.txt" />
  <Reference Include="Facebook.Unity.Settings">
- <HintPath>/Users/kevinwolf/Google Drive/494_p3_take2/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ <HintPath>/Users/kevinwolf/Google Drive/494_p3_take2/494_project_vengence/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

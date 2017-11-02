@@ -28,7 +28,13 @@ public class playerMovement : MonoBehaviour {
 		}
 
 		var horizontal = inputDevice.LeftStickX;
-		rb.velocity = Vector3.left * horizontal * movementSpeed;
+		rb.velocity = Vector2.right * horizontal * movementSpeed;
+
+		var jump = inputDevice.Action1.WasPressed;
+		if (jump == true) {
+			rb.AddForce(Vector3.up * jumpSpeed);
+		}
+			
 
 	}
 
