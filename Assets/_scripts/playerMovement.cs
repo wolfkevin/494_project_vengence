@@ -31,7 +31,7 @@ public class playerMovement : MonoBehaviour {
 		rb.velocity = Vector2.right * horizontal * movementSpeed;
 
 		var jump = inputDevice.Action1.WasPressed;
-		if (jump == true) {
+		if (jump) {
 			rb.AddForce(Vector3.up * jumpSpeed);
 		}
 			
