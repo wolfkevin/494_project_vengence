@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
     public GameObject ball;
     public GameObject[] players;
+
+    public int scoreToWin = 7;
 
     private int leftSideScore = 0;
     private int rightSideScore = 0;
@@ -51,6 +54,9 @@ public class GameManager : MonoBehaviour {
         }
         ResetBall();
         ResetPlayers();
+        if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin) {
+            GameOver();
+        }
     }
 
     public int GetLeftTeamScore() {
@@ -72,5 +78,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-
+    private void GameOver() {
+        SceneManager.LoadScene("game_over_scene");
+    }
 }

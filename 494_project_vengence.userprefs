@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{0125038F-91A2-DB25-6EE8-3A42BAD79532}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_scripts/LeftTeamScore.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GameManager.cs">
     <Files>
       <File FileName="Assets/_scripts/playerMovement.cs" Line="11" Column="37" />
-      <File FileName="Assets/GameManager.cs" Line="61" Column="31" />
+      <File FileName="Assets/GameManager.cs" Line="4" Column="35" />
       <File FileName="Assets/_scripts/Ball.cs" Line="20" Column="53" />
       <File FileName="Assets/_scripts/RightTeamScore.cs" Line="17" Column="59" />
       <File FileName="Assets/_scripts/LeftTeamScore.cs" Line="10" Column="32" />
