@@ -54,9 +54,9 @@ public class GameManager : MonoBehaviour {
         }
         ResetBall();
         ResetPlayers();
-        if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin) {
-            GameOver();
-        }
+        //if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin) {
+        //    GameOver();
+        //}
     }
 
     public int GetLeftTeamScore() {

@@ -7,7 +7,7 @@ public class playerMovement : MonoBehaviour {
 
 	public int playerNum = 0;
 
-	private static float movementSpeed = 6;
+	private static float movementSpeed = 10;
 	private static float jumpSpeed = 30;
 
 	private Rigidbody rb;
@@ -27,9 +27,10 @@ public class playerMovement : MonoBehaviour {
 			return;
 		}
 
-		var horizontal = inputDevice.LeftStickX;
+		var xMovement = inputDevice.LeftStickX;
+        var yMovement = inputDevice.LeftStickY;
         var vertical = rb.velocity.y;
-        rb.velocity = new Vector2(horizontal * movementSpeed, vertical);
+        rb.velocity = new Vector3(xMovement * movementSpeed, vertical, yMovement * movementSpeed);
 		//rb.velocity = Vector2.right * horizontal * movementSpeed;
 
 		var jump = inputDevice.Action1.WasPressed;

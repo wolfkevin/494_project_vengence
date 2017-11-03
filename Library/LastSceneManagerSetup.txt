@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/scenes/SamScene.unity
+- path: Assets/scenes/main_scene_3d.unity
   isLoaded: 1
   isActive: 1
