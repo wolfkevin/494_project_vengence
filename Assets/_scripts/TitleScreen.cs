@@ -17,7 +17,7 @@ public class TitleScreen : MonoBehaviour {
 
 	public void Play() {
 		Debug.Log("play game");
-		SceneManager.LoadScene("main_scene");
+		SceneManager.LoadScene("selection_scene");
 	}
 
 	public void Exit() {

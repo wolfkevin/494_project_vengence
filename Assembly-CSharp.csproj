@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\_scripts\Ball.cs" />
+     <Compile Include="Assets\_scripts\CameraShake.cs" />
      <Compile Include="Assets\_scripts\DefaultButton.cs" />
      <Compile Include="Assets\_scripts\FollowBall.cs" />
      <Compile Include="Assets\_scripts\GameManager.cs" />
