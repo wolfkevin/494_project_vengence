@@ -24,7 +24,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - ball
   - 
   - 
   - 
@@ -51,4 +51,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: ball
+    uniqueID: 797590649
     locked: 0

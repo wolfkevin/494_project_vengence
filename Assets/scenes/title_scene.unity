@@ -294,7 +294,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: VOLLEYBALL VENGENCE
+  m_Text: VOLLEYBALL VENGEANCE
 --- !u!222 &456991592
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -672,7 +672,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b7e119d63d84d85bcfb78b04181085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventSystem: {fileID: 0}
 --- !u!1 &1421222645
 GameObject:
   m_ObjectHideFlags: 0
