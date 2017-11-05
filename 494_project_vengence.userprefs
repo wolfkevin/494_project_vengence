@@ -1,12 +1,14 @@
 ﻿<Properties StartupConfiguration="{0125038F-91A2-DB25-6EE8-3A42BAD79532}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_scripts/ReadyController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_scripts/WinnerDisplayer.cs">
     <Files>
-      <File FileName="Assets/_scripts/playerMovement.cs" Line="68" Column="45" />
-      <File FileName="Assets/_scripts/GameManager.cs" Line="32" Column="26" />
+      <File FileName="Assets/_scripts/playerMovement.cs" Line="13" Column="40" />
+      <File FileName="Assets/_scripts/GameManager.cs" Line="98" Column="36" />
       <File FileName="Assets/_scripts/CameraShake.cs" Line="6" Column="25" />
       <File FileName="Assets/_scripts/Ball.cs" Line="29" Column="11" />
       <File FileName="Assets/_scripts/FollowBall.cs" Line="18" Column="80" />
-      <File FileName="Assets/_scripts/ReadyController.cs" Line="8" Column="48" />
+      <File FileName="Assets/_scripts/ReadyController.cs" Line="8" Column="50" />
+      <File FileName="Assets/_scripts/GameOverScreen.cs" Line="1" Column="1" />
+      <File FileName="Assets/_scripts/WinnerDisplayer.cs" Line="26" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

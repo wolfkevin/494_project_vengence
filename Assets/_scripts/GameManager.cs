@@ -35,6 +35,9 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        //Tell our 'OnLevelFinishedLoading' function to start listening for a scene change as soon as this script is enabled.
+        SceneManager.sceneLoaded += OnLevelFinishedLoading;
+
         playerHomePositions = new Vector2[players.Length];
         for (int i = 0; i < players.Length; ++i) {
             playerHomePositions[i] = players[i].transform.position;
@@ -94,12 +97,24 @@ public class GameManager : MonoBehaviour {
     }
 
     private void GameOver() {
-        ResetScores();
         SceneManager.LoadScene("game_over_scene");
     }
 
     private void ResetScores() {
         leftSideScore = 0;
         rightSideScore = 0;
+    }
+
+    void OnEnable()
+    {
+        ////Tell our 'OnLevelFinishedLoading' function to start listening for a scene change as soon as this script is enabled.
+        //SceneManager.sceneLoaded += OnLevelFinishedLoading;
+    }
+
+    void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "main_scene") {
+            ResetScores();
+        }
     }
 }

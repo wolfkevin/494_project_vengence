@@ -10,7 +10,7 @@ public class playerMovement : MonoBehaviour {
 	private static float movementSpeed = 10;
 	private static float jumpSpeed = 25;
     private static float dashSpeed = 35;
-    private static float dashTime = .15f;
+    private static float dashTime = .1f;
 
     private static float leapFrogVertThreshold = .2f;
 
