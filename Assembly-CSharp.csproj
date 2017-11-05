@@ -59,7 +59,8 @@
      <Compile Include="Assets\_scripts\GameOverScreen.cs" />
      <Compile Include="Assets\_scripts\LeftTeamScore.cs" />
      <Compile Include="Assets\_scripts\playerMovement.cs" />
-     <Compile Include="Assets\_scripts\playerSelectionMovement.cs" />
+     <Compile Include="Assets\_scripts\PlayerSelection.cs" />
+     <Compile Include="Assets\_scripts\ReadyController.cs" />
      <Compile Include="Assets\_scripts\RightTeamScore.cs" />
      <Compile Include="Assets\_scripts\TitleScreen.cs" />
      <Compile Include="Assets\InControl\Examples\Basic\CubeController.cs" />
