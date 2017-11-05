@@ -8,7 +8,7 @@ public class playerMovement : MonoBehaviour {
 	public int playerNum = 0;
 
 	private static float movementSpeed = 10;
-	private static float jumpSpeed = 15;
+	private static float jumpSpeed = 25;
     private static float dashSpeed = 35;
     private static float dashTime = .1f;
 
