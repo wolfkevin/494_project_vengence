@@ -12,6 +12,8 @@ public class playerMovement : MonoBehaviour {
     private static float dashSpeed = 35;
     private static float dashTime = .1f;
 
+    private static float leapFrogVertThreshold = .2f;
+
 	private Rigidbody rb;
 	private InputDevice inputDevice;
 
@@ -24,14 +26,34 @@ public class playerMovement : MonoBehaviour {
 	{
 		rb = GetComponent<Rigidbody>();
 		inputDevice = InputManager.Devices[playerNum];
+
+
 	}
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (jumped
+            && !collision.gameObject.CompareTag("ball")
+            && !collision.gameObject.CompareTag("wall")
+            && !collision.gameObject.CompareTag("playerTeamA")
+            && !collision.gameObject.CompareTag("playerTeamB")) {
+            dashed = true;
+        }
+
         if (collision.gameObject.CompareTag("ground")
             || collision.gameObject.CompareTag("netTop")) {
             jumped = false;
             dashed = false;
+        }
+        else if (collision.gameObject.CompareTag(gameObject.tag)
+                 && transform.position.y - collision.gameObject.transform.position.y > leapFrogVertThreshold) {
+            // Collided with teammate, and on top of them
+            jumped = false;
+            dashed = false;
+        }
+        else if (collision.gameObject.CompareTag("ball") && dashing)
+        {
+            Camera.main.GetComponent<CameraShake>().shakeDuration = .1f;
         }
     }
 
@@ -77,5 +99,9 @@ public class playerMovement : MonoBehaviour {
         dashing = false;
     }
 
-
+    public void ResetPlayer() {
+        jumped = false;
+        dashing = false;
+        dashed = false;
+    }
 }

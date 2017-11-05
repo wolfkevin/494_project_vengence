@@ -26,6 +26,6 @@ public class Ball : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("ground")) {
             GameManager.instance.BallDown(gameObject);
-        }
+        } 
     }
 }

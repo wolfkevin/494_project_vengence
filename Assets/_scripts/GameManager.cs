@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour {
     private void ResetPlayers() {
         for (int i = 0; i < players.Length; ++i) {
             players[i].transform.position = playerHomePositions[i];
+            players[i].GetComponent<playerMovement>().ResetPlayer();
         }
     }
 

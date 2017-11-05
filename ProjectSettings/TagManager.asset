@@ -7,6 +7,11 @@ TagManager:
   - ground
   - checkbox
   - netTop
+  - player
+  - ball
+  - playerTeamA
+  - playerTeamB
+  - wall
   layers:
   - Default
   - TransparentFX
