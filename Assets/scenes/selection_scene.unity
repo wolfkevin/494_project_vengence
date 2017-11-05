@@ -1221,7 +1221,7 @@ Prefab:
     - target: {fileID: 114525485913368050, guid: 7e34234af99934acba180a48581e79ec,
         type: 2}
       propertyPath: playerNum
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 23787438991220580, guid: 7e34234af99934acba180a48581e79ec,
         type: 2}
