@@ -15,6 +15,7 @@ public class playerMovement : MonoBehaviour {
 	private Rigidbody rb;
 	private InputDevice inputDevice;
 
+    private bool jumped = false;
     private bool dashing = false;
     private bool dashed = false;
 
@@ -25,17 +26,26 @@ public class playerMovement : MonoBehaviour {
 		inputDevice = InputManager.Devices[playerNum];
 	}
 
-	// Update is called once per frame
-	void Update()
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("ground")
+            || collision.gameObject.CompareTag("netTop")) {
+            jumped = false;
+            dashed = false;
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
 	{
 		if (inputDevice == null) {
 			return;
 		}
 
-        if (transform.position.y < 1.51)
-        {
-            dashed = false;
-        }
+        //if (transform.position.y < 1.51)
+        //{
+        //    dashed = false;
+        //}
 
 		var xMovement = inputDevice.LeftStickX;
         var yMovement = inputDevice.LeftStickY;
@@ -47,7 +57,8 @@ public class playerMovement : MonoBehaviour {
 
 		var jump = inputDevice.Action1.WasPressed;
 
-        if (jump && transform.position.y < 1.51) {
+        if (jump && !jumped) {
+            jumped = true;
             rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
         } else if (jump && !dashed) {
             Vector2 direction = new Vector2(xMovement, yMovement);
