@@ -12,6 +12,7 @@ TagManager:
   - playerTeamA
   - playerTeamB
   - wall
+  - gameManager
   layers:
   - Default
   - TransparentFX

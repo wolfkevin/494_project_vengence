@@ -21,12 +21,17 @@ public class playerMovement : MonoBehaviour {
     private bool dashing = false;
     private bool dashed = false;
 
+    private Transform dashIndicator;
+
+    private Vector2 lastDirection = Vector2.right;
+
 	// Use this for initialization
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
 		inputDevice = InputManager.Devices[playerNum];
 
+        dashIndicator = transform.Find("DashIndicator");
 
 	}
 
@@ -60,18 +65,30 @@ public class playerMovement : MonoBehaviour {
     // Update is called once per frame
     void Update()
 	{
+        //dashIndicator.gameObject.SetActive(false);
 		if (inputDevice == null) {
 			return;
 		}
 
-        //if (transform.position.y < 1.51)
-        //{
-        //    dashed = false;
-        //}
-
 		var xMovement = inputDevice.LeftStickX;
         var yMovement = inputDevice.LeftStickY;
         var vertical = rb.velocity.y;
+
+        // DASH INDICATOR
+        //if (jumped && !dashed && (xMovement != 0 || yMovement != 0))
+        //{
+            
+        //    dashIndicator.gameObject.SetActive(true);
+        //    Vector3 indicatorDirection = new Vector2(xMovement, yMovement);
+        //    float degressToRotate = Vector3.Angle(lastDirection, indicatorDirection);
+        //    dashIndicator.RotateAround(transform.position, Vector3.forward, degressToRotate);
+
+        //}
+        //else
+        //{
+        //    dashIndicator.gameObject.SetActive(false);
+        //}
+        //lastDirection = new Vector2(xMovement, yMovement);
 
         if (!dashing) {
             rb.velocity = new Vector3(xMovement * movementSpeed, vertical, 0);   
