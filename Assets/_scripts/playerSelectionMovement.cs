@@ -8,6 +8,7 @@ public class PlayerSelectionMovement : MonoBehaviour {
 
 	private InputDevice inputDevice;
 	private GameObject checkbox;
+	private GameObject readyController;
 
 	// Use this for initialization
 	void Start () {
@@ -15,6 +16,8 @@ public class PlayerSelectionMovement : MonoBehaviour {
 
 		checkbox = FindCheckbox();
 		if (checkbox != null) checkbox.GetComponent<SpriteRenderer>().enabled = false;
+
+		readyController = GameObject.FindWithTag("#ReadyController");
 	}
 
 	// Update is called once per frame
@@ -24,7 +27,14 @@ public class PlayerSelectionMovement : MonoBehaviour {
 		// Y button to ready up
 		if (inputDevice.Action4.WasPressed) {
 			Debug.Log("Y pressed");
-			if (checkbox != null) checkbox.GetComponent<SpriteRenderer>().enabled = false;
+
+			if (checkbox != null) checkbox.GetComponent<SpriteRenderer>().enabled = true;
+			else Debug.Log("checkbox is null");
+
+			if (readyController != null) {
+				ReadyController rc = (ReadyController) readyController.GetComponent<ReadyController>();
+				rc.SetReady(playerNum);
+			}
 		}
 	}
 
