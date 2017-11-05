@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-        //DontDestroyOnLoad(transform.gameObject);
+        DontDestroyOnLoad(transform.gameObject);
     }
 
 
@@ -59,9 +59,9 @@ public class GameManager : MonoBehaviour {
         }
         ResetBall(teamThatScored);
         ResetPlayers();
-        //if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin) {
-        //    GameOver();
-        //}
+        if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin) {
+            GameOver();
+        }
     }
 
     public int GetLeftTeamScore() {
@@ -94,6 +94,12 @@ public class GameManager : MonoBehaviour {
     }
 
     private void GameOver() {
+        ResetScores();
         SceneManager.LoadScene("game_over_scene");
+    }
+
+    private void ResetScores() {
+        leftSideScore = 0;
+        rightSideScore = 0;
     }
 }
