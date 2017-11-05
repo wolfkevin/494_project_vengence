@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 298766686}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: gameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1067,28 +1067,27 @@ GameObject:
   m_Component:
   - component: {fileID: 1078194509}
   - component: {fileID: 1078194512}
-  - component: {fileID: 1078194511}
   - component: {fileID: 1078194510}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: DashIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1078194509
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1078194508}
-  m_LocalRotation: {x: -0, y: -0, z: -0.28016412, w: 0.9599521}
-  m_LocalPosition: {x: 0.54, y: 0.83, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 1, y: 0.05, z: 0}
   m_LocalScale: {x: 0.10000002, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 906606332}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -32.54}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!23 &1078194510
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1121,19 +1120,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1078194511
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1078194508}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1078194512
 MeshFilter:
   m_ObjectHideFlags: 0
