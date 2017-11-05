@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ReadyController : MonoBehaviour {
 
-	bool[] readyCount = { false, false, false, true};
+	bool[] readyCount = { false, false, false, false};
 
 	// Use this for initialization
 	void Start () {
