@@ -731,12 +731,16 @@ Prefab:
       propertyPath: m_Name
       value: PlayerBox (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 114311166880974788, guid: 7e34234af99934acba180a48581e79ec,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: playerNum
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114016425948169966, guid: 7e34234af99934acba180a48581e79ec,
+        type: 2}
+      propertyPath: playerNum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114273312079468814, guid: 7e34234af99934acba180a48581e79ec,
         type: 2}
       propertyPath: playerNum
       value: 1
@@ -863,12 +867,16 @@ Prefab:
       propertyPath: m_Name
       value: PlayerBox (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 114311166880974788, guid: 7e34234af99934acba180a48581e79ec,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: playerNum
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114016425948169966, guid: 7e34234af99934acba180a48581e79ec,
+        type: 2}
+      propertyPath: playerNum
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114273312079468814, guid: 7e34234af99934acba180a48581e79ec,
         type: 2}
       propertyPath: playerNum
       value: 2
@@ -1071,12 +1079,16 @@ Prefab:
       propertyPath: m_Name
       value: PlayerBox (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 114311166880974788, guid: 7e34234af99934acba180a48581e79ec,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: playerNum
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114016425948169966, guid: 7e34234af99934acba180a48581e79ec,
+        type: 2}
+      propertyPath: playerNum
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114273312079468814, guid: 7e34234af99934acba180a48581e79ec,
         type: 2}
       propertyPath: playerNum
       value: 3

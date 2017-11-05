@@ -14,7 +14,6 @@ public class ReadyController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		foreach (bool ready in readyCount) {
-			Debug.Log(ready);
 			if (!ready) return;
 		}
 

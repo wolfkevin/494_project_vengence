@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4754670802548720}
-  - component: {fileID: 114311166880974788}
+  - component: {fileID: 114273312079468814}
   m_Layer: 0
   m_Name: PlayerBox
   m_TagString: Untagged
@@ -514,7 +514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNum: 0
---- !u!114 &114311166880974788
+--- !u!114 &114273312079468814
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -522,7 +522,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1845263772533188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b8e7d4bf87fe410dbcb7026adc2a87c, type: 3}
+  m_Script: {fileID: 11500000, guid: a82f85c332f6e4cd5acb0ddc5f2b2f2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerNum: 0

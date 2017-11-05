@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using InControl;
 
-public class PlayerSelectionMovement : MonoBehaviour {
+public class PlayerSelection : MonoBehaviour {
 	public int playerNum = 0;
 
 	private InputDevice inputDevice;
