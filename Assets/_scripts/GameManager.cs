@@ -14,7 +14,9 @@ public class GameManager : MonoBehaviour {
     private int leftSideScore = 0;
     private int rightSideScore = 0;
 
-    private Vector2 ballHomePosition;
+    private enum Teams { TeamA, TeamB };
+    private Vector2 ballHomePositionA = new Vector2(-16, 7);
+    private Vector2 ballHomePositionB = new Vector2(16, 7);
     private Vector2[] playerHomePositions;
 
     private void Awake()
@@ -33,12 +35,12 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        ballHomePosition = ball.transform.position;
-
         playerHomePositions = new Vector2[players.Length];
         for (int i = 0; i < players.Length; ++i) {
             playerHomePositions[i] = players[i].transform.position;
         }
+
+        ResetBall(Random.value < .5 ? Teams.TeamA : Teams.TeamB);
 	}
 	
 	// Update is called once per frame
@@ -47,12 +49,15 @@ public class GameManager : MonoBehaviour {
 	}
 
     public void BallDown(GameObject ball) {
+        Teams teamThatScored; 
         if (ball.transform.position.x > 0) {
+            teamThatScored = Teams.TeamA;
             leftSideScore += 1;
         } else {
+            teamThatScored = Teams.TeamB;
             rightSideScore += 1;
         }
-        ResetBall();
+        ResetBall(teamThatScored);
         ResetPlayers();
         //if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin) {
         //    GameOver();
@@ -67,9 +72,18 @@ public class GameManager : MonoBehaviour {
         return rightSideScore;
     }
 
-    private void ResetBall() {
+    private void ResetBall(Teams teamThatScored) {
         ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        ball.transform.position = ballHomePosition;
+
+
+        Vector2 ballStartPosition;
+        if (teamThatScored == Teams.TeamA) {
+            ballStartPosition = ballHomePositionA;
+        } else {
+            ballStartPosition = ballHomePositionB;
+        }
+
+        ball.transform.position = ballStartPosition;
     }
 
     private void ResetPlayers() {

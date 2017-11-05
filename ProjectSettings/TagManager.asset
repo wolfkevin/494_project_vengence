@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - ground
+  - checkbox
+  - netTop
   layers:
   - Default
   - TransparentFX
