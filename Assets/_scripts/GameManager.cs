@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(transform.gameObject);
+        //DontDestroyOnLoad(transform.gameObject);
     }
 
 
