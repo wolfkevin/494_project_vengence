@@ -1,4 +1,4 @@
-﻿<Properties StartupConfiguration="{CF6C63D3-DE80-B502-516F-AC84F2C7F44D}|Unit Tests">
+﻿<Properties StartupConfiguration="{0125038F-91A2-DB25-6EE8-3A42BAD79532}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_scripts/playerMovement.cs">
     <Files>
@@ -10,7 +10,7 @@
       <File FileName="Assets/_scripts/GameOverScreen.cs" Line="20" Column="40" />
       <File FileName="Assets/_scripts/WinnerDisplayer.cs" Line="26" Column="27" />
       <File FileName="Assets/_scripts/FinalScoreDisplayer.cs" Line="4" Column="22" />
-      <File FileName="Assets/_scripts/playerMovement.cs" Line="149" Column="48" />
+      <File FileName="Assets/_scripts/playerMovement.cs" Line="35" Column="37" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
