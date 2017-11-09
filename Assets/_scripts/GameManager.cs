@@ -14,13 +14,9 @@ public class GameManager : MonoBehaviour {
     private int leftSideScore = 0;
     private int rightSideScore = 0;
 
-    private enum Teams { TeamA, TeamB };
-    private Vector2 ballHomePositionA = new Vector2(-11.5f, 8f);
-    private Vector2 ballHomePositionB = new Vector2(11.5f, 8f);
+    public enum Teams { TeamA, TeamB };
     private Vector2[] playerHomePositions;
-	private Rigidbody jointA;
-	private Rigidbody jointB;
-	private SpringJoint ballSpring;
+	private ServeBall serve;
 
     private void Awake()
     {
@@ -41,16 +37,11 @@ public class GameManager : MonoBehaviour {
         //Tell our 'OnLevelFinishedLoading' function to start listening for a scene change as soon as this script is enabled.
         SceneManager.sceneLoaded += OnLevelFinishedLoading;
 
-		jointA = GameObject.FindGameObjectWithTag ("jointA").GetComponent<Rigidbody>();
-		jointB = GameObject.FindGameObjectWithTag ("jointB").GetComponent<Rigidbody>();
-		ballSpring = ball.GetComponent<SpringJoint> ();
-
         playerHomePositions = new Vector2[players.Length];
         for (int i = 0; i < players.Length; ++i) {
             playerHomePositions[i] = players[i].transform.position;
         }
-
-        ResetBall(Random.value < .5 ? Teams.TeamA : Teams.TeamB);
+		serve = ball.GetComponent<ServeBall> (); 
 	}
 	
 	// Update is called once per frame
@@ -76,19 +67,6 @@ public class GameManager : MonoBehaviour {
 
     public int GetRightTeamScore() {
         return rightSideScore;
-    }
-
-    private void ResetBall(Teams teamThatScored) {
-        ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
-
-        if (teamThatScored == Teams.TeamA) {
-			ball.transform.position = ballHomePositionA;
-			ballSpring.connectedBody = jointA;
-        } else {
-			ball.transform.position = ballHomePositionB;
-			ballSpring.connectedBody = jointB;
-        }
-
     }
 
     private void ResetPlayers() {
@@ -127,7 +105,7 @@ public class GameManager : MonoBehaviour {
 		yield return new WaitForSeconds(0.5f);
 		ball.SetActive (true);
 		Time.timeScale = 1.0f;
-		ResetBall(teamThatScored);
+		serve.ResetBall(teamThatScored);
 		ResetPlayers();
 		if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin) {
 			GameOver();
