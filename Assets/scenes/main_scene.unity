@@ -537,7 +537,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 557327922}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.5, y: 10, z: 0}
+  m_LocalPosition: {x: -11.5, y: 6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 712407076}
@@ -1750,7 +1750,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -155519108
+  randomSeed: 249757596
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5005,28 +5005,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!145 &1210681417
-SpringJoint:
+--- !u!114 &1210681417
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1210681408}
-  m_ConnectedBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 1.0000005, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.21800843, y: 12, z: 0.44996956}
-  serializedVersion: 2
-  m_Spring: 100
-  m_Damper: 0.2
-  m_MinDistance: 0
-  m_MaxDistance: 3
-  m_Tolerance: 0.025
-  m_BreakForce: 75
-  m_BreakTorque: 75
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a1547257b3614cdc90e332cf5a84802, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  springPrefab: {fileID: 1745815732990946, guid: 05f0bb852edf24a23920380c3cc99663,
+    type: 2}
 --- !u!1001 &1215932555
 Prefab:
   m_ObjectHideFlags: 0
@@ -5374,7 +5365,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1561088172}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.5, y: 10, z: 0}
+  m_LocalPosition: {x: -11.5, y: 6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1872155795}
