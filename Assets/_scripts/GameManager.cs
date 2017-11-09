@@ -67,11 +67,7 @@ public class GameManager : MonoBehaviour {
             teamThatScored = Teams.TeamB;
             rightSideScore += 1;
         }
-        ResetBall(teamThatScored);
-        ResetPlayers();
-        if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin) {
-            GameOver();
-        }
+		StartCoroutine (Reset (teamThatScored));
     }
 
     public int GetLeftTeamScore() {
@@ -123,4 +119,16 @@ public class GameManager : MonoBehaviour {
             ResetScores();
         }
     }
+
+	IEnumerator Reset(Teams teamThatScored)
+	{
+		ball.SetActive (false);
+		yield return new WaitForSeconds(2);
+		ball.SetActive (true);
+		ResetBall(teamThatScored);
+		ResetPlayers();
+		if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin) {
+			GameOver();
+		}
+	}
 }

@@ -17,6 +17,8 @@ TagManager:
   - gameManager
   - jointA
   - jointB
+  - Fire
+  - explosion
   layers:
   - Default
   - TransparentFX
