@@ -1,0 +1,24 @@
+jumped = false
+jumping = false
+
+dashed = false
+dashing = false
+
+charging = false
+
+if jumpIsPressed for first time
+  * keep jumping
+  * isJumping = true
+
+else if jumpIsPressed for second time
+  * charge dash
+  * isCharging = true
+
+else if jumpReleased for first time
+  * no physical action
+  * first jump concluded (listen for second jump)
+  * isJumping = false; jumped = true
+
+else if jumpReleased for second time
+  * release dash
+  * isDashing = true

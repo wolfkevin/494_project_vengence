@@ -9,6 +9,8 @@ public class Ball : MonoBehaviour {
     private Rigidbody rb;
 	private ParticleSystem ps;
 
+    private float gravity = -9.71f;
+
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
@@ -18,10 +20,17 @@ public class Ball : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        // Apply gravity to ball
+        var newYVelocity = rb.velocity.y;
+        newYVelocity += gravity * Time.deltaTime;
+
+        // Update velocity for gravity
+        rb.velocity = new Vector2(rb.velocity.x, newYVelocity);
+
+        // Cap ball speed
         if (rb.velocity.magnitude > maxSpeed) {
             rb.velocity = rb.velocity.normalized * maxSpeed;
         }
-
 	}
 
     private void OnCollisionEnter(Collision collision)
