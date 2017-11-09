@@ -15,9 +15,12 @@ public class GameManager : MonoBehaviour {
     private int rightSideScore = 0;
 
     private enum Teams { TeamA, TeamB };
-    private Vector2 ballHomePositionA = new Vector2(-16, 7);
-    private Vector2 ballHomePositionB = new Vector2(16, 7);
+    private Vector2 ballHomePositionA = new Vector2(-11.5f, 8f);
+    private Vector2 ballHomePositionB = new Vector2(11.5f, 8f);
     private Vector2[] playerHomePositions;
+	private Rigidbody jointA;
+	private Rigidbody jointB;
+	private SpringJoint ballSpring;
 
     private void Awake()
     {
@@ -37,6 +40,10 @@ public class GameManager : MonoBehaviour {
 	void Start () {
         //Tell our 'OnLevelFinishedLoading' function to start listening for a scene change as soon as this script is enabled.
         SceneManager.sceneLoaded += OnLevelFinishedLoading;
+
+		jointA = GameObject.FindGameObjectWithTag ("jointA").GetComponent<Rigidbody>();
+		jointB = GameObject.FindGameObjectWithTag ("jointB").GetComponent<Rigidbody>();
+		ballSpring = ball.GetComponent<SpringJoint> ();
 
         playerHomePositions = new Vector2[players.Length];
         for (int i = 0; i < players.Length; ++i) {
@@ -78,15 +85,14 @@ public class GameManager : MonoBehaviour {
     private void ResetBall(Teams teamThatScored) {
         ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
-
-        Vector2 ballStartPosition;
         if (teamThatScored == Teams.TeamA) {
-            ballStartPosition = ballHomePositionA;
+			ball.transform.position = ballHomePositionA;
+			ballSpring.connectedBody = jointA;
         } else {
-            ballStartPosition = ballHomePositionB;
+			ball.transform.position = ballHomePositionB;
+			ballSpring.connectedBody = jointB;
         }
 
-        ball.transform.position = ballStartPosition;
     }
 
     private void ResetPlayers() {
