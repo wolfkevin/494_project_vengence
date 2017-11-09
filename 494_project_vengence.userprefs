@@ -1,19 +1,10 @@
-﻿<Properties StartupConfiguration="{0125038F-91A2-DB25-6EE8-3A42BAD79532}|">
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="MonoDevelop.Default" />
+﻿<Properties StartupConfiguration="{0125038F-91A2-DB25-6EE8-3A42BAD79532}|" StartupItem="494_project_vengence.csproj">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_scripts/playerMovement.cs">
     <Files>
-      <File FileName="Assets/_scripts/GameManager.cs" Line="45" Column="32" />
-      <File FileName="Assets/_scripts/CameraShake.cs" Line="6" Column="25" />
-      <File FileName="Assets/_scripts/Ball.cs" Line="25" Column="39" />
-      <File FileName="Assets/_scripts/FollowBall.cs" Line="18" Column="80" />
-      <File FileName="Assets/_scripts/ReadyController.cs" Line="8" Column="50" />
-      <File FileName="Assets/_scripts/GameOverScreen.cs" Line="20" Column="40" />
-      <File FileName="Assets/_scripts/WinnerDisplayer.cs" Line="26" Column="27" />
-      <File FileName="Assets/_scripts/FinalScoreDisplayer.cs" Line="4" Column="22" />
-      <File FileName="Assets/_scripts/playerMovement.cs" Line="35" Column="37" />
+      <File FileName="Assets/_scripts/playerMovement.cs" Line="116" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

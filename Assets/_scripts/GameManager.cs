@@ -123,8 +123,10 @@ public class GameManager : MonoBehaviour {
 	IEnumerator Reset(Teams teamThatScored)
 	{
 		ball.SetActive (false);
-		yield return new WaitForSeconds(2);
+		Time.timeScale = 0.1f;
+		yield return new WaitForSeconds(0.5f);
 		ball.SetActive (true);
+		Time.timeScale = 1.0f;
 		ResetBall(teamThatScored);
 		ResetPlayers();
 		if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin) {

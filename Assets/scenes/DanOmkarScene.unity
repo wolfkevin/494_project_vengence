@@ -627,6 +627,7 @@ GameObject:
   - component: {fileID: 531402193}
   - component: {fileID: 531402195}
   - component: {fileID: 531402194}
+  - component: {fileID: 531402196}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: explosion
@@ -706,7 +707,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 531402192}
   serializedVersion: 5
-  lengthInSec: 2
+  lengthInSec: 0.5
   simulationSpeed: 1
   looping: 0
   prewarm: 0
@@ -758,14 +759,14 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1704327582
+  randomSeed: -527186801
   InitialModule:
     serializedVersion: 3
     enabled: 1
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 0.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -806,7 +807,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 30
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -3966,6 +3967,22 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+--- !u!114 &531402196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 531402192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3970c7d4466f44688fb4590167c528f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players:
+  - {fileID: 688715350}
+  - {fileID: 206013496}
+  - {fileID: 951191615}
+  - {fileID: 649744516}
 --- !u!1001 &555527546
 Prefab:
   m_ObjectHideFlags: 0
@@ -4597,7 +4614,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -825986525
+  randomSeed: 713221209
   InitialModule:
     serializedVersion: 3
     enabled: 1

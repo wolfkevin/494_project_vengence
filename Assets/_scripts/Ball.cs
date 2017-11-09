@@ -44,5 +44,6 @@ public class Ball : MonoBehaviour {
 	void Explode(){
 		ps.transform.position = this.gameObject.transform.position;
 		ps.Play ();
+		ps.GetComponent<ExplosionKnockback> ().ExplodeAndKnockBack ();
 	}
 }
