@@ -6,7 +6,6 @@ public class ServeBall : MonoBehaviour {
 	public GameObject springPrefab;
 	private SpringJoint springJoint;
 
-
 	private Rigidbody jointA;
 	private Rigidbody jointB;
 
@@ -40,5 +39,6 @@ public class ServeBall : MonoBehaviour {
 			springJoint.connectedBody = jointB;
 		}
 
+        GetComponent<Rigidbody>().velocity = Vector2.zero;
 	}
 }
