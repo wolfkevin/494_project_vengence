@@ -77,7 +77,6 @@ GameObject:
   - component: {fileID: 23123738683568352}
   - component: {fileID: 54464789757613514}
   - component: {fileID: 114844115037352166}
-  - component: {fileID: 75954145528924648}
   - component: {fileID: 198367604759684426}
   - component: {fileID: 199865292493429670}
   m_Layer: 0
@@ -413,17 +412,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!75 &75954145528924648
-ConstantForce:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1355867311545506}
-  m_Enabled: 1
-  m_Force: {x: 0, y: 0, z: 0}
-  m_RelativeForce: {x: 0, y: 0, z: 0}
-  m_Torque: {x: 0, y: 0, z: 0}
-  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!114 &114510524668808884
 MonoBehaviour:
   m_ObjectHideFlags: 1
