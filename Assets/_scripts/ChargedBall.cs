@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class ChargedBall : MonoBehaviour {
 	GameObject lastHitBy;
+	Rigidbody rb;
 
 	// multiplier for dash hit velocity
 	int charge = 1;
 
 	// Use this for initialization
 	void Start () {
+		rb = GetComponent<Rigidbody>();
 	}
 
 	// Update is called once per frame
@@ -61,6 +63,8 @@ public class ChargedBall : MonoBehaviour {
 	void ApplyCharge() {
 		Debug.Log("applying charge: " + charge.ToString());
 		// apply charge to velocity
-		
+		if (rb != null) {
+			rb.velocity  = rb.velocity * charge;
+		}
 	}
 }
