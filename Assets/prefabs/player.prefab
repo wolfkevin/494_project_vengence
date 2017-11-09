@@ -76,9 +76,9 @@ GameObject:
   - component: {fileID: 135232873927955480}
   - component: {fileID: 23123738683568352}
   - component: {fileID: 54464789757613514}
-  - component: {fileID: 114844115037352166}
   - component: {fileID: 198367604759684426}
   - component: {fileID: 199865292493429670}
+  - component: {fileID: 114237040449774936}
   m_Layer: 0
   m_Name: player
   m_TagString: playerTeamA
@@ -412,6 +412,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &114237040449774936
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1355867311545506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f925bef56404b599214fb43a1e7dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNum: 0
 --- !u!114 &114510524668808884
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -425,18 +437,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 0}
   eyeRadius: 0.1
---- !u!114 &114844115037352166
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1355867311545506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66f925bef56404b599214fb43a1e7dc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerNum: 0
 --- !u!135 &135070084041726598
 SphereCollider:
   m_ObjectHideFlags: 1

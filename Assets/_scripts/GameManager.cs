@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour {
     private void ResetPlayers() {
         for (int i = 0; i < players.Length; ++i) {
             players[i].transform.position = playerHomePositions[i];
-            players[i].GetComponent<playerMovement>().ResetPlayer();
+            players[i].GetComponent<PlayerMovement>().ResetPlayer();
         }
     }
 
@@ -111,4 +111,8 @@ public class GameManager : MonoBehaviour {
 			GameOver();
 		}
 	}
+
+    public GameObject[] GetPlayers() {
+        return players;
+    }
 }
