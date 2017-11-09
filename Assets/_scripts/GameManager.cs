@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour {
     public GameObject[] players;
 
     public int scoreToWin = 7;
-
     private int leftSideScore = 0;
     private int rightSideScore = 0;
 
@@ -72,6 +71,7 @@ public class GameManager : MonoBehaviour {
     private void ResetPlayers() {
         for (int i = 0; i < players.Length; ++i) {
             players[i].transform.position = playerHomePositions[i];
+            players[i].GetComponent<Rigidbody>().velocity = Vector2.zero;
             players[i].GetComponent<PlayerMovement>().ResetPlayer();
         }
     }
@@ -101,8 +101,10 @@ public class GameManager : MonoBehaviour {
 	IEnumerator Reset(Teams teamThatScored)
 	{
 		ball.SetActive (false);
-		Time.timeScale = 0.1f;
-		yield return new WaitForSeconds(0.5f);
+        //Time.timeScale = 0.1f;
+        DisallowPlayerMotion();
+		yield return new WaitForSeconds(1f);
+        AllowPlayerMotion();
 		ball.SetActive (true);
 		Time.timeScale = 1.0f;
 		serve.ResetBall(teamThatScored);
@@ -111,6 +113,20 @@ public class GameManager : MonoBehaviour {
 			GameOver();
 		}
 	}
+
+    private void DisallowPlayerMotion() {
+        for (int i = 0; i < players.Length; ++i) {
+            players[i].GetComponent<PlayerMovement>().DisallowMotion();
+        }
+    }
+
+    private void AllowPlayerMotion()
+    {
+        for (int i = 0; i < players.Length; ++i)
+        {
+            players[i].GetComponent<PlayerMovement>().AllowMotion();
+        }
+    }
 
     public GameObject[] GetPlayers() {
         return players;

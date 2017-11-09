@@ -318,7 +318,11 @@ Prefab:
       propertyPath: ball
       value: 
       objectReference: {fileID: 1210681409}
-    - target: {fileID: 114237040449774936, guid: d169563e433a44ecfbb83a4d7fdc961c,
+    - target: {fileID: 0}
+      propertyPath: playerNum
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114153079706763748, guid: d169563e433a44ecfbb83a4d7fdc961c,
         type: 2}
       propertyPath: playerNum
       value: 3
@@ -4963,7 +4967,11 @@ Prefab:
       propertyPath: ball
       value: 
       objectReference: {fileID: 1210681409}
-    - target: {fileID: 114237040449774936, guid: d169563e433a44ecfbb83a4d7fdc961c,
+    - target: {fileID: 0}
+      propertyPath: playerNum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114153079706763748, guid: d169563e433a44ecfbb83a4d7fdc961c,
         type: 2}
       propertyPath: playerNum
       value: 1
@@ -9047,7 +9055,11 @@ Prefab:
       propertyPath: ball
       value: 
       objectReference: {fileID: 1210681409}
-    - target: {fileID: 114237040449774936, guid: d169563e433a44ecfbb83a4d7fdc961c,
+    - target: {fileID: 0}
+      propertyPath: playerNum
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114153079706763748, guid: d169563e433a44ecfbb83a4d7fdc961c,
         type: 2}
       propertyPath: playerNum
       value: 2

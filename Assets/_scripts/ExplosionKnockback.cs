@@ -6,7 +6,7 @@ public class ExplosionKnockback : MonoBehaviour {
 
     private GameObject[] players;
 	private Vector3 knockDirection;
-    private float knockStrength = 100f;
+    private float knockStrength = 1000f;
 
     private void Start()
     {

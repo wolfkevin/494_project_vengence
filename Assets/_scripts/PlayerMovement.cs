@@ -35,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
     private float dashChargeFactor = 1f;
     private float maxDashChargeFactor = 2.5f;
 
+    private bool allowMotion = true;
+
     private ParticleSystem particleSystem;
 
     // Use this for initialization
@@ -81,6 +83,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (inputDevice == null)
         {
+            return;
+        }
+
+        if (!allowMotion) {
             return;
         }
 
@@ -167,6 +173,14 @@ public class PlayerMovement : MonoBehaviour
         dashChargeFactor = 1f;
         dashing = false;
         particleSystem.Stop();
+    }
+
+    public void DisallowMotion() {
+        allowMotion = false;
+    }
+
+    public void AllowMotion() {
+        allowMotion = true;
     }
 
     public void ResetPlayer()
