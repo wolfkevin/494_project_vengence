@@ -22,6 +22,7 @@ public class playerMovement : MonoBehaviour {
     private bool dashed = false;
 
     private Transform dashIndicator;
+	private ParticleSystem particleSystem;
 
     private Vector2 lastDirection = Vector2.right;
 
@@ -33,6 +34,8 @@ public class playerMovement : MonoBehaviour {
 
         dashIndicator = transform.Find("DashIndicator");
 
+		particleSystem = this.GetComponent<ParticleSystem> ();
+		particleSystem.Stop ();
 	}
 
     private void OnCollisionEnter(Collision collision)
@@ -110,10 +113,12 @@ public class playerMovement : MonoBehaviour {
     IEnumerator Dash(Vector2 direction) {
         dashed = true;
         dashing = true;
+		particleSystem.Play ();
         rb.velocity = direction * dashSpeed;
         yield return new WaitForSeconds(dashTime);
         rb.velocity = Vector2.zero;
         dashing = false;
+		particleSystem.Stop ();
     }
 
     public void ResetPlayer() {
