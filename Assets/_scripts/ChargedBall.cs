@@ -7,16 +7,24 @@ public class ChargedBall : MonoBehaviour {
 	Rigidbody rb;
 
 	// multiplier for dash hit velocity
-	int charge = 1;
+	float DEFAULT_CHARGE = 1f;
+	float CHARGE_BONUS = .1f;
+	float charge;
+
+	// ball scale
+	static Vector3 baseScale;
 
 	// Use this for initialization
 	void Start () {
+		ResetCharge();
 		rb = GetComponent<Rigidbody>();
+		baseScale = transform.localScale;
 	}
 
 	// Update is called once per frame
 	void Update () {
-
+		// Debug.Log(charge);
+		transform.localScale = baseScale * charge;
 	}
 
 	void OnCollisionEnter(Collision collision) {
@@ -27,10 +35,10 @@ public class ChargedBall : MonoBehaviour {
 			if (lastHitBy == null) {
 				// first hit (serve)
 				lastHitBy = other;
-				charge++;
+				charge += CHARGE_BONUS;
 			} else {
-				// grab playerMovement script
-				playerMovement pm = (playerMovement) other.GetComponent<playerMovement>();
+				// grab PlayerMovement script
+				PlayerMovement pm = (PlayerMovement) other.GetComponent<PlayerMovement>();
 
 				if (pm.IsDashing()) {
 					// dashes consume charge regardless of team
@@ -41,7 +49,7 @@ public class ChargedBall : MonoBehaviour {
 					if (other != lastHitBy) {
 						if (lastHitBy.CompareTag(other.tag)) {
 							// same team, add charge
-							charge++;
+							charge += CHARGE_BONUS;
 						} else {
 							// different team, reset charge
 							ResetCharge();
@@ -50,12 +58,16 @@ public class ChargedBall : MonoBehaviour {
 				}
 			}
 		}
+
+		if (other.CompareTag("ground")) {
+			ResetCharge();
+		}
 	}
 
 	void ResetCharge() {
 		Debug.Log("resetting charge");
 		// reset charge
-		charge = 1;
+		charge = DEFAULT_CHARGE;
 		// reset lastHitBy
 		lastHitBy = null;
 	}

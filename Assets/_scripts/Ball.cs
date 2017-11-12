@@ -17,7 +17,7 @@ public class Ball : MonoBehaviour {
 		ps = GameObject.FindGameObjectWithTag ("explosion").GetComponent<ParticleSystem>();
 		ps.Stop ();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
         // Apply gravity to ball
@@ -28,9 +28,9 @@ public class Ball : MonoBehaviour {
         rb.velocity = new Vector2(rb.velocity.x, newYVelocity);
 
         // Cap ball speed
-        if (rb.velocity.magnitude > maxSpeed) {
-            rb.velocity = rb.velocity.normalized * maxSpeed;
-        }
+        // if (rb.velocity.magnitude > maxSpeed) {
+        //     rb.velocity = rb.velocity.normalized * maxSpeed;
+        // }
 	}
 
     private void OnCollisionEnter(Collision collision)
@@ -38,7 +38,7 @@ public class Ball : MonoBehaviour {
         if (collision.gameObject.CompareTag("ground")) {
 			Explode ();
             GameManager.instance.BallDown(gameObject);
-        } 
+        }
     }
 
 	void Explode(){
