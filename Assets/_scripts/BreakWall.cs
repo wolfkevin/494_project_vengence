@@ -5,6 +5,14 @@ using UnityEngine;
 public class BreakWall : MonoBehaviour {
 
 	public float force;
+	private ReadyController rc;
+	private Transform grandfather;
+
+
+	void Start(){
+		grandfather = this.transform.parent.parent.parent;
+		rc = GameObject.FindGameObjectWithTag ("#ReadyController").GetComponent<ReadyController>();
+	}
 
 	void OnCollisionEnter(Collision collision){
 		Rigidbody rb = collision.gameObject.GetComponent<Rigidbody> ();
@@ -14,9 +22,10 @@ public class BreakWall : MonoBehaviour {
 //			otherMass = 1000; // static collider means huge mass'
 //		collision.r
 		force = collision.relativeVelocity.magnitude * rb.mass;
-		if (force > 55f){
-			this.transform.parent.parent.parent.GetComponentInChildren<Checkbox> ().SetCheckboxImage (true);
+		if (force > 40f){
 			Destroy(this.transform.parent.gameObject);
+			grandfather.GetComponentInChildren<Checkbox> ().SetCheckboxImage (true);
+			rc.SetReady (grandfather.GetComponent<PlayerSelection> ().GetPlayerNum ());
 		}
 	}
 }
