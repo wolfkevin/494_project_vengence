@@ -20,6 +20,7 @@ TagManager:
   - Fire
   - explosion
   - pupil
+  - instructions_text
   layers:
   - Default
   - TransparentFX
