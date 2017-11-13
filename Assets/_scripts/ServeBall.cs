@@ -9,14 +9,15 @@ public class ServeBall : MonoBehaviour {
 	private Rigidbody jointA;
 	private Rigidbody jointB;
 
-	private Vector2 ballHomePositionA = new Vector2(-11.5f, 6f);
-	private Vector2 ballHomePositionB = new Vector2(11.5f, 6f);
+	private Vector2 ballHomePositionA = new Vector2(-11.5f, 8f);
+	private Vector2 ballHomePositionB;
 	private Rigidbody rb;
 
 
 	// Use this for initialization
 	void Start () {
-
+		ballHomePositionB = ballHomePositionA;
+		ballHomePositionB.x *= -1;
 		jointA = GameObject.FindGameObjectWithTag ("jointA").GetComponent<Rigidbody>();
 		jointB = GameObject.FindGameObjectWithTag ("jointB").GetComponent<Rigidbody>();
 		rb = GetComponent<Rigidbody>();

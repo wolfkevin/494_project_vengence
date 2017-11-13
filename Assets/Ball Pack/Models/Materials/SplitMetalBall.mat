@@ -9,7 +9,7 @@ Material:
   m_Name: SplitMetalBall
   m_Shader: {fileID: 12, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -23,14 +23,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Illum:
-        m_Texture: {fileID: 2800000, guid: 8f3b327bfc1af974283b0cd9941ef840, type: 3}
+        m_Texture: {fileID: 2800000, guid: 431b92d373c2a422fb0414a2e4eee3e0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 01b2c033f59bc0f40939edd7beba09b8, type: 3}
+        m_Texture: {fileID: 2800000, guid: 82e767f94e93e452ca61c557792100fd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _Emission: 1
     - _EmissionLM: 0
     - _Shininess: 0.078125
     m_Colors:

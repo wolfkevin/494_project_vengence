@@ -3595,6 +3595,7 @@ MonoBehaviour:
   - {fileID: 584222291}
   - {fileID: 1254307987}
   - {fileID: 706828166}
+  id: {fileID: 0}
   scoreToWin: 7
 --- !u!4 &298766687
 Transform:
@@ -3907,7 +3908,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 557327922}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.5, y: 6, z: 0}
+  m_LocalPosition: {x: -11.5, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 712407076}
@@ -4034,7 +4035,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &593428346
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5029,7 +5030,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -855265843
+  randomSeed: -413554350
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -11995,7 +11996,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1561088172}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.5, y: 6, z: 0}
+  m_LocalPosition: {x: -11.5, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1872155795}
