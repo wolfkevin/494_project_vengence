@@ -95,8 +95,7 @@ public class ChargedBall : MonoBehaviour {
 	// https://docs.unity3d.com/ScriptReference/ParticleSystem-colorOverLifetime.html
 	void UpdateColor() {
 		ParticleSystemRenderer r = (ParticleSystemRenderer) GetComponent<ParticleSystemRenderer>();
-
-		Debug.Log(lastHitBy.tag);
+		
 		if (lastHitBy == null) {
 			r.material.color = Color.white;
 		} else {
