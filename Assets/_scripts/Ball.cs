@@ -9,7 +9,7 @@ public class Ball : MonoBehaviour {
     private Rigidbody rb;
 	private ParticleSystem ps;
 
-    private float gravity = -9.71f;
+    private float gravity = -12f;
 
 	// Use this for initialization
 	void Start () {

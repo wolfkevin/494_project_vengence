@@ -39,6 +39,9 @@ public class PlayerMovement : MonoBehaviour
 
     private ParticleSystem particleSystem;
 
+    private float shakeSpeed = 1f;
+    private float shakeDistance = 1f;
+
     // Use this for initialization
     void Start()
     {
@@ -147,6 +150,11 @@ public class PlayerMovement : MonoBehaviour
             newYVelocity = 0;
             dashChargeFactor += .02f;
             gravityToApply = 0f;
+            if (dashChargeFactor > 2f) {
+                charging = false;
+                dashed = true;
+                dashChargeFactor = 1f;
+            }
         }
         // Activate dash
         else if (actionButtonWasReleased && jumped && !dashed)
@@ -165,6 +173,12 @@ public class PlayerMovement : MonoBehaviour
             // Update velocity
             rb.velocity = new Vector3(newXVelocity, newYVelocity, 0);
         }
+    }
+
+    private void Shake() {
+        var x = Mathf.Sin(Time.time * shakeSpeed);
+        var y = Mathf.Cos(Time.time * shakeSpeed);
+        transform.position = new Vector3(x, y);
     }
 
     IEnumerator Dash(Vector2 direction)
