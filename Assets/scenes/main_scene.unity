@@ -4735,8 +4735,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 10, y: 1, z: 1}
+  m_Center: {x: -4.5945387, y: -5.6272747e-12, z: 0}
 --- !u!33 &1133484795
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8298,8 +8298,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   springPrefab: {fileID: 1745815732990946, guid: 05f0bb852edf24a23920380c3cc99663,
     type: 2}
-  velocity: {x: 0, y: 0, z: 0}
-  spin: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &1210681418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8563,8 +8561,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 10, y: 1, z: 1}
+  m_Center: {x: 5.493283, y: 4.0902524e-13, z: 0}
 --- !u!33 &1516824858
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -12150,8 +12148,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 10, z: 1}
+  m_Center: {x: -1.0955334e-12, y: 3.434156, z: 0}
 --- !u!33 &1798229005
 MeshFilter:
   m_ObjectHideFlags: 0
