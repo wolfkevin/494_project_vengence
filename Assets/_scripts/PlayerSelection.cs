@@ -31,10 +31,10 @@ public class PlayerSelection : MonoBehaviour {
 			if (checkbox != null) checkbox.GetComponent<SpriteRenderer>().enabled = true;
 			else Debug.Log("checkbox is null");
 
-			if (readyController != null) {
-				ReadyController rc = (ReadyController) readyController.GetComponent<ReadyController>();
-				rc.SetReady(playerNum);
-			}
+//			if (readyController != null) {
+//				ReadyController rc = (ReadyController) readyController.GetComponent<ReadyController>();
+//				rc.SetReady(playerNum);
+//			}
 		}
 	}
 
@@ -46,6 +46,10 @@ public class PlayerSelection : MonoBehaviour {
 		}
 
 		return null;
+	}
+
+	public int GetPlayerNum(){
+		return playerNum;
 	}
 
 }
