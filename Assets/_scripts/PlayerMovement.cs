@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private float timeToJumpApex = .4f;
     private float dashChargeFactor = 1f;
     private float maxDashChargeFactor = 2.5f;
+    private Vector3 positionStartedCharging;
 
     private bool allowMotion = true;
 
@@ -149,6 +150,7 @@ public class PlayerMovement : MonoBehaviour
         // Initiate dash charge
         else if (actionButtonWasPressed && jumped && !dashed)
         {
+            positionStartedCharging = transform.position;
             charging = true;
             newXVelocity = 0;
             newYVelocity = 0;
@@ -203,9 +205,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Shake() {
-        var x = transform.position.x + shakeDistance * Random.Range(-1f, 1f);
-        var y = transform.position.y + shakeDistance * Random.Range(-1f, 1f);
-        transform.position = new Vector3(x, y);
+        transform.position = (Vector2)positionStartedCharging + Random.insideUnitCircle * shakeDistance;
     }
 
     IEnumerator Dash(Vector2 direction)
