@@ -21,10 +21,12 @@ public class InstructionDisplayer : MonoBehaviour {
 	}
 
 	public void DisplayMessage(string message) {
-		StartCoroutine(_DisplayMessage(message));
+		StartCoroutine(DisplayMessageCoroutine(message));
 	}
 
-	IEnumerator _DisplayMessage(string message) {
+	IEnumerator DisplayMessageCoroutine(string message) {
+		if (text == null) text = GetComponent<Text>();
+
 		displaying = true;
 		text.text = message;
 		yield return new WaitForSeconds(5f);
