@@ -1410,6 +1410,7 @@ GameObject:
   - component: {fileID: 1210681416}
   - component: {fileID: 1210681415}
   - component: {fileID: 1210681417}
+  - component: {fileID: 1210681418}
   m_Layer: 8
   m_Name: SplitMetalBall
   m_TagString: ball
@@ -1568,7 +1569,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 249757596
+  randomSeed: 1649443469
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4836,6 +4837,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   springPrefab: {fileID: 1745815732990946, guid: 05f0bb852edf24a23920380c3cc99663,
     type: 2}
+--- !u!114 &1210681418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1210681408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be48233d2dd844618a19f0886ddc6044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1254307987 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1355867311545506, guid: d169563e433a44ecfbb83a4d7fdc961c,

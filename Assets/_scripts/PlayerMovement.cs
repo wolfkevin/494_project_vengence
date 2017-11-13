@@ -56,17 +56,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (jumped && !collision.gameObject.CompareTag("ball") && !collision.gameObject.CompareTag("wall") && !collision.gameObject.CompareTag("playerTeamA") && !collision.gameObject.CompareTag("playerTeamB"))
+        if (jumped 
+            && !collision.gameObject.CompareTag("ball") 
+            && !collision.gameObject.CompareTag("wall") 
+            && !collision.gameObject.CompareTag("playerTeamA") 
+            && !collision.gameObject.CompareTag("playerTeamB"))
         {
             dashed = true;
         }
 
-        if (collision.gameObject.CompareTag("ground") || (collision.gameObject.CompareTag("netTop") && transform.position.y - collision.gameObject.transform.position.y > .9))
+        if (collision.gameObject.CompareTag("ground") 
+            || (collision.gameObject.CompareTag("netTop") 
+                && transform.position.y - collision.gameObject.transform.position.y > .9))
         {
             jumped = false;
             dashed = false;
         }
-        else if (collision.gameObject.CompareTag(gameObject.tag) && transform.position.y - collision.gameObject.transform.position.y > leapFrogVertThreshold)
+        else if (collision.gameObject.CompareTag(gameObject.tag) 
+                 && transform.position.y - collision.gameObject.transform.position.y > leapFrogVertThreshold)
         {
             // Collided with teammate, and on top of them
             jumped = false;
@@ -186,8 +193,10 @@ public class PlayerMovement : MonoBehaviour
     public void ResetPlayer()
     {
         jumped = false;
-        dashing = false;
+        jumping = false;
         dashed = false;
+        dashing = false;
+        charging = false;
     }
 
     public bool IsDashing() {
