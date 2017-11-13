@@ -587,7 +587,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Press A to jump and then A again to dash into glass boxes
+  m_Text: Press A to jump, then hold A to charge dash into glass boxes
 --- !u!222 &666558676
 CanvasRenderer:
   m_ObjectHideFlags: 0
