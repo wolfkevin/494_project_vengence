@@ -5,22 +5,14 @@ using UnityEngine.UI;
 
 public class FinalScoreDisplayer : MonoBehaviour {
 	Text title;
-	GameManager gm;
 
 	// Use this for initialization
 	void Start () {
 		title = (Text) GetComponent<Text>();
-
-		GameObject gmo = GameObject.FindWithTag("gameManager");
-		if (gmo != null) {
-			gm = (GameManager) gmo.GetComponent<GameManager>();
-		}
+		title.text = GameData.LeftSideScore.ToString() + " - " + GameData.RightSideScore.ToString();
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (gm != null) {
-			title.text = gm.GetLeftTeamScore().ToString() + " - " + gm.GetRightTeamScore().ToString();
-		}
 	}
 }

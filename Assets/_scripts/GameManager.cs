@@ -99,6 +99,8 @@ public class GameManager : MonoBehaviour {
     }
 
     private void GameOver() {
+        GameData.LeftSideScore = leftSideScore;
+        GameData.RightSideScore = rightSideScore;
         SceneManager.LoadScene("game_over_scene");
     }
 
@@ -154,7 +156,7 @@ public class GameManager : MonoBehaviour {
         }
 	}
 
-    //private IEnumerator 
+    //private IEnumerator
 
     private void DisallowPlayerMotion() {
         for (int i = 0; i < players.Length; ++i) {
