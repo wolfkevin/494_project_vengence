@@ -7386,7 +7386,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &593428346
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8199,7 +8199,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 10, y: 1, z: 1}
-  m_Center: {x: -4.5945387, y: -5.6272747e-12, z: 0}
+  m_Center: {x: -4.46, y: -5.6272747e-12, z: 0}
 --- !u!33 &1133484795
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -12025,7 +12025,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 10, y: 1, z: 1}
-  m_Center: {x: 5.493283, y: 4.0902524e-13, z: 0}
+  m_Center: {x: 4.5, y: 4.0902524e-13, z: 0}
 --- !u!33 &1516824858
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -12186,7 +12186,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1069872442
+  randomSeed: -1742962925
   InitialModule:
     serializedVersion: 3
     enabled: 1

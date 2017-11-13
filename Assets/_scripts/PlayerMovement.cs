@@ -87,7 +87,8 @@ public class PlayerMovement : MonoBehaviour
             jumped = false;
             dashed = false;
         }
-        else if (collision.gameObject.CompareTag(gameObject.tag) 
+        else if ((collision.gameObject.CompareTag("playerTeamA") 
+                  || collision.gameObject.CompareTag("playerTeamB"))
                  && transform.position.y - collision.gameObject.transform.position.y > leapFrogVertThreshold)
         {
             // Collided with teammate, and on top of them

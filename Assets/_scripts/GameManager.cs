@@ -129,8 +129,8 @@ public class GameManager : MonoBehaviour {
 		ball.SetActive (false);
         //Time.timeScale = 0.1f;
         DisallowPlayerMotion();
-        Camera.main.GetComponent<CameraShake>().shakeDuration = 1f;
-		yield return new WaitForSeconds(1f);
+        Camera.main.GetComponent<CameraShake>().shakeDuration = 1.5f;
+		yield return new WaitForSeconds(1.5f);
         if (leftSideScore >= scoreToWin)
         {
             StartCoroutine(WinGame(Teams.TeamA));

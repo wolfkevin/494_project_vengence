@@ -115,6 +115,7 @@
     <Compile Include="Assets\_scripts\ExplosionKnockback.cs" />
     <Compile Include="Assets\_scripts\FinalScoreDisplayer.cs" />
     <Compile Include="Assets\_scripts\FollowBall.cs" />
+    <Compile Include="Assets\_scripts\GameData.cs" />
     <Compile Include="Assets\_scripts\GameManager.cs" />
     <Compile Include="Assets\_scripts\GameOverScreen.cs" />
     <Compile Include="Assets\_scripts\getTrailRendererColor.cs" />
