@@ -22,3 +22,6 @@ Improvement: alternate team hits to charge ball
 Issue: desire for more control over dash, to get more spikes / easier spikes
 Imprivement: players can charge dash while remaining stationary, allowing for easier spike timing
 
+Issue: unsure what the score objective is
+Improvement: added first to 7 and game point indicators
+
