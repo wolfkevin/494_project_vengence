@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ChargedBall : MonoBehaviour {
+  // components
 	GameObject lastHitBy;
 	Rigidbody rb;
 	ParticleSystem ps;
+
+	// juice
+	static Color neutralColor = new Color(241, 246, 166);
+	static Color blueColor = new Color(24, 125, 220);
+	static Color redColor = new Color(220, 24, 125);
 
 	// multiplier for dash hit velocity
 	float DEFAULT_CHARGE = 1f;
@@ -21,12 +27,14 @@ public class ChargedBall : MonoBehaviour {
 		ResetCharge();
 		rb = GetComponent<Rigidbody>();
 		baseScale = transform.localScale;
+		ps = GetComponent<ParticleSystem>();
 	}
 
 	// Update is called once per frame
 	void Update () {
 		// Debug.Log(charge);
 		transform.localScale = baseScale * charge;
+		UpdateColor();
 	}
 
 	void OnCollisionEnter(Collision collision) {
@@ -86,6 +94,25 @@ public class ChargedBall : MonoBehaviour {
 		// apply charge to velocity
 		if (rb != null) {
 			rb.velocity  = rb.velocity * charge;
+		}
+	}
+
+	// https://docs.unity3d.com/ScriptReference/ParticleSystem-colorOverLifetime.html
+	void UpdateColor() {
+		ParticleSystemRenderer r = (ParticleSystemRenderer) GetComponent<ParticleSystemRenderer>();
+
+		if (lastHitBy == null) {
+			r.material.color = neutralColor;
+		} else {
+			if (lastHitBy.tag == "playerTeamA") {
+        // blue
+				r.material.color = blueColor;
+			} else if (lastHitBy.tag == "playerTeamB") {
+        // red
+				r.material.color = redColor;
+			} else {
+				r.material.color = neutralColor;
+			}
 		}
 	}
 }
