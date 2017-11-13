@@ -40,7 +40,13 @@ public class PlayerMovement : MonoBehaviour
     private ParticleSystem particleSystem;
 
     private float shakeSpeed = 1f;
-    private float shakeDistance = 1f;
+    private float shakeDistance = .15f;
+
+    private GameObject eyeBall;
+
+    private GameObject pupil;
+    private Vector3 pupilScale;
+    private Vector3 pupilHomePosition;
 
     // Use this for initialization
     void Start()
@@ -55,6 +61,11 @@ public class PlayerMovement : MonoBehaviour
 
         particleSystem = this.GetComponent<ParticleSystem>();
         particleSystem.Stop();
+
+        eyeBall = transform.Find("Eye/EyeBall").gameObject;
+        pupil = transform.Find("Eye/Pupil").gameObject;
+        pupilScale = pupil.transform.localScale;
+        pupilHomePosition = pupil.transform.localPosition;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -146,6 +157,10 @@ public class PlayerMovement : MonoBehaviour
         // Continue charging dash
         else if (actionButtonIsPressed && jumped && !dashed)
         {
+            Shake();
+            pupil.GetComponent<FollowBall>().PauseFollowBall();
+            pupil.transform.localPosition = pupilHomePosition;
+            GrowPupil();
             newXVelocity = 0;
             newYVelocity = 0;
             dashChargeFactor += .02f;
@@ -154,11 +169,13 @@ public class PlayerMovement : MonoBehaviour
                 charging = false;
                 dashed = true;
                 dashChargeFactor = 1f;
+                ResetPupil();
             }
         }
         // Activate dash
         else if (actionButtonWasReleased && jumped && !dashed)
         {
+            ResetPupil();
             charging = false;
             var dashDirection = new Vector2(xInput, yInput);
             StartCoroutine(Dash(dashDirection));
@@ -175,9 +192,19 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void ResetPupil() {
+        //pupil.transform.localPosition = pupilHomePosition;
+        pupil.transform.localScale = pupilScale;
+        pupil.GetComponent<FollowBall>().ResumeFollowBall();
+    }
+
+    private void GrowPupil() {
+        pupil.transform.localScale *= 1.015f;
+    }
+
     private void Shake() {
-        var x = Mathf.Sin(Time.time * shakeSpeed);
-        var y = Mathf.Cos(Time.time * shakeSpeed);
+        var x = transform.position.x + shakeDistance * Random.Range(-1f, 1f);
+        var y = transform.position.y + shakeDistance * Random.Range(-1f, 1f);
         transform.position = new Vector3(x, y);
     }
 

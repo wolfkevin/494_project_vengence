@@ -19,6 +19,7 @@ TagManager:
   - jointB
   - Fire
   - explosion
+  - pupil
   layers:
   - Default
   - TransparentFX
