@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
     public static GameManager instance;
     public GameObject ball;
     public GameObject[] players;
+    public InstructionDisplayer id;
 
     public int scoreToWin = 7;
     private int leftSideScore = 0;
@@ -40,16 +41,17 @@ public class GameManager : MonoBehaviour {
         for (int i = 0; i < players.Length; ++i) {
             playerHomePositions[i] = players[i].transform.position;
         }
-		serve = ball.GetComponent<ServeBall> (); 
+		serve = ball.GetComponent<ServeBall> ();
+    ResetScores();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
     public void BallDown(GameObject ball) {
-        Teams teamThatScored; 
+        Teams teamThatScored;
         if (ball.transform.position.x > 0) {
             teamThatScored = Teams.TeamA;
             leftSideScore += 1;
@@ -81,8 +83,10 @@ public class GameManager : MonoBehaviour {
     }
 
     private void ResetScores() {
+      Debug.Log("resetting scores");
         leftSideScore = 0;
         rightSideScore = 0;
+        id.DisplayMessage(InstructionDisplayer.FIRST_TO_7);
     }
 
     void OnEnable()
@@ -113,6 +117,10 @@ public class GameManager : MonoBehaviour {
 		if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin) {
 			GameOver();
 		}
+
+    if (Mathf.Max(leftSideScore, rightSideScore) == 6) {
+      id.DisplayMessage(InstructionDisplayer.GAME_POINT);
+    }
 	}
 
     private void DisallowPlayerMotion() {
