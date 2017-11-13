@@ -195,6 +195,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void ResetPupil() {
+        if (!pupil) {
+            return;
+        }
         //pupil.transform.localPosition = pupilHomePosition;
         pupil.transform.localScale = pupilScale;
         pupil.GetComponent<FollowBall>().ResumeFollowBall();
@@ -238,6 +241,7 @@ public class PlayerMovement : MonoBehaviour
         dashed = false;
         dashing = false;
         charging = false;
+        ResetPupil();
     }
 
     public bool IsDashing() {

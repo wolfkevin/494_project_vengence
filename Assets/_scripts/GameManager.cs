@@ -103,6 +103,7 @@ public class GameManager : MonoBehaviour {
 		ball.SetActive (false);
         //Time.timeScale = 0.1f;
         DisallowPlayerMotion();
+        Camera.main.GetComponent<CameraShake>().shakeDuration = 1f;
 		yield return new WaitForSeconds(1f);
         AllowPlayerMotion();
 		ball.SetActive (true);
