@@ -5,10 +5,12 @@ using UnityEngine;
 public class ChargedBall : MonoBehaviour {
 	GameObject lastHitBy;
 	Rigidbody rb;
+	ParticleSystem ps;
 
 	// multiplier for dash hit velocity
 	float DEFAULT_CHARGE = 1f;
 	float CHARGE_BONUS = .1f;
+	float MAX_CHARGE = 1f;
 	float charge;
 
 	// ball scale
@@ -35,7 +37,7 @@ public class ChargedBall : MonoBehaviour {
 			if (lastHitBy == null) {
 				// first hit (serve)
 				lastHitBy = other;
-				charge += CHARGE_BONUS;
+				AddCharge();
 			} else {
 				// grab PlayerMovement script
 				PlayerMovement pm = (PlayerMovement) other.GetComponent<PlayerMovement>();
@@ -49,11 +51,13 @@ public class ChargedBall : MonoBehaviour {
 					if (other != lastHitBy) {
 						if (lastHitBy.CompareTag(other.tag)) {
 							// same team, add charge
-							charge += CHARGE_BONUS;
+							AddCharge();
 						} else {
 							// different team, reset charge
 							ResetCharge();
 						}
+            // reset last hit
+						lastHitBy = other;
 					}
 				}
 			}
@@ -62,6 +66,11 @@ public class ChargedBall : MonoBehaviour {
 		if (other.CompareTag("ground")) {
 			ResetCharge();
 		}
+	}
+
+	void AddCharge() {
+		Debug.Log("adding charge");
+		charge = Mathf.Max(MAX_CHARGE, charge + CHARGE_BONUS);
 	}
 
 	void ResetCharge() {
