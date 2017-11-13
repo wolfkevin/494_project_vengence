@@ -9,8 +9,12 @@ public class GameManager : MonoBehaviour {
     public GameObject ball;
     public GameObject[] players;
     public InstructionDisplayer id;
-
     public int scoreToWin = 7;
+
+    public GameObject blueCelebration;
+    public GameObject redCelebration;
+
+
     private int leftSideScore = 0;
     private int rightSideScore = 0;
 
@@ -78,6 +82,22 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    private IEnumerator WinGame(Teams winningTeam) {
+        switch(winningTeam) {
+            case Teams.TeamA:
+                blueCelebration.SetActive(true);
+                break;
+            case Teams.TeamB:
+                redCelebration.SetActive(true);
+                break;
+            default:
+                break;
+
+        }
+        yield return new WaitForSeconds(3f);
+        GameOver();
+    }
+
     private void GameOver() {
         SceneManager.LoadScene("game_over_scene");
     }
@@ -109,19 +129,32 @@ public class GameManager : MonoBehaviour {
         DisallowPlayerMotion();
         Camera.main.GetComponent<CameraShake>().shakeDuration = 1f;
 		yield return new WaitForSeconds(1f);
-        AllowPlayerMotion();
-		ball.SetActive (true);
-		Time.timeScale = 1.0f;
-		serve.ResetBall(teamThatScored);
-		ResetPlayers();
-		if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin) {
-			GameOver();
-		}
+        if (leftSideScore >= scoreToWin)
+        {
+            StartCoroutine(WinGame(Teams.TeamA));
+        }
+        else if (rightSideScore >= scoreToWin)
+        {
+            StartCoroutine(WinGame(Teams.TeamB));
+        } else {
+            AllowPlayerMotion();
+            ball.SetActive(true);
+            Time.timeScale = 1.0f;
+            serve.ResetBall(teamThatScored);
+            ResetPlayers();
+        }
 
-    if (Mathf.Max(leftSideScore, rightSideScore) == 6) {
-      id.DisplayMessage(InstructionDisplayer.GAME_POINT);
-    }
+
+		//if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin) {
+		//	GameOver();
+		//}
+
+        if (Mathf.Max(leftSideScore, rightSideScore) == 6) {
+          id.DisplayMessage(InstructionDisplayer.GAME_POINT);
+        }
 	}
+
+    //private IEnumerator 
 
     private void DisallowPlayerMotion() {
         for (int i = 0; i < players.Length; ++i) {

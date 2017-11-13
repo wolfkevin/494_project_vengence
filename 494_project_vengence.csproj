@@ -117,6 +117,7 @@
     <Compile Include="Assets\_scripts\FollowBall.cs" />
     <Compile Include="Assets\_scripts\GameManager.cs" />
     <Compile Include="Assets\_scripts\GameOverScreen.cs" />
+    <Compile Include="Assets\_scripts\InstructionDisplayer.cs" />
     <Compile Include="Assets\_scripts\LeftTeamScore.cs" />
     <Compile Include="Assets\_scripts\PlayerMovement.cs" />
     <Compile Include="Assets\_scripts\PlayerSelection.cs" />
