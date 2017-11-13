@@ -13,7 +13,6 @@ public class ServeBall : MonoBehaviour {
 	private Vector2 ballHomePositionB;
 	private Rigidbody rb;
 
-
 	// Use this for initialization
 	void Start () {
 		ballHomePositionB = ballHomePositionA;
@@ -25,12 +24,29 @@ public class ServeBall : MonoBehaviour {
 		ResetBall(Random.value < .5 ? GameManager.Teams.TeamA : GameManager.Teams.TeamB);
 	}
 
+
+	void weakenBreakForce(){
+		if (springJoint) {
+			springJoint.breakForce -= 1.5f;
+		}
+	}
+
+
+	void OnCollisionEnter(){
+		if (springJoint) {
+			springJoint.breakForce = .1f;
+		}
+	}
+		
+
 	public void ResetBall(GameManager.Teams teamThatScored) {
-//		GameObject tempSpring = Instantiate (springPrefab, this.transform);
-//		springJoint = tempSpring.GetComponent<SpringJoint> ();
+		rb.velocity = Vector3.zero;
+		rb.rotation = Quaternion.identity;
+
 		springJoint = gameObject.AddComponent<SpringJoint>();
-		springJoint.breakForce = 25;
-		springJoint.breakTorque = 25;
+		springJoint.breakForce = 50;
+		springJoint.breakTorque = 10;
+		InvokeRepeating ("weakenBreakForce", 2.0f, 2.0f);
 
 		if (teamThatScored == GameManager.Teams.TeamA) {
 			this.transform.position = ballHomePositionA;
@@ -39,7 +55,5 @@ public class ServeBall : MonoBehaviour {
 			this.transform.position = ballHomePositionB;
 			springJoint.connectedBody = jointB;
 		}
-
-        GetComponent<Rigidbody>().velocity = Vector2.zero;
 	}
 }
