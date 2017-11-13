@@ -8,11 +8,6 @@ public class ChargedBall : MonoBehaviour {
 	Rigidbody rb;
 	ParticleSystem ps;
 
-	// juice
-	static Color neutralColor = new Color(241, 246, 166);
-	static Color blueColor = new Color(24, 125, 220);
-	static Color redColor = new Color(220, 24, 125);
-
 	// multiplier for dash hit velocity
 	float DEFAULT_CHARGE = 1f;
 	float CHARGE_BONUS = .1f;
@@ -101,17 +96,16 @@ public class ChargedBall : MonoBehaviour {
 	void UpdateColor() {
 		ParticleSystemRenderer r = (ParticleSystemRenderer) GetComponent<ParticleSystemRenderer>();
 
+		Debug.Log(lastHitBy.tag);
 		if (lastHitBy == null) {
-			r.material.color = neutralColor;
+			r.material.color = Color.white;
 		} else {
 			if (lastHitBy.tag == "playerTeamA") {
         // blue
-				r.material.color = blueColor;
+				r.material.color = Color.blue;
 			} else if (lastHitBy.tag == "playerTeamB") {
         // red
-				r.material.color = redColor;
-			} else {
-				r.material.color = neutralColor;
+				r.material.color = Color.red;
 			}
 		}
 	}
