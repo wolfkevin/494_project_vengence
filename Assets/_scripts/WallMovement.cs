@@ -1,215 +1,101 @@
-// using System.Collections;
-// using System.Collections.Generic;
-// using UnityEngine;
-// using InControl;
-//
-// public class WallMovement : MonoBehaviour
-// {
-//
-//     // Use this for initialization
-//     void Start()
-//     {
-//         rb = GetComponent<Rigidbody>();
-//         if (playerNum < InputManager.Devices.Count) {
-//             inputDevice = InputManager.Devices[playerNum];
-//         }
-//
-//         // Jump variable runtime initialization
-//         gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
-//         maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
-//         minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
-//
-//         particleSystem = this.GetComponent<ParticleSystem>();
-//         particleSystem.Stop();
-//
-//         eyeBall = transform.Find("Eye/EyeBall").gameObject;
-//         pupil = transform.Find("Eye/Pupil").gameObject;
-//         pupilScale = pupil.transform.localScale;
-//         pupilHomePosition = pupil.transform.localPosition;
-//     }
-//
-//     // Update is called once per frame
-//     void Update()
-//     {
-//         if (!allowMotion)
-//         {
-//             return;
-//         }
-//
-//         // For storing new velocity values
-//         var newXVelocity = rb.velocity.x;
-//         var newYVelocity = rb.velocity.y;
-//         var gravityToApply = gravity;
-//
-//         if (inputDevice == null)
-//         {
-//             // Apply gravity
-//             newYVelocity += gravityToApply * Time.deltaTime;
-//
-//             // Update velocity
-//             rb.velocity = new Vector3(newXVelocity, newYVelocity, 0);
-//             return;
-//         }
-//
-//         // Get controller input
-//         var xInput = inputDevice.LeftStickX;
-//         var yInput = inputDevice.LeftStickY;
-//         var actionButtonIsPressed = inputDevice.Action1.IsPressed;
-//         var actionButtonWasPressed = inputDevice.Action1.WasPressed;
-//         var actionButtonWasReleased = inputDevice.Action1.WasReleased;
-//
-//         if (!actionButtonIsPressed) {
-//             charging = false;
-//             ResetPupil();
-//         }
-//
-//         // Simple movement, on the ground or in the air
-//         if (!charging && !dashing)
-//         {
-//             newXVelocity = xInput * movementSpeed;
-//         }
-//
-//         // Initiate jump
-//         if (actionButtonWasPressed && !jumped)
-//         {
-//             jumping = true;
-//             newYVelocity = maxJumpVelocity;
-//         }
-//         // Jump early abort (small jump)
-//         else if (actionButtonWasReleased && jumping)
-//         {
-//             jumping = false;
-//             jumped = true;
-//             if (rb.velocity.y > minJumpVelocity)
-//             {
-//                 newYVelocity = minJumpVelocity;
-//             }
-//         }
-//         // Initiate dash charge
-//         else if (actionButtonWasPressed && jumped && !dashed)
-//         {
-//             positionStartedCharging = transform.position;
-//             charging = true;
-//             newXVelocity = 0;
-//             newYVelocity = 0;
-//             gravityToApply = 0f;
-//         }
-//         // Continue charging dash
-//         else if (actionButtonIsPressed && jumped && !dashed)
-//         {
-//             Shake();
-//             pupil.GetComponent<FollowBall>().PauseFollowBall();
-//             pupil.transform.localPosition = pupilHomePosition;
-//             GrowPupil();
-//             newXVelocity = 0;
-//             newYVelocity = 0;
-//             dashChargeFactor += .02f;
-//             gravityToApply = 0f;
-//             if (dashChargeFactor > 2f) {
-//                 charging = false;
-//                 dashed = true;
-//                 dashChargeFactor = 1f;
-//                 ResetPupil();
-//             }
-//         }
-//         // Activate dash
-//         else if (actionButtonWasReleased && jumped && !dashed)
-//         {
-//             ResetPupil();
-//             charging = false;
-//             var dashDirection = new Vector2(xInput, yInput);
-//             StartCoroutine(Dash(dashDirection));
-//         }
-//
-//         // Dashing is taken care of by coroutine
-//         if (!dashing)
-//         {
-//             // Apply gravity
-//             newYVelocity += gravityToApply * Time.deltaTime;
-//
-//             // Update velocity
-//             rb.velocity = new Vector3(newXVelocity, newYVelocity, 0);
-//         }
-//     }
-//
-//     private void FixedUpdate()
-//     {
-//         grounded = false;
-//     }
-//
-//     private void OnCollisionEnter(Collision collision)
-//     {
-//         if (collision.gameObject.CompareTag("ball") && dashing)
-//         {
-//             Camera.main.GetComponent<CameraShake>().shakeDuration = .1f;
-//         }
-//     }
-//
-//     private void OnCollisionStay(Collision collision)
-//     {
-//         if (Vector3.Dot(collision.contacts[0].normal, Vector3.up) > .75)
-//         {
-//             grounded = true;
-//             jumped = false;
-//             dashed = false;
-//         }
-//     }
-//
-//     private void ResetPupil() {
-//         if (!pupil) {
-//             return;
-//         }
-//         //pupil.transform.localPosition = pupilHomePosition;
-//         pupil.transform.localScale = pupilScale;
-//         pupil.GetComponent<FollowBall>().ResumeFollowBall();
-//     }
-//
-//     private void GrowPupil() {
-//         pupil.transform.localScale *= 1.015f;
-//     }
-//
-//     private void Shake() {
-//         transform.position = (Vector2)positionStartedCharging + Random.insideUnitCircle * shakeDistance;
-//     }
-//
-//     IEnumerator Dash(Vector2 direction)
-//     {
-//         dashed = true;
-//         dashing = true;
-//         var chargeFactor = Mathf.Min(dashChargeFactor, maxDashChargeFactor);
-//         rb.velocity = direction * dashSpeed * chargeFactor;
-//         particleSystem.Play();
-//         yield
-//         return new WaitForSeconds(dashTime);
-//         rb.velocity = Vector2.zero;
-//         dashChargeFactor = 1f;
-//         dashing = false;
-//         particleSystem.Stop();
-//     }
-//
-//     public void DisallowMotion() {
-//         allowMotion = false;
-//     }
-//
-//     public void AllowMotion() {
-//         allowMotion = true;
-//     }
-//
-//     public void ResetPlayer()
-//     {
-//         jumped = false;
-//         jumping = false;
-//         dashed = false;
-//         dashing = false;
-//         charging = false;
-//         ResetPupil();
-//     }
-//
-//     public bool IsDashing() {
-//       return dashing;
-//     }
-//
-// 	public bool IsCharging(){
-// 		return charging;
-// 	}
-// }
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using InControl;
+
+public class WallMovement : MonoBehaviour {
+  private InputDevice inputDevice;
+  private CapsuleCollider collider;
+  private PlayerMovement pm;
+  private Rigidbody rb;
+  private float xInput;
+  private float yInput;
+
+
+ private Vector3 v3OrgPos;
+ private float orgScale;
+ private float endScale;
+ public float speed = 5f;
+
+ private GameObject bodyPivot;
+
+ private bool walled;
+
+    // Use this for initialization
+    void Start()
+    {
+        inputDevice = GetComponentInParent<PlayerInputDevice>().inputDevice;
+        rb = GetComponentInParent<Rigidbody>();
+        pm = GetComponentInParent<PlayerMovement>();
+        collider = GetComponent<CapsuleCollider>();
+
+        walled = false;
+
+       v3OrgPos = transform.position;
+       orgScale = transform.localScale.x;
+       endScale = orgScale;
+
+       bodyPivot = transform.parent.gameObject;
+
+    }
+
+    void Update(){
+      if (inputDevice.Action2.IsPressed && pm.IsGrounded() && !walled){
+        rb.velocity = new Vector2(0f, rb.velocity.y);
+        walled = true;
+        pm.DisallowMotion();
+        collider.radius = .25f;
+        collider.height = 1;
+        xInput = inputDevice.LeftStickX;
+        yInput = inputDevice.LeftStickY;
+        if (yInput > .75f){
+          WallUp();
+        // } else if (xInput > .75f) {
+        //   WallRight();
+        // } else if (xInput < -.75f) {
+        //   WallLeft();
+        } else {
+          WallMiddle();
+        }
+      } else if (inputDevice.Action2.WasReleased && walled){
+        walled = false;
+        pm.AllowMotion();
+        ResetPlayerBody();
+      }
+    }
+
+    void WallUp(){
+      transform.parent.parent.position = new Vector3(transform.parent.parent.position.x, transform.parent.parent.position.y + 1f);
+      transform.localScale = new Vector3(1, 4, 2);
+      collider.direction = 1; //set capsule direction to y-axis or 1
+    }
+
+    // void WallLeft(){
+    //   transform.localScale = new Vector3(4, 1, 2);
+    // }
+
+    void WallRight(){
+      Debug.Log("wall right");
+        transform.SetParent(bodyPivot.transform.parent);
+        bodyPivot.transform.position = Vector3.left;
+        // transform.SetParent(bodyPivot.transform);
+        // transform.position = Vector3.right;
+        // bodyPivot.transform.localScale = new Vector3(2f, .5f);
+        //
+        // collider.direction = 0; //set capsule direction to x-axis or 0
+        // collider.height = 1;
+      // transform.localScale = new Vector3(4, 1, 2);
+    }
+
+    void WallMiddle(){
+      transform.localScale = new Vector3(4, 1, 2);
+      collider.direction = 0; //set capsule direction to x-axis or 0
+    }
+
+    void ResetPlayerBody(){
+      collider.height = 0;
+      collider.radius = .5f;
+      transform.localScale = new Vector3(2, 2, 2);
+    }
+
+}
