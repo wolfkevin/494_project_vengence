@@ -50,10 +50,10 @@ public class WallMovement : MonoBehaviour {
         yInput = inputDevice.LeftStickY;
         if (yInput > .75f){
           WallUp();
-        // } else if (xInput > .75f) {
-        //   WallRight();
-        // } else if (xInput < -.75f) {
-        //   WallLeft();
+        } else if (xInput > .75f) {
+          WallRight();
+        } else if (xInput < -.75f) {
+          WallLeft();
         } else {
           WallMiddle();
         }
@@ -70,14 +70,18 @@ public class WallMovement : MonoBehaviour {
       collider.direction = 1; //set capsule direction to y-axis or 1
     }
 
-    // void WallLeft(){
-    //   transform.localScale = new Vector3(4, 1, 2);
-    // }
+    void WallLeft(){
+        transform.parent.parent.position = new Vector3(transform.parent.parent.position.x - 1f, transform.parent.parent.position.y);
+        WallMiddle();
+    }
 
     void WallRight(){
-      Debug.Log("wall right");
-        transform.SetParent(bodyPivot.transform.parent);
-        bodyPivot.transform.position = Vector3.left;
+      transform.parent.parent.position = new Vector3(transform.parent.parent.position.x + 1f, transform.parent.parent.position.y);
+      WallMiddle();
+      // Debug.Log("wall right");
+      //
+      //   transform.SetParent(bodyPivot.transform.parent);
+      //   bodyPivot.transform.position = Vector3.left;
         // transform.SetParent(bodyPivot.transform);
         // transform.position = Vector3.right;
         // bodyPivot.transform.localScale = new Vector3(2f, .5f);
