@@ -35,7 +35,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4507392912405616}
   - component: {fileID: 33105914831206766}
-  - component: {fileID: 135440629739080814}
   - component: {fileID: 23943703565814220}
   m_Layer: 0
   m_Name: EyeBall
@@ -53,7 +52,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4568562093979336}
   - component: {fileID: 33489270305384762}
-  - component: {fileID: 135076489473422332}
   - component: {fileID: 23675505264147986}
   - component: {fileID: 114179516809187994}
   - component: {fileID: 114567651911047592}
@@ -194,7 +192,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d616d62780d344f2ae2e6f75da1be04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 0}
   eyeRadius: 0.1
 --- !u!114 &114567651911047592
 MonoBehaviour:
@@ -207,27 +204,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9cb850b836149b58e8b1a559a386c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &135076489473422332
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1885367685660860}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &135440629739080814
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1262906394655612}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}

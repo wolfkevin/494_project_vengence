@@ -12069,7 +12069,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!23 &1171043241
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12296,7 +12296,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1981439823
+  randomSeed: 39866387
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -15642,7 +15642,9 @@ Prefab:
       propertyPath: randomSeed
       value: -1408769731
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 0bda021f16295406b92bf7a8e5330cc7, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1232774435
@@ -15703,7 +15705,9 @@ Prefab:
       propertyPath: ball
       value: 
       objectReference: {fileID: 1210681409}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 0bda021f16295406b92bf7a8e5330cc7, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1265153017
@@ -15745,20 +15749,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1479899003556470, guid: 0bda021f16295406b92bf7a8e5330cc7, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114619102191070898, guid: 0bda021f16295406b92bf7a8e5330cc7,
-        type: 2}
-      propertyPath: playerNumber
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114853260800150608, guid: 0bda021f16295406b92bf7a8e5330cc7,
-        type: 2}
-      propertyPath: ball
-      value: 
-      objectReference: {fileID: 1210681409}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0bda021f16295406b92bf7a8e5330cc7, type: 2}
   m_IsPrefabParent: 0
@@ -19373,7 +19363,9 @@ Prefab:
       propertyPath: m_Name
       value: PlayerObject1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 0bda021f16295406b92bf7a8e5330cc7, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1561088172
@@ -19831,7 +19823,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!1 &2075687939
 GameObject:
   m_ObjectHideFlags: 0

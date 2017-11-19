@@ -35,7 +35,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4122060172424842}
   - component: {fileID: 33057464949762812}
-  - component: {fileID: 135966040272693574}
   - component: {fileID: 23101030777424830}
   - component: {fileID: 114853260800150608}
   - component: {fileID: 114009804753897578}
@@ -55,7 +54,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4714762824927790}
   - component: {fileID: 33101816607814008}
-  - component: {fileID: 135954516657506504}
   - component: {fileID: 23169681764470478}
   m_Layer: 0
   m_Name: EyeBall
@@ -136,7 +134,7 @@ GameObject:
   - component: {fileID: 198783861416672080}
   m_Layer: 0
   m_Name: PlayerObject
-  m_TagString: Untagged
+  m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -205,7 +203,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1479899003556470}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11, y: 1.5, z: 0}
+  m_LocalPosition: {x: -16, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4532430437772514}
@@ -492,7 +490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40187d1cc57924eafb1e81d6347ceb85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 2
+  playerNumber: 0
 --- !u!114 &114853260800150608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -504,32 +502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d616d62780d344f2ae2e6f75da1be04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 0}
   eyeRadius: 0.1
---- !u!135 &135954516657506504
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1213441394230188}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &135966040272693574
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1183703343868384}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136593349896015038
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -602,7 +575,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 44078576
+  randomSeed: 161907456
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3864,7 +3837,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -2116970435
+  randomSeed: -1734079859
   InitialModule:
     serializedVersion: 3
     enabled: 1
