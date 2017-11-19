@@ -28,9 +28,9 @@ public class Ball : MonoBehaviour {
         rb.velocity = new Vector2(rb.velocity.x, newYVelocity);
 
         // Cap ball speed
-        // if (rb.velocity.magnitude > maxSpeed) {
-        //     rb.velocity = rb.velocity.normalized * maxSpeed;
-        // }
+         if (rb.velocity.magnitude > maxSpeed) {
+             rb.velocity = rb.velocity.normalized * maxSpeed;
+         }
 	}
 
     private void OnCollisionEnter(Collision collision)

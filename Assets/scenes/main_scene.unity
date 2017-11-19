@@ -15612,7 +15612,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 10, z: 1}
-  m_Center: {x: -1.0955334e-12, y: 3.434156, z: 0}
+  m_Center: {x: -1.0955334e-12, y: 4.48, z: 0}
 --- !u!33 &1798229005
 MeshFilter:
   m_ObjectHideFlags: 0

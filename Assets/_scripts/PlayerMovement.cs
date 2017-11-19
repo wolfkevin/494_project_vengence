@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     public int playerNum = 0;
 
-    private static float movementSpeed = 10;
+    private static float movementSpeed = 15;
     private static float jumpSpeed = 25;
     private static float dashSpeed = 35;
     private static float dashTime = .1f;
@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     // Credit to SebLague for the jumping code generally
     // https://github.com/SebLague/2DPlatformer-Tutorial/blob/master/Platformer%20E10/Assets/Scripts/Player.cs
     private float gravity;
+    private bool grounded = false;
     private bool jumped = false;
     private bool jumping = false;
     private bool dashed = false;
@@ -53,7 +54,9 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        inputDevice = InputManager.Devices[playerNum];
+        if (playerNum < InputManager.Devices.Count) {
+            inputDevice = InputManager.Devices[playerNum];
+        }
 
         // Jump variable runtime initialization
         gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
@@ -69,47 +72,26 @@ public class PlayerMovement : MonoBehaviour
         pupilHomePosition = pupil.transform.localPosition;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (jumped 
-            && !collision.gameObject.CompareTag("ball") 
-            && !collision.gameObject.CompareTag("wall") 
-            && !collision.gameObject.CompareTag("playerTeamA") 
-            && !collision.gameObject.CompareTag("playerTeamB"))
-        {
-            dashed = true;
-        }
-
-        if (collision.gameObject.CompareTag("ground") 
-            || (collision.gameObject.CompareTag("netTop") 
-                && transform.position.y - collision.gameObject.transform.position.y > .9))
-        {
-            jumped = false;
-            dashed = false;
-        }
-        else if ((collision.gameObject.CompareTag("playerTeamA") 
-                  || collision.gameObject.CompareTag("playerTeamB"))
-                 && transform.position.y - collision.gameObject.transform.position.y > leapFrogVertThreshold)
-        {
-            // Collided with teammate, and on top of them
-            jumped = false;
-            dashed = false;
-        }
-        else if (collision.gameObject.CompareTag("ball") && dashing)
-        {
-            Camera.main.GetComponent<CameraShake>().shakeDuration = .1f;
-        }
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (inputDevice == null)
+        if (!allowMotion)
         {
             return;
         }
 
-        if (!allowMotion) {
+        // For storing new velocity values
+        var newXVelocity = rb.velocity.x;
+        var newYVelocity = rb.velocity.y;
+        var gravityToApply = gravity;
+
+        if (inputDevice == null)
+        {
+            // Apply gravity
+            newYVelocity += gravityToApply * Time.deltaTime;
+
+            // Update velocity
+            rb.velocity = new Vector3(newXVelocity, newYVelocity, 0);
             return;
         }
 
@@ -120,17 +102,16 @@ public class PlayerMovement : MonoBehaviour
         var actionButtonWasPressed = inputDevice.Action1.WasPressed;
         var actionButtonWasReleased = inputDevice.Action1.WasReleased;
 
-        // For storing new velocity values
-        var newXVelocity = rb.velocity.x;
-        var newYVelocity = rb.velocity.y;
+        if (!actionButtonIsPressed) {
+            charging = false;
+            ResetPupil();
+        }
 
         // Simple movement, on the ground or in the air
         if (!charging && !dashing)
         {
             newXVelocity = xInput * movementSpeed;
         }
-
-        var gravityToApply = gravity;
 
         // Initiate jump
         if (actionButtonWasPressed && !jumped)
@@ -192,6 +173,29 @@ public class PlayerMovement : MonoBehaviour
 
             // Update velocity
             rb.velocity = new Vector3(newXVelocity, newYVelocity, 0);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        grounded = false;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("ball") && dashing)
+        {
+            Camera.main.GetComponent<CameraShake>().shakeDuration = .1f;
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (Vector3.Dot(collision.contacts[0].normal, Vector3.up) > .75)
+        {
+            grounded = true;
+            jumped = false;
+            dashed = false;
         }
     }
 

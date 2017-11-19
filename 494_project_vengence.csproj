@@ -109,8 +109,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\_scripts\Ball.cs" />
+    <Compile Include="Assets\_scripts\BreakWall.cs" />
     <Compile Include="Assets\_scripts\CameraShake.cs" />
     <Compile Include="Assets\_scripts\ChargedBall.cs" />
+    <Compile Include="Assets\_scripts\Checkbox.cs" />
     <Compile Include="Assets\_scripts\DefaultButton.cs" />
     <Compile Include="Assets\_scripts\ExplosionKnockback.cs" />
     <Compile Include="Assets\_scripts\FinalScoreDisplayer.cs" />
