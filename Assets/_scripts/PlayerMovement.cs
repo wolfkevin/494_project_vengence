@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        playerNum = transform.parent.gameObject.GetComponent<PlayerNumber>().playerNumber;
+        playerNum = this.gameObject.GetComponent<PlayerNumber>().playerNumber;
         if (playerNum < InputManager.Devices.Count) {
             inputDevice = InputManager.Devices[playerNum];
         }
