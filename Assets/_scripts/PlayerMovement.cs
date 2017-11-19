@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        inputDevice = InputManager.Devices[playerNum];
+		inputDevice = InputManager.Devices[playerNum];
 
         // Jump variable runtime initialization
         gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
@@ -248,4 +248,8 @@ public class PlayerMovement : MonoBehaviour
     public bool IsDashing() {
       return dashing;
     }
+
+	public bool IsCharging(){
+		return charging;
+	}
 }

@@ -52,15 +52,22 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\_scripts\Ball.cs" />
+     <Compile Include="Assets\_scripts\BreakWall.cs" />
      <Compile Include="Assets\_scripts\CameraShake.cs" />
+     <Compile Include="Assets\_scripts\ChargedBall.cs" />
+     <Compile Include="Assets\_scripts\Checkbox.cs" />
+     <Compile Include="Assets\_scripts\DashIndicator.cs" />
      <Compile Include="Assets\_scripts\DefaultButton.cs" />
      <Compile Include="Assets\_scripts\ExplosionKnockback.cs" />
      <Compile Include="Assets\_scripts\FinalScoreDisplayer.cs" />
      <Compile Include="Assets\_scripts\FollowBall.cs" />
+     <Compile Include="Assets\_scripts\GameData.cs" />
      <Compile Include="Assets\_scripts\GameManager.cs" />
      <Compile Include="Assets\_scripts\GameOverScreen.cs" />
+     <Compile Include="Assets\_scripts\getTrailRendererColor.cs" />
+     <Compile Include="Assets\_scripts\InstructionDisplayer.cs" />
      <Compile Include="Assets\_scripts\LeftTeamScore.cs" />
-     <Compile Include="Assets\_scripts\playerMovement.cs" />
+     <Compile Include="Assets\_scripts\PlayerMovement.cs" />
      <Compile Include="Assets\_scripts\PlayerSelection.cs" />
      <Compile Include="Assets\_scripts\ReadyController.cs" />
      <Compile Include="Assets\_scripts\ResetScene.cs" />
@@ -188,13 +195,10 @@
      <None Include="Assets\Standard Assets\Effects\Projectors\Shaders\ProjectorMultiply.shader" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
  <Reference Include="Facebook.Unity.Settings">
- <HintPath>/Users/kevinwolf/Google Drive/494_p3_take2/494_project_vengence/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ <HintPath>/Users/DYeomans/eecs494/repos/494_project_vengence/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
- <Reference Include="UnityEngine.UI">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Networking">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.TestRunner">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
@@ -202,11 +206,14 @@
  <Reference Include="nunit.framework">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.Timeline">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>

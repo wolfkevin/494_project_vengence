@@ -15768,18 +15768,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1355867311545506, guid: d169563e433a44ecfbb83a4d7fdc961c, type: 2}
-      propertyPath: m_Name
-      value: player0
-      objectReference: {fileID: 0}
     - target: {fileID: 114510524668808884, guid: d169563e433a44ecfbb83a4d7fdc961c,
         type: 2}
       propertyPath: ball
       value: 
       objectReference: {fileID: 1210681409}
-    - target: {fileID: 1290175216894728, guid: d169563e433a44ecfbb83a4d7fdc961c, type: 2}
-      propertyPath: m_TagString
-      value: pupil
+    - target: {fileID: 1355867311545506, guid: d169563e433a44ecfbb83a4d7fdc961c, type: 2}
+      propertyPath: m_Name
+      value: player0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d169563e433a44ecfbb83a4d7fdc961c, type: 2}
