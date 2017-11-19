@@ -16534,6 +16534,7 @@ GameObject:
   - component: {fileID: 2143003484}
   - component: {fileID: 2143003483}
   - component: {fileID: 2143003487}
+  - component: {fileID: 2143003481}
   m_Layer: 0
   m_Name: body
   m_TagString: playerTeamA
@@ -16555,6 +16556,17 @@ Transform:
   m_Father: {fileID: 857361358}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2143003481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2143003479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 352d5480635b045d393edb9abb7d99e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!199 &2143003483
 ParticleSystemRenderer:
   serializedVersion: 4
@@ -16668,7 +16680,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1798086111
+  randomSeed: 1991094551
   InitialModule:
     serializedVersion: 3
     enabled: 1
