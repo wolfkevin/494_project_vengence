@@ -44,6 +44,9 @@ public class PlayerMovement : MonoBehaviour
     private FollowBall followBall;
     private PupilDashIndicator pupilDashIndicator;
 
+    private float lastXinput;
+    private float lastYinput;
+
     // Use this for initialization
     void Start()
     {
@@ -66,10 +69,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!allowMotion)
-        {
-            return;
-        }
+        if (!allowMotion){return;}
 
         // For storing new velocity values
         var newXVelocity = rb.velocity.x;
@@ -89,6 +89,12 @@ public class PlayerMovement : MonoBehaviour
         // Get controller input
         var xInput = inputDevice.LeftStickX;
         var yInput = inputDevice.LeftStickY;
+
+        if ((xInput != 0f) && (yInput != 0f)){
+          lastXinput = xInput;
+          lastYinput = yInput;
+        }
+
         var actionButtonIsPressed = inputDevice.Action1.IsPressed;
         var actionButtonWasPressed = inputDevice.Action1.WasPressed;
         var actionButtonWasReleased = inputDevice.Action1.WasReleased;
@@ -151,9 +157,10 @@ public class PlayerMovement : MonoBehaviour
         {
             pupilDashIndicator.ResetPupil();
             charging = false;
-            var dashDirection = new Vector2(xInput, yInput);
+            var dashDirection = ((xInput != 0f) && (yInput != 0f)) ? new Vector2(xInput, yInput) : new Vector2(lastXinput, lastYinput);
             StartCoroutine(Dash(dashDirection));
         }
+
 
         // Dashing is taken care of by coroutine
         if (!dashing)
