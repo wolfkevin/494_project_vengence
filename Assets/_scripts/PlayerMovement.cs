@@ -44,8 +44,6 @@ public class PlayerMovement : MonoBehaviour
     private float shakeSpeed = 1f;
     private float shakeDistance = .15f;
 
-    private GameObject eyeBall;
-
     private GameObject pupil;
     private Vector3 pupilScale;
     private Vector3 pupilHomePosition;
