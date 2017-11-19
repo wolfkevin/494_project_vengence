@@ -11,7 +11,7 @@ public class ChargedBall : MonoBehaviour {
     // multiplier for dash hit velocity
     float DEFAULT_CHARGE = 1f;
     float CHARGE_BONUS = .1f;
-    float MAX_CHARGE = 1f;
+    float MAX_CHARGE = 2f;
     float charge;
 
     // ball scale
@@ -74,7 +74,7 @@ public class ChargedBall : MonoBehaviour {
 
     void AddCharge() {
         Debug.Log("adding charge");
-        charge = Mathf.Max(MAX_CHARGE, charge + CHARGE_BONUS);
+        charge = Mathf.Min(MAX_CHARGE, charge + CHARGE_BONUS);
     }
 
     void ResetCharge() {
