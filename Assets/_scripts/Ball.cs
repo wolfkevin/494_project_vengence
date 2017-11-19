@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour {
 
-    private float maxSpeed = 20;
+    private float maxSpeed = 50;
 
     private Rigidbody rb;
 	private ParticleSystem ps;
