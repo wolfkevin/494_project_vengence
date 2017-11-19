@@ -44,9 +44,8 @@ public class PlayerMovement : MonoBehaviour
     private float shakeSpeed = 1f;
     private float shakeDistance = .15f;
 
-    private GameObject pupil;
-    private Vector3 pupilScale;
-    private Vector3 pupilHomePosition;
+    private FollowBall followBall;
+    private PupilDashIndicator pupilDashIndicator;
 
     // Use this for initialization
     void Start()
@@ -65,9 +64,9 @@ public class PlayerMovement : MonoBehaviour
         particleSystem = this.GetComponent<ParticleSystem>();
         particleSystem.Stop();
 
-        pupil = transform.Find("Eye/Pupil").gameObject;
-        pupilScale = pupil.transform.localScale;
-        pupilHomePosition = pupil.transform.localPosition;
+        followBall = this.GetComponentInChildren<FollowBall>();
+        pupilDashIndicator = this.GetComponentInChildren<PupilDashIndicator>();
+
     }
 
     // Update is called once per frame
@@ -102,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (!actionButtonIsPressed) {
             charging = false;
-            ResetPupil();
+            pupilDashIndicator.ResetPupil();
         }
 
         // Simple movement, on the ground or in the air
@@ -140,9 +139,8 @@ public class PlayerMovement : MonoBehaviour
         else if (actionButtonIsPressed && jumped && !dashed)
         {
             Shake();
-            pupil.GetComponent<FollowBall>().PauseFollowBall();
-            pupil.transform.localPosition = pupilHomePosition;
-            GrowPupil();
+            followBall.PauseFollowBall();
+            pupilDashIndicator.GrowPupil();
             newXVelocity = 0;
             newYVelocity = 0;
             dashChargeFactor += .02f;
@@ -151,13 +149,13 @@ public class PlayerMovement : MonoBehaviour
                 charging = false;
                 dashed = true;
                 dashChargeFactor = 1f;
-                ResetPupil();
+                pupilDashIndicator.ResetPupil();
             }
         }
         // Activate dash
         else if (actionButtonWasReleased && jumped && !dashed)
         {
-            ResetPupil();
+            pupilDashIndicator.ResetPupil();
             charging = false;
             var dashDirection = new Vector2(xInput, yInput);
             StartCoroutine(Dash(dashDirection));
@@ -197,19 +195,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void ResetPupil() {
-        if (!pupil) {
-            return;
-        }
-        //pupil.transform.localPosition = pupilHomePosition;
-        pupil.transform.localScale = pupilScale;
-        pupil.GetComponent<FollowBall>().ResumeFollowBall();
-    }
-
-    private void GrowPupil() {
-        pupil.transform.localScale *= 1.015f;
-    }
-
     private void Shake() {
         transform.position = (Vector2)positionStartedCharging + Random.insideUnitCircle * shakeDistance;
     }
@@ -244,7 +229,7 @@ public class PlayerMovement : MonoBehaviour
         dashed = false;
         dashing = false;
         charging = false;
-        ResetPupil();
+        pupilDashIndicator.ResetPupil();
     }
 
     public bool IsDashing() {
