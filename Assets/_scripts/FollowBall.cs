@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FollowBall : MonoBehaviour {
 
-	public Transform ball;
+	private Transform ball;
 	public float eyeRadius = 0.01f;
 	Vector3 pupilPosition;
 
@@ -13,8 +13,9 @@ public class FollowBall : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		pupilPosition = this.transform.localPosition;
+		ball = GameObject.FindGameObjectWithTag("ball").transform;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
         if (pauseFollowBall) {
