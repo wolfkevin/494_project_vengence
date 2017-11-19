@@ -21,6 +21,7 @@ TagManager:
   - explosion
   - pupil
   - instructions_text
+  - directionalArrow
   layers:
   - Default
   - TransparentFX

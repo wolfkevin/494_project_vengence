@@ -252,4 +252,8 @@ public class PlayerMovement : MonoBehaviour
     public bool IsDashing() {
       return dashing;
     }
+
+	public bool IsCharging(){
+		return charging;
+	}
 }
