@@ -16,7 +16,7 @@ public class DashIndicator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		pm = this.gameObject.GetComponentInParent<PlayerMovement> ();
-		directionalArrow = GameObject.FindGameObjectWithTag ("directionalArrow");
+		directionalArrow = this.transform.GetChild (0).gameObject;
 		directionalArrow.SetActive(false);
 
 		inputDevice = InputManager.Devices[pm.playerNum];
