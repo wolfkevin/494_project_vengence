@@ -28,8 +28,12 @@ public class DashIndicator : MonoBehaviour {
 			directionalArrow.SetActive (true);
 			var xInput = inputDevice.LeftStickX;
 			var yInput = inputDevice.LeftStickY;
+			directionalArrow.transform.localRotation = Quaternion.AngleAxis(Mathf.Atan2(yInput, xInput) * Mathf.Rad2Deg - 90, Vector3.forward);
 			directionalArrow.transform.localPosition = new Vector3 (xInput * bodyOffsetForDirectionalArrow, yInput * bodyOffsetForDirectionalArrow, 0);
-//			directionalArrow.transform.LookAt (this.gameObject.transform, Vector3.back);
+
+
+		
+			print (Mathf.Tan (yInput / xInput) * Mathf.Rad2Deg * 2);
 		} else {
 			directionalArrow.SetActive (false);
 		}
