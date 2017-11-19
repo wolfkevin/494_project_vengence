@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour {
         //Tell our 'OnLevelFinishedLoading' function to start listening for a scene change as soon as this script is enabled.
         SceneManager.sceneLoaded += OnLevelFinishedLoading;
 
+        players = GameObject.FindGameObjectsWithTag("player");
+
         playerHomePositions = new Vector2[players.Length];
         for (int i = 0; i < players.Length; ++i) {
             playerHomePositions[i] = players[i].transform.position;
