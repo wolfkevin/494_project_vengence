@@ -6,7 +6,7 @@ using InControl;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public int playerNum = 0;
+    private int playerNum;
 
     private static float movementSpeed = 15;
     private static float jumpSpeed = 25;
@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        playerNum = transform.parent.gameObject.GetComponent<PlayerNumber>().playerNumber;
         if (playerNum < InputManager.Devices.Count) {
             inputDevice = InputManager.Devices[playerNum];
         }

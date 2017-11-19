@@ -19,9 +19,9 @@ public class DashIndicator : MonoBehaviour {
 		directionalArrow = this.transform.GetChild (0).gameObject;
 		directionalArrow.SetActive(false);
 
-		inputDevice = InputManager.Devices[pm.playerNum];
+		inputDevice = InputManager.Devices[transform.parent.gameObject.GetComponent<PlayerNumber>().playerNumber];
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (pm.IsCharging ()) {
