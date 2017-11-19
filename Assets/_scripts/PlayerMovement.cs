@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
         minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
 
-        particleSystem = this.GetComponent<ParticleSystem>();
+        particleSystem = this.GetComponentInChildren<ParticleSystem>();
         particleSystem.Stop();
 
         followBall = this.GetComponentInChildren<FollowBall>();
