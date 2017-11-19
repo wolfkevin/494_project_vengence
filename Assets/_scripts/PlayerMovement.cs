@@ -240,4 +240,8 @@ public class PlayerMovement : MonoBehaviour
 	public bool IsCharging(){
 		return charging;
 	}
+
+  public bool IsGrounded(){
+    return grounded;
+  }
 }
