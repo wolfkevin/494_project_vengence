@@ -3647,6 +3647,7 @@ GameObject:
   - component: {fileID: 225067889}
   - component: {fileID: 225067888}
   - component: {fileID: 225067887}
+  - component: {fileID: 225067891}
   m_Layer: 0
   m_Name: Pupil
   m_TagString: pupil
@@ -3680,7 +3681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d616d62780d344f2ae2e6f75da1be04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 0}
+  ball: {fileID: 1210681409}
   eyeRadius: 0.1
 --- !u!23 &225067888
 MeshRenderer:
@@ -3736,6 +3737,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 225067885}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &225067891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 225067885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae9cb850b836149b58e8b1a559a386c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &235232381
 GameObject:
   m_ObjectHideFlags: 0
@@ -7929,7 +7941,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &712407076
 Transform:
   m_ObjectHideFlags: 0
@@ -8117,6 +8129,8 @@ GameObject:
   m_Component:
   - component: {fileID: 857361358}
   - component: {fileID: 857361357}
+  - component: {fileID: 857361360}
+  - component: {fileID: 857361359}
   m_Layer: 0
   m_Name: PlayerObject
   m_TagString: Untagged
@@ -8143,7 +8157,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 857361356}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: 7, z: 0}
+  m_LocalPosition: {x: -10, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2143003480}
@@ -8152,6 +8166,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &857361359
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 857361356}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
+--- !u!114 &857361360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 857361356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f925bef56404b599214fb43a1e7dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &901090293
 GameObject:
   m_ObjectHideFlags: 0
@@ -8597,7 +8637,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!23 &1171043241
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8640,8 +8680,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 5.0436974, z: 1}
+  m_Center: {x: 0, y: -2.021849, z: 0}
 --- !u!33 &1171043243
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8824,7 +8864,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1542353472
+  randomSeed: 613669401
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -16065,7 +16105,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1872155795
 Transform:
   m_ObjectHideFlags: 0
@@ -16264,8 +16304,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 5.044182, z: 1}
+  m_Center: {x: 0, y: -2.022091, z: 0}
 --- !u!33 &1962181470
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -16300,7 +16340,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1 &2075687939
 GameObject:
   m_ObjectHideFlags: 0
@@ -16491,14 +16531,12 @@ GameObject:
   - component: {fileID: 2143003480}
   - component: {fileID: 2143003488}
   - component: {fileID: 2143003486}
-  - component: {fileID: 2143003485}
   - component: {fileID: 2143003484}
   - component: {fileID: 2143003483}
   - component: {fileID: 2143003482}
-  - component: {fileID: 2143003481}
   - component: {fileID: 2143003487}
   m_Layer: 0
-  m_Name: player
+  m_Name: body
   m_TagString: playerTeamA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16518,21 +16556,6 @@ Transform:
   m_Father: {fileID: 857361358}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &2143003481
-Animation:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 111749221110915054, guid: d169563e433a44ecfbb83a4d7fdc961c,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2143003479}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!114 &2143003482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16540,7 +16563,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2143003479}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66f925bef56404b599214fb43a1e7dc9, type: 3}
   m_Name: 
@@ -16658,7 +16681,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -175219517
+  randomSeed: -62788186
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -19861,22 +19884,6 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
---- !u!54 &2143003485
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 54464789757613514, guid: d169563e433a44ecfbb83a4d7fdc961c,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2143003479}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 120
-  m_CollisionDetection: 0
 --- !u!23 &2143003486
 MeshRenderer:
   m_ObjectHideFlags: 0
