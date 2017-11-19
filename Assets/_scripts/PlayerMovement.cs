@@ -65,7 +65,6 @@ public class PlayerMovement : MonoBehaviour
         particleSystem = this.GetComponent<ParticleSystem>();
         particleSystem.Stop();
 
-        eyeBall = transform.Find("Eye/EyeBall").gameObject;
         pupil = transform.Find("Eye/Pupil").gameObject;
         pupilScale = pupil.transform.localScale;
         pupilHomePosition = pupil.transform.localPosition;
