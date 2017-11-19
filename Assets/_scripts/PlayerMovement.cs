@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
         var xInput = inputDevice.LeftStickX;
         var yInput = inputDevice.LeftStickY;
 
-        if ((xInput != 0f) && (yInput != 0f)){
+        if ((Mathf.Abs(xInput) > 0.05f) && (Mathf.Abs(yInput) > 0.05f)){
           lastXinput = xInput;
           lastYinput = yInput;
         }
