@@ -8128,8 +8128,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 857361358}
-  - component: {fileID: 857361357}
   - component: {fileID: 857361360}
+  - component: {fileID: 857361357}
   - component: {fileID: 857361359}
   m_Layer: 0
   m_Name: PlayerObject
@@ -8146,7 +8146,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 857361356}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ee72e426108b4a0d8326aa5547bfd0f, type: 3}
+  m_Script: {fileID: 11500000, guid: 40187d1cc57924eafb1e81d6347ceb85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 0
@@ -16533,7 +16533,6 @@ GameObject:
   - component: {fileID: 2143003486}
   - component: {fileID: 2143003484}
   - component: {fileID: 2143003483}
-  - component: {fileID: 2143003482}
   - component: {fileID: 2143003487}
   m_Layer: 0
   m_Name: body
@@ -16556,18 +16555,6 @@ Transform:
   m_Father: {fileID: 857361358}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2143003482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114153079706763748, guid: d169563e433a44ecfbb83a4d7fdc961c,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2143003479}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66f925bef56404b599214fb43a1e7dc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!199 &2143003483
 ParticleSystemRenderer:
   serializedVersion: 4
@@ -16681,7 +16668,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -62788186
+  randomSeed: -1798086111
   InitialModule:
     serializedVersion: 3
     enabled: 1

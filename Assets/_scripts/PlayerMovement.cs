@@ -5,9 +5,6 @@ using InControl;
 
 public class PlayerMovement : MonoBehaviour
 {
-
-    private int playerNum;
-
     private static float movementSpeed = 15;
     private static float jumpSpeed = 25;
     private static float dashSpeed = 35;
@@ -51,10 +48,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        playerNum = this.gameObject.GetComponent<PlayerNumber>().playerNumber;
-        if (playerNum < InputManager.Devices.Count) {
-            inputDevice = InputManager.Devices[playerNum];
-        }
+        inputDevice = this.gameObject.GetComponent<PlayerInputDevice>().inputDevice;
 
         // Jump variable runtime initialization
         gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
