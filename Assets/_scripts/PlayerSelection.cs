@@ -22,20 +22,6 @@ public class PlayerSelection : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (inputDevice == null) return;
-
-		// Y button to ready up
-		if (inputDevice.Action4.WasPressed) {
-			Debug.Log("Y pressed");
-
-			if (checkbox != null) checkbox.GetComponent<SpriteRenderer>().enabled = true;
-			else Debug.Log("checkbox is null");
-
-//			if (readyController != null) {
-//				ReadyController rc = (ReadyController) readyController.GetComponent<ReadyController>();
-//				rc.SetReady(playerNum);
-//			}
-		}
 	}
 
 	GameObject FindCheckbox() {
