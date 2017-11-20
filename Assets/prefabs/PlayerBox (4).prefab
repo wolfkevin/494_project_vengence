@@ -1182,8 +1182,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 2.662401, z: 1}
+  m_Center: {x: 4.459832e-16, y: 0.8312006, z: 0}
 --- !u!65 &65513037718451320
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1194,8 +1194,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 3.105709, z: 1}
+  m_Center: {x: -2.4911461e-16, y: -1.0528549, z: 0}
 --- !u!65 &65557985108174022
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1218,8 +1218,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 3.105711, z: 1}
+  m_Center: {x: 0, y: 1.0528555, z: 0}
 --- !u!65 &65680905479122840
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1254,8 +1254,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 4.354204, z: 1}
+  m_Center: {x: 0, y: -1.6771021, z: 0}
 --- !u!114 &114044517312594470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1302,7 +1302,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d616d62780d344f2ae2e6f75da1be04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 0}
   eyeRadius: 0.1
 --- !u!114 &114414239547461606
 MonoBehaviour:
@@ -1351,7 +1350,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f925bef56404b599214fb43a1e7dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 0
 --- !u!114 &114745560305273722
 MonoBehaviour:
   m_ObjectHideFlags: 1

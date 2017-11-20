@@ -36,6 +36,7 @@ public class WallMovement : MonoBehaviour {
        endScale = orgScale;
 
        bodyPivot = transform.parent.gameObject;
+       inputDevice = transform.parent.GetComponentInParent<PlayerInputDevice>().inputDevice;
 
     }
 
