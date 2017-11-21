@@ -41,6 +41,9 @@ public class WallMovement : MonoBehaviour {
     }
 
     void Update(){
+        if (inputDevice == null) {
+            return;
+        }
       if (inputDevice.Action2.IsPressed && pm.IsGrounded() && !walled){
         rb.velocity = new Vector2(0f, rb.velocity.y);
         walled = true;

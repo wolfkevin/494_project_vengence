@@ -8,12 +8,13 @@ public class GameManager : MonoBehaviour {
     public static GameManager instance;
     public GameObject ball;
     public GameObject[] players;
-    public InstructionDisplayer id;
+
     public int scoreToWin = 7;
 
     public GameObject blueCelebration;
     public GameObject redCelebration;
 
+    private InstructionDisplayer id;
 
     private int leftSideScore = 0;
     private int rightSideScore = 0;
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        id = GameObject.Find("Instructions").GetComponent<InstructionDisplayer>();
         //Tell our 'OnLevelFinishedLoading' function to start listening for a scene change as soon as this script is enabled.
         SceneManager.sceneLoaded += OnLevelFinishedLoading;
 
@@ -48,7 +50,7 @@ public class GameManager : MonoBehaviour {
             playerHomePositions[i] = players[i].transform.position;
         }
 		serve = ball.GetComponent<ServeBall> ();
-    ResetScores();
+        ResetScores();
 	}
 
 	// Update is called once per frame
@@ -107,10 +109,11 @@ public class GameManager : MonoBehaviour {
     }
 
     private void ResetScores() {
-      Debug.Log("resetting scores");
+        Debug.Log("resetting scores");
         leftSideScore = 0;
         rightSideScore = 0;
-        id.DisplayMessage(InstructionDisplayer.FIRST_TO_7);
+        id = GameObject.Find("Instructions").GetComponent<InstructionDisplayer>();
+        id.DisplayMessage(id.FIRST_TO);
     }
 
     void OnEnable()
@@ -153,8 +156,9 @@ public class GameManager : MonoBehaviour {
 		//	GameOver();
 		//}
 
-        if (Mathf.Max(leftSideScore, rightSideScore) == 6) {
-          id.DisplayMessage(InstructionDisplayer.GAME_POINT);
+        if (Mathf.Max(leftSideScore, rightSideScore) == scoreToWin - 1) {
+            id = GameObject.Find("Instructions").GetComponent<InstructionDisplayer>();
+            id.DisplayMessage(id.GAME_POINT);
         }
 	}
 
@@ -176,5 +180,9 @@ public class GameManager : MonoBehaviour {
 
     public GameObject[] GetPlayers() {
         return players;
+    }
+
+    public int GetScoreToWin() {
+        return scoreToWin;
     }
 }

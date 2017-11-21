@@ -15,5 +15,8 @@ public class LeftTeamScore : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         text.text = GameManager.instance.GetLeftTeamScore().ToString();
+        if (text.text == "") {
+            text.text = "0";
+        }
 	}
 }

@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class GameData {
-	private static int leftSideScore;
-  private static int rightSideScore;
+    private static int leftSideScore;
+    private static int rightSideScore;
 
-  public static int LeftSideScore {
-    get {
-      return leftSideScore;
+    public static int LeftSideScore {
+        get {
+            return leftSideScore;
+        }
+        set {
+        leftSideScore = value;
+        }
     }
-    set {
-      leftSideScore = value;
-    }
-  }
 
 	public static int RightSideScore {
-    get {
-      return rightSideScore;
+        get {
+            return rightSideScore;
+        }
+        set {
+            rightSideScore = value;
+        }
     }
-    set {
-      rightSideScore = value;
-    }
-  }
 }

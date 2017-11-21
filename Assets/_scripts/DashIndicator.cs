@@ -26,6 +26,7 @@ public class DashIndicator : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+        inputDevice = GetComponentInParent<PlayerInputDevice>().inputDevice;
 		if (pm.IsCharging ()) {
 			directionalArrow.SetActive (true);
 			xInput = inputDevice.LeftStickX;

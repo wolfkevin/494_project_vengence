@@ -69,6 +69,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // TODO: the problem is that we initialize inputDevice in start, as does PlayerInputDevice,
+        // and we don't know which Start() runs first I don't think
+        inputDevice = this.gameObject.GetComponent<PlayerInputDevice>().inputDevice;
+
         if (!allowMotion){return;}
 
         // For storing new velocity values
