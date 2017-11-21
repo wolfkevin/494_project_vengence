@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private bool dashed = false;
     private bool dashing = false;
     private bool charging = false;
-    private float minJumpHeight = 1f;
+    private float minJumpHeight = .5f;
     private float maxJumpHeight = 6f;
     private float minJumpVelocity;
     private float maxJumpVelocity;
@@ -192,11 +192,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (Vector3.Dot(collision.contacts[0].normal, Vector3.up) > .75)
+        if (Vector3.Dot(collision.contacts[0].normal, Vector3.up) > .65)
         {
             grounded = true;
             jumped = false;
             dashed = false;
+            lastXinput = 0f;
+            lastYinput = 0f;
         }
     }
 
