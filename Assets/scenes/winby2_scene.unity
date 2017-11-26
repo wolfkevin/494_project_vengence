@@ -3814,6 +3814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FIRST_TO: FIRST TO 7
+  WIN_BY_TWO: WIN BY 2
   GAME_POINT: GAME POINT
 --- !u!4 &387378446 stripped
 Transform:
@@ -12334,7 +12335,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1626278002
+  randomSeed: 1194737633
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -15791,6 +15792,11 @@ Prefab:
         type: 2}
       propertyPath: m_CollisionDetection
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 23762365503246970, guid: 0bda021f16295406b92bf7a8e5330cc7,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0bda021f16295406b92bf7a8e5330cc7, type: 2}

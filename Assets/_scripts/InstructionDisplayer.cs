@@ -5,27 +5,18 @@ using UnityEngine.UI;
 
 public class InstructionDisplayer : MonoBehaviour {
     public string FIRST_TO = "FIRST TO 7";
+	public string WIN_BY_TWO = "WIN BY 2";
 	public string GAME_POINT = "GAME POINT";
 	static string EMPTY = "";
 
 	Text text;
 	bool displaying = false;
 
-    private void Awake()
-    {
-        //FIRST_TO = "FIRST TO " + GameManager.instance.scoreToWin;
-    }
-
-    // Use this for initialization
+	// Use this for initialization
     void Start () {
         //FIRST_TO = "FIRST TO " + GameManager.instance.scoreToWin;
 		text = GetComponent<Text>();
 	}
-
-    // TODO: pull score from GameManager
-    //void UpdateText() {
-    //    FIRST_TO = "FIRST TO " + GameManager.instance.scoreToWin;
-    //}
 
 	// Update is called once per frame
 	void Update () {
@@ -41,7 +32,7 @@ public class InstructionDisplayer : MonoBehaviour {
 
 		displaying = true;
 		text.text = message;
-		yield return new WaitForSeconds(5f);
+		yield return new WaitForSeconds(4f);
 		text.text = EMPTY;
 		displaying = false;
 	}

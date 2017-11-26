@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ChargedBall : MonoBehaviour {
     // components
@@ -78,7 +76,7 @@ public class ChargedBall : MonoBehaviour {
     }
 
     void ApplyCharge() {
-        Debug.Log("applying charge: " + charge.ToString());
+        Debug.Log("applying charge: " + charge);
         // apply charge to velocity
         if (rb != null) {
             rb.velocity  = rb.velocity * charge;
@@ -87,7 +85,7 @@ public class ChargedBall : MonoBehaviour {
 
     // https://docs.unity3d.com/ScriptReference/ParticleSystem-colorOverLifetime.html
     void UpdateColor() {
-        ParticleSystemRenderer r = (ParticleSystemRenderer) GetComponent<ParticleSystemRenderer>();
+        ParticleSystemRenderer r = GetComponent<ParticleSystemRenderer>();
 
         if (lastHitBy == null) {
             r.material.color = Color.white;

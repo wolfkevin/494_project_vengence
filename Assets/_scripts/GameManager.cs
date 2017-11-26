@@ -144,8 +144,10 @@ public class GameManager : MonoBehaviour {
             ResetPlayers();
         }
 
-        if (Mathf.Max(leftSideScore, rightSideScore) == scoreToWin - 1) {
-            id = GameObject.Find("Instructions").GetComponent<InstructionDisplayer>();
+	    // Display message 
+	    if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin && !WonByTwo()) {
+	        id.DisplayMessage(id.WIN_BY_TWO);
+	    } else if (Mathf.Max(leftSideScore, rightSideScore) == scoreToWin - 1) {
             id.DisplayMessage(id.GAME_POINT);
         }
 	}
