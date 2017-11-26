@@ -52,14 +52,6 @@ public class ChargedBall : MonoBehaviour {
                 } else {
                     // only do something if a different player hits the ball
                     if (other != lastHitBy) {
-//						if (lastHitBy.CompareTag(other.tag)) {
-//							// same team, add charge
-//							AddCharge();
-//						} else {
-//							// different team, reset charge
-//							ResetCharge();
-//						}
-                        // reset last hit
                         AddCharge();
                         lastHitBy = other;
                     }
