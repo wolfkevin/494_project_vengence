@@ -146,9 +146,12 @@ public class GameManager : MonoBehaviour {
         }
 
 	    // Display message 
-	    if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin && !WonByTwo()) {
+	    if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin && !WonByTwo()) 
+	    {
 	        id.DisplayMessage(id.WIN_BY_TWO);
-	    } else if (Mathf.Max(leftSideScore, rightSideScore) == scoreToWin - 1) {
+	    } 
+	    else if (Mathf.Max(leftSideScore, rightSideScore) == scoreToWin - 1) 
+	    {
             id.DisplayMessage(id.GAME_POINT);
         }
 	}
