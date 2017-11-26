@@ -55,7 +55,6 @@ public class GameManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
 	}
 
     public void BallDown(GameObject ball) {
@@ -116,12 +115,6 @@ public class GameManager : MonoBehaviour {
         id.DisplayMessage(id.FIRST_TO);
     }
 
-    void OnEnable()
-    {
-        ////Tell our 'OnLevelFinishedLoading' function to start listening for a scene change as soon as this script is enabled.
-        //SceneManager.sceneLoaded += OnLevelFinishedLoading;
-    }
-
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "main_scene") {
@@ -136,11 +129,11 @@ public class GameManager : MonoBehaviour {
         DisallowPlayerMotion();
         Camera.main.GetComponent<CameraShake>().shakeDuration = 1.5f;
 		yield return new WaitForSeconds(1.5f);
-        if (leftSideScore >= scoreToWin)
+        if (leftSideScore >= scoreToWin && WonByTwo())
         {
             StartCoroutine(WinGame(Teams.TeamA));
         }
-        else if (rightSideScore >= scoreToWin)
+        else if (rightSideScore >= scoreToWin && WonByTwo())
         {
             StartCoroutine(WinGame(Teams.TeamB));
         } else {
@@ -151,16 +144,18 @@ public class GameManager : MonoBehaviour {
             ResetPlayers();
         }
 
-
-		//if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin) {
-		//	GameOver();
-		//}
-
-        if (Mathf.Max(leftSideScore, rightSideScore) == scoreToWin - 1) {
-            id = GameObject.Find("Instructions").GetComponent<InstructionDisplayer>();
+	    // Display message 
+	    if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin && !WonByTwo()) {
+	        id.DisplayMessage(id.WIN_BY_TWO);
+	    } else if (Mathf.Max(leftSideScore, rightSideScore) == scoreToWin - 1) {
             id.DisplayMessage(id.GAME_POINT);
         }
 	}
+
+    private bool WonByTwo()
+    {
+        return Mathf.Abs(leftSideScore - rightSideScore) >= 2f;
+    }
 
     //private IEnumerator
 

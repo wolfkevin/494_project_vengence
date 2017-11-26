@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ChargedBall : MonoBehaviour {
     // components
@@ -35,7 +33,7 @@ public class ChargedBall : MonoBehaviour {
     void OnCollisionEnter(Collision collision) {
         GameObject other = collision.gameObject;
 
-        if (other.CompareTag("playerTeamA") || other.CompareTag("playerTeamB")) {
+        if (other.CompareTag("player")) {
             // someone hit the ball
             if (lastHitBy == null) {
                 // first hit (serve)
@@ -52,14 +50,6 @@ public class ChargedBall : MonoBehaviour {
                 } else {
                     // only do something if a different player hits the ball
                     if (other != lastHitBy) {
-//						if (lastHitBy.CompareTag(other.tag)) {
-//							// same team, add charge
-//							AddCharge();
-//						} else {
-//							// different team, reset charge
-//							ResetCharge();
-//						}
-                        // reset last hit
                         AddCharge();
                         lastHitBy = other;
                     }
@@ -86,7 +76,7 @@ public class ChargedBall : MonoBehaviour {
     }
 
     void ApplyCharge() {
-        Debug.Log("applying charge: " + charge.ToString());
+        Debug.Log("applying charge: " + charge);
         // apply charge to velocity
         if (rb != null) {
             rb.velocity  = rb.velocity * charge;
@@ -95,12 +85,13 @@ public class ChargedBall : MonoBehaviour {
 
     // https://docs.unity3d.com/ScriptReference/ParticleSystem-colorOverLifetime.html
     void UpdateColor() {
-        ParticleSystemRenderer r = (ParticleSystemRenderer) GetComponent<ParticleSystemRenderer>();
+        ParticleSystemRenderer r = GetComponent<ParticleSystemRenderer>();
 
         if (lastHitBy == null) {
             r.material.color = Color.white;
-        } else {
-            r.material = lastHitBy.GetComponent<MeshRenderer>().material;
+        } else
+        {
+            r.material = lastHitBy.GetComponentInChildren<MeshRenderer>().material;
         }
     }
 }

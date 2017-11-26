@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private static float dashSpeed = 35;
     private static float dashTime = .1f;
     private static float leapFrogVertThreshold = .2f;
+	private static float higherJumpOnPartnerVelocity = 15;
 
     private Rigidbody rb;
     private InputDevice inputDevice;
@@ -46,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
 
     private float lastXinput;
     private float lastYinput;
+
+	private bool onPartner = false;
 
     // Use this for initialization
     void Start()
@@ -119,6 +122,10 @@ public class PlayerMovement : MonoBehaviour
         {
             jumping = true;
             newYVelocity = maxJumpVelocity;
+
+			if (onPartner) {
+				newYVelocity += higherJumpOnPartnerVelocity;
+			}
         }
         // Jump early abort (small jump)
         else if (actionButtonWasReleased && jumping)
@@ -180,6 +187,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         grounded = false;
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -195,11 +203,16 @@ public class PlayerMovement : MonoBehaviour
         if (Vector3.Dot(collision.contacts[0].normal, Vector3.up) > .65)
         {
             grounded = true;
+			onPartner = false;
             jumped = false;
             dashed = false;
             lastXinput = 0f;
             lastYinput = 0f;
         }
+
+		if (isOnSameTeam(collision.gameObject) && this.transform.position.y > collision.gameObject.transform.position.y) {
+			onPartner = true;
+		}
     }
 
     private void Shake() {
@@ -247,7 +260,17 @@ public class PlayerMovement : MonoBehaviour
 		return charging;
 	}
 
-  public bool IsGrounded(){
-    return grounded;
-  }
+  	public bool IsGrounded(){
+    	return grounded;
+  	}
+
+	bool isOnSameTeam(GameObject otherPlayer){
+		if (otherPlayer.GetComponent<RedTeam> () && this.GetComponent<RedTeam> ()) {
+			return true;
+		} else if (otherPlayer.GetComponent<BlueTeam> () && this.GetComponent<BlueTeam> ()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
