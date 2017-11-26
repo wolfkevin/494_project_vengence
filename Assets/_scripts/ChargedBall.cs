@@ -35,7 +35,7 @@ public class ChargedBall : MonoBehaviour {
     void OnCollisionEnter(Collision collision) {
         GameObject other = collision.gameObject;
 
-        if (other.CompareTag("playerTeamA") || other.CompareTag("playerTeamB")) {
+        if (other.CompareTag("player")) {
             // someone hit the ball
             if (lastHitBy == null) {
                 // first hit (serve)
@@ -91,8 +91,9 @@ public class ChargedBall : MonoBehaviour {
 
         if (lastHitBy == null) {
             r.material.color = Color.white;
-        } else {
-            r.material = lastHitBy.GetComponent<MeshRenderer>().material;
+        } else
+        {
+            r.material = lastHitBy.GetComponentInChildren<MeshRenderer>().material;
         }
     }
 }
