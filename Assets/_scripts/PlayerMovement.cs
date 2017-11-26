@@ -5,7 +5,7 @@ using InControl;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private static float movementSpeed = 15;
+    private static float movementSpeed = 18;
     private static float jumpSpeed = 25;
     private static float dashSpeed = 35;
     private static float dashTime = .1f;

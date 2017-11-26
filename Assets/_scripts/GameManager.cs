@@ -130,11 +130,11 @@ public class GameManager : MonoBehaviour {
         DisallowPlayerMotion();
         Camera.main.GetComponent<CameraShake>().shakeDuration = 1.5f;
 		yield return new WaitForSeconds(1.5f);
-        if (leftSideScore >= scoreToWin && WonByTwo())
+        if (leftSideScore >= scoreToWin && WinningByAtLeast2())
         {
             StartCoroutine(WinGame(Teams.TeamA));
         }
-        else if (rightSideScore >= scoreToWin && WonByTwo())
+        else if (rightSideScore >= scoreToWin && WinningByAtLeast2())
         {
             StartCoroutine(WinGame(Teams.TeamB));
         } else {
@@ -145,18 +145,19 @@ public class GameManager : MonoBehaviour {
             ResetPlayers();
         }
 
-	    // Display message 
-	    if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin && !WonByTwo()) 
+        // Display message
+        //if (leftSideScore == 6 && rightSideScore == 6)
+        if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin - 1 && leftSideScore == rightSideScore) 
 	    {
 	        id.DisplayMessage(id.WIN_BY_TWO);
 	    } 
-	    else if (Mathf.Max(leftSideScore, rightSideScore) == scoreToWin - 1) 
+        else if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin - 1 && !WinningByAtLeast2()) 
 	    {
             id.DisplayMessage(id.GAME_POINT);
         }
 	}
 
-    private bool WonByTwo()
+    private bool WinningByAtLeast2()
     {
         return Mathf.Abs(leftSideScore - rightSideScore) >= 2f;
     }
