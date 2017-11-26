@@ -42,13 +42,17 @@ public class TranformPlayer : MonoBehaviour {
 		grandfather = transform.parent.parent;
 		capsule = this.GetComponent<CapsuleCollider>();
 		inputDevice = GetComponentInParent<PlayerInputDevice>().inputDevice;
+        Debug.Log(inputDevice);
 		isSphere = false;
 		pm = GetComponentInParent<PlayerMovement>();
 		rb = GetComponentInParent<Rigidbody>();
 	}
 
-	// Use this for initialization
 	void Update() {
+        if (inputDevice == null) {
+            return;
+        }
+
 		if (!switching && !walled && inputDevice.Action2.IsPressed && pm.IsGrounded()) {
 			rb.velocity = new Vector2(0f, rb.velocity.y);
 			walled = true;

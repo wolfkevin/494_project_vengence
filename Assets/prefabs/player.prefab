@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 199865292493429670}
   - component: {fileID: 114153079706763748}
   - component: {fileID: 111749221110915054}
+  - component: {fileID: 114979801456806954}
   m_Layer: 0
   m_Name: player
   m_TagString: playerTeamA
@@ -335,7 +336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f925bef56404b599214fb43a1e7dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 0
 --- !u!114 &114322206760366474
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -385,7 +385,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d616d62780d344f2ae2e6f75da1be04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 0}
   eyeRadius: 0.1
 --- !u!114 &114593170410184162
 MonoBehaviour:
@@ -424,6 +423,24 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114979801456806954
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1355867311545506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68e7cec06c4284e9ab7a52d604b7abbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchTime: 2
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!135 &135070084041726598
 SphereCollider:
   m_ObjectHideFlags: 1
