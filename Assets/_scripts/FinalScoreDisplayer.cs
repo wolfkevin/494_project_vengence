@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class FinalScoreDisplayer : MonoBehaviour {
@@ -8,8 +6,8 @@ public class FinalScoreDisplayer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		title = (Text) GetComponent<Text>();
-		title.text = GameData.LeftSideScore.ToString() + " - " + GameData.RightSideScore.ToString();
+		title = GetComponent<Text>();
+		title.text = GameData.LeftSideScore + " - " + GameData.RightSideScore;
 	}
 
 	// Update is called once per frame
