@@ -41,7 +41,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.83823526, g: 0.83823526, b: 0.83823526, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -73,6 +73,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 974ccc19dfd6b48fc80f6aca55a60a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FIRST_TO: FIRST TO 7
+  WIN_BY_TWO: WIN BY 2
+  GAME_POINT: GAME POINT
 --- !u!222 &222339304626031466
 CanvasRenderer:
   m_ObjectHideFlags: 1
