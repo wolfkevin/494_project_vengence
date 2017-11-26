@@ -16,7 +16,8 @@ public class GameOverScreen : MonoBehaviour {
 
 	public void Restart() {
 		Debug.Log("restart game");
-		SceneManager.LoadScene("main_scene");
+        Initiate.Fade("main_scene", Color.black, 1f);
+		//SceneManager.LoadScene("main_scene");
 	}
 
 	public void Exit() {
@@ -26,6 +27,7 @@ public class GameOverScreen : MonoBehaviour {
 
 	public void MainMenu() {
 		Debug.Log("main menu");
-		SceneManager.LoadScene("title_scene");
+        Initiate.Fade("title_scene", Color.black, 1f);
+		//SceneManager.LoadScene("title_scene");
 	}
 }

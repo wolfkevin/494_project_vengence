@@ -104,7 +104,8 @@ public class GameManager : MonoBehaviour {
     private void GameOver() {
         GameData.LeftSideScore = leftSideScore;
         GameData.RightSideScore = rightSideScore;
-        SceneManager.LoadScene("game_over_scene");
+        Initiate.Fade("game_over_scene", Color.black, 1f);
+        //SceneManager.LoadScene("game_over_scene");
     }
 
     private void ResetScores() {
