@@ -7,8 +7,8 @@ using InControl;
 public class TranformPlayer : MonoBehaviour {
 
 	public float switchTime = 2f;
-  private float xInput;
-  private float yInput;
+    private float xInput;
+    private float yInput;
 
 	InputDevice inputDevice;
 
@@ -56,12 +56,14 @@ public class TranformPlayer : MonoBehaviour {
 		if (!switching && !walled && inputDevice.Action2.IsPressed && pm.IsGrounded()) {
 			rb.velocity = new Vector2(0f, rb.velocity.y);
 			walled = true;
+            //pm.FixPosition();
 			pm.DisallowMotion();
 			StartCoroutine(Swap());
 
 
 		} else if (inputDevice.Action2.WasReleased && walled){
 			walled = false;
+            //pm.UnfixPosition();
 			pm.AllowMotion();
 			StartCoroutine(ResetPlayerBody());
 		}
@@ -162,6 +164,9 @@ public class TranformPlayer : MonoBehaviour {
 
 			yield return null;
 		}
+        capsule.radius = .5f;
+        capsule.height = .5f;
+        transform.localScale = new Vector3(2, 2, 2);
 		switching = false;
 	}
 	// IEnumerator Wal()

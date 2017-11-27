@@ -229,13 +229,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68e7cec06c4284e9ab7a52d604b7abbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchTime: 2
+  switchTime: 0.08
   curve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!1 &30178439
 GameObject:
   m_ObjectHideFlags: 0
@@ -4059,13 +4071,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68e7cec06c4284e9ab7a52d604b7abbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchTime: 2
+  switchTime: 0.08
   curve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!1 &557327922
 GameObject:
   m_ObjectHideFlags: 0
@@ -7860,13 +7884,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68e7cec06c4284e9ab7a52d604b7abbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchTime: 2
+  switchTime: 0.08
   curve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!1 &757473034
 GameObject:
   m_ObjectHideFlags: 0
@@ -11693,13 +11729,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68e7cec06c4284e9ab7a52d604b7abbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchTime: 2
+  switchTime: 0.08
   curve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!1001 &1055282860
 Prefab:
   m_ObjectHideFlags: 0

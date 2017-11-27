@@ -76,14 +76,19 @@ public class PlayerMovement : MonoBehaviour
         // and we don't know which Start() runs first I don't think
         inputDevice = this.gameObject.GetComponent<PlayerInputDevice>().inputDevice;
 
-        if (!allowMotion){return;}
+        if (fix)
+        {
+            rb.transform.position = fixPosition;
+        }
+
+        if (!allowMotion) { return; }
 
         // For storing new velocity values
         var newXVelocity = rb.velocity.x;
         var newYVelocity = rb.velocity.y;
         var gravityToApply = gravity;
 
-        if (inputDevice == null)
+        if (inputDevice == null || !allowMotion)
         {
             // Apply gravity
             newYVelocity += gravityToApply * Time.deltaTime;
@@ -236,10 +241,23 @@ public class PlayerMovement : MonoBehaviour
 
     public void DisallowMotion() {
         allowMotion = false;
+        rb.mass = 999999;
     }
 
     public void AllowMotion() {
         allowMotion = true;
+        rb.mass = 1;
+    }
+
+    private Vector2 fixPosition;
+    private bool fix = false;
+    public void FixPosition() {
+        fixPosition = transform.position;
+        fix = true;
+    }
+
+    public void UnfixPosition() {
+        fix = false;
     }
 
     public void ResetPlayer()
