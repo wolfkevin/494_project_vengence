@@ -12,8 +12,6 @@ public class TranformPlayer : MonoBehaviour {
 
 	InputDevice inputDevice;
 
-	bool isSphere;
-
 	float minCapsuleRadius = .25f;
 	float maxCapsuleRadius = .5f;
 
@@ -42,8 +40,6 @@ public class TranformPlayer : MonoBehaviour {
 		grandfather = transform.parent.parent;
 		capsule = this.GetComponent<CapsuleCollider>();
 		inputDevice = GetComponentInParent<PlayerInputDevice>().inputDevice;
-        Debug.Log(inputDevice);
-		isSphere = false;
 		pm = GetComponentInParent<PlayerMovement>();
 		rb = GetComponentInParent<Rigidbody>();
 	}
