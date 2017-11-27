@@ -161,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
             pupilDashIndicator.GrowPupil();
             newXVelocity = 0;
             newYVelocity = 0;
-            dashChargeFactor += .02f;
+            dashChargeFactor += .012f;
             gravityToApply = 0f;
             if (dashChargeFactor > 2f) {
                 charging = false;
