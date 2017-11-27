@@ -72,6 +72,7 @@
      <Compile Include="Assets\_scripts\PlayerInputDevice.cs" />
      <Compile Include="Assets\_scripts\PlayerMovement.cs" />
      <Compile Include="Assets\_scripts\PlayerSelection.cs" />
+     <Compile Include="Assets\_scripts\playIntroMusic.cs" />
      <Compile Include="Assets\_scripts\PupilDashIndicator.cs" />
      <Compile Include="Assets\_scripts\ReadyController.cs" />
      <Compile Include="Assets\_scripts\RedTeam.cs" />
