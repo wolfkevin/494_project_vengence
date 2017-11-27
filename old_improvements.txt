@@ -1,0 +1,27 @@
+Issue: desire for more powerful air dash
+Improvement: can charge air dash to make it more powerful; alternating team hits make ball more responsive to dash
+
+Issue: desire for more feedback
+Improvement: air dash trail; charging indicated by player shake and pupil expansion; ball trail
+
+Issue: abrupt reset after score -- hard to serve, and no time to celebrate
+Improvement: ball explosion and knockback on score; delayed reset; ball spawns stationary in the air, and players have time to regroup before serving
+
+Issue: same player serves every time
+Improvement: ball spawns between the players, and either can serve -- fosters team communication
+
+Issue: lack of precision in jumping
+Improvement: variable jump height
+
+Issue: abrupt game over screen with no info regarding who won -- requires keyboard for restart
+Improvement: team-colored fireworks on game win; delayed game over screen with improved information that works with controllers
+
+Issue: needs more team collaboration
+Improvement: alternate team hits to charge ball
+
+Issue: desire for more control over dash, to get more spikes / easier spikes
+Imprivement: players can charge dash while remaining stationary, allowing for easier spike timing
+
+Issue: unsure what the score objective is
+Improvement: added first to 7 and game point indicators
+
