@@ -92,8 +92,17 @@ public class TranformPlayer : MonoBehaviour {
 			capsule.direction = 0;
 			Vector3 endPos;
 			if (xInput > .6f) {
+				 Vector3 right = grandfather.TransformDirection(Vector3.right);
+				 if (Physics.Raycast(grandfather.position, right, 2)){
+					 Debug.Log("right ray hit");
+					 yield break;
+				 }
 				endPos = new Vector3(startPos.x + 2f, startPos.y - .5f, startPos.z);
 			} else if (xInput < -.6f) {
+				Vector3 left = grandfather.TransformDirection(Vector3.left);
+			 	if (Physics.Raycast(grandfather.position, left, 2)){
+				 yield break;
+			 }
 				endPos = new Vector3(startPos.x - 2f, startPos.y - .5f, startPos.z);
 			} else {
 				endPos = new Vector3(startPos.x, startPos.y - .5f, startPos.z);
