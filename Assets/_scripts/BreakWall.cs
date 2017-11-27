@@ -8,6 +8,7 @@ public class BreakWall : MonoBehaviour {
 	private ReadyController rc;
 	private Transform grandfather;
 	private AudioSource glassBreakingSound;
+	Ball ball;
 
     // SOURCE: https://answers.unity.com/questions/256558/Convert-mesh-to-triangles-js.html
     IEnumerator SplitMesh()
@@ -64,14 +65,17 @@ public class BreakWall : MonoBehaviour {
 		grandfather = this.transform.parent.parent.parent;
 		rc = GameObject.FindGameObjectWithTag ("#ReadyController").GetComponent<ReadyController>();
 		glassBreakingSound = GetComponentInParent<AudioSource>();
+		ball = transform.parent.parent.GetComponentInChildren<Ball>();
+		ball.setBoxIsBroken(false);
 	}
 
 	void OnCollisionEnter(Collision collision){
 		Rigidbody rb = collision.gameObject.GetComponent<Rigidbody> ();
 		force = collision.relativeVelocity.magnitude * rb.mass;
 		if (force > 40f){
+			ball.setBoxIsBroken(false);
 			glassBreakingSound.Play();
-            StartCoroutine(SplitMesh());
+      StartCoroutine(SplitMesh());
 			Destroy(this.transform.parent.gameObject);
 			grandfather.GetComponentInChildren<Checkbox>().SetCheckboxImage (true);
 			rc.SetReady (grandfather.GetComponent<PlayerSelection> ().GetPlayerNum ());
@@ -82,10 +86,10 @@ public class BreakWall : MonoBehaviour {
  // SplitMeshIntoTriangles.cs
 // using UnityEngine;
 // using System.Collections;
- 
+
 // public class SplitMeshIntoTriangles : MonoBehaviour
 //{
-    
+
 //    void OnMouseDown()
 //    {
 //        StartCoroutine(SplitMesh());

@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Ball : MonoBehaviour {
 
+    bool isMainScene;
+    bool boxIsBroken = true;
     private float maxSpeed = 50;
     public AudioSource clinkSound;
     private Rigidbody rb;
@@ -17,6 +21,13 @@ public class Ball : MonoBehaviour {
     rb = GetComponent<Rigidbody>();
 		ps = GameObject.FindGameObjectWithTag ("explosion").GetComponent<ParticleSystem>();
 		ps.Stop ();
+    if (SceneManager.GetActiveScene().name == "main_scene"){
+			isMainScene = true;
+		} else {
+      isMainScene = false;
+    }
+
+
 	}
 
 	// Update is called once per frame
@@ -40,7 +51,9 @@ public class Ball : MonoBehaviour {
 			      Explode ();
             GameManager.instance.BallDown(gameObject);
         } else {
-          clinkSound.Play();
+          if(isMainScene){
+            clinkSound.Play();
+          }
         }
     }
 
@@ -49,4 +62,8 @@ public class Ball : MonoBehaviour {
 		ps.Play ();
 		ps.GetComponent<ExplosionKnockback> ().ExplodeAndKnockBack ();
 	}
+
+  public void setBoxIsBroken(bool boxExists){
+    boxIsBroken = boxExists;
+  }
 }

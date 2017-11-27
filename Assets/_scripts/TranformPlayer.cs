@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using InControl;
+using UnityEngine.SceneManagement;
+
 
 
 public class TranformPlayer : MonoBehaviour {
@@ -41,6 +43,9 @@ public class TranformPlayer : MonoBehaviour {
 	AudioSource upSound;
 	AudioSource[] aSources;
 
+
+	    bool isMainScene;
+
 	void Start() {
 		grandfather = transform.parent.parent;
 		capsule = this.GetComponent<CapsuleCollider>();
@@ -50,6 +55,11 @@ public class TranformPlayer : MonoBehaviour {
 		aSources = GetComponents<AudioSource>();
 		splashSound = aSources[0];
 		upSound = aSources[1];
+		if (SceneManager.GetActiveScene().name == "main_scene"){
+			isMainScene = true;
+		} else {
+			isMainScene = false;
+		}
 	}
 
 	void Update() {
@@ -57,7 +67,7 @@ public class TranformPlayer : MonoBehaviour {
           return;
       }
 
-		if (!switching && !walled && inputDevice.Action2.IsPressed && pm.IsGrounded() && (grandfather.position.y < 1.6f)) {
+		if (!switching && !walled && inputDevice.Action2.IsPressed && pm.IsGrounded() && (!isMainScene || (grandfather.position.y < 1.6f))) {
 			rb.velocity = new Vector2(0f, rb.velocity.y);
 			walled = true;
             //pm.FixPosition();
