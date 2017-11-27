@@ -91,7 +91,7 @@ public class TranformPlayer : MonoBehaviour {
 		} else if (xInput > .75f) {
 			capsule.direction = 0;
 			Vector3 startPos = grandfather.position;
-			Vector3 endPos = new Vector3(startPos.x + 2f, startPos.y, startPos.z);
+			Vector3 endPos = new Vector3(startPos.x + 2f, startPos.y - .5f, startPos.z);
 			for (float t = 0; t < switchTime; t += Time.deltaTime) {
 				float p = t / switchTime;
 				p = curve.Evaluate(p);
@@ -109,7 +109,7 @@ public class TranformPlayer : MonoBehaviour {
 		} else if (xInput < -.75f) {
 			capsule.direction = 0;
 			Vector3 startPos = grandfather.position;
-			Vector3 endPos = new Vector3(startPos.x - 2f, startPos.y, startPos.z);
+			Vector3 endPos = new Vector3(startPos.x - 2f, startPos.y - .5f, startPos.z);
 			for (float t = 0; t < switchTime; t += Time.deltaTime) {
 				float p = t / switchTime;
 				p = curve.Evaluate(p);
@@ -126,9 +126,12 @@ public class TranformPlayer : MonoBehaviour {
 			}
 		} else {
 			capsule.direction = 0;
+			Vector3 startPos = grandfather.position;
+			Vector3 endPos = new Vector3(startPos.x, startPos.y - .5f, startPos.z);
 			for (float t = 0; t < switchTime; t += Time.deltaTime) {
 				float p = t / switchTime;
 				p = curve.Evaluate(p);
+				grandfather.position = Vector3.Lerp(startPos, endPos, p);
 				Vector3 scale = transform.localScale;
 				scale.x = Mathf.Lerp(sphereLength, maxSphereLength, p);
 				scale.y = Mathf.Lerp(sphereLength, minSphereLength, p);
