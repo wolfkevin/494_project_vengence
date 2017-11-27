@@ -70,7 +70,7 @@ public class TranformPlayer : MonoBehaviour {
 
 		xInput = inputDevice.LeftStickX;
 		yInput = inputDevice.LeftStickY;
-		if (yInput > .75f){
+		if (yInput > .6f){
 			capsule.direction = 1;
 			Vector3 startPos = grandfather.position;
 			Vector3 endPos = new Vector3(startPos.x, startPos.y + 2f, startPos.z);
@@ -88,7 +88,7 @@ public class TranformPlayer : MonoBehaviour {
 
 				yield return null;
 			}
-		} else if (xInput > .75f) {
+		} else if (xInput > .6f) {
 			capsule.direction = 0;
 			Vector3 startPos = grandfather.position;
 			Vector3 endPos = new Vector3(startPos.x + 2f, startPos.y - .5f, startPos.z);
@@ -106,7 +106,7 @@ public class TranformPlayer : MonoBehaviour {
 
 				yield return null;
 			}
-		} else if (xInput < -.75f) {
+		} else if (xInput < -.6f) {
 			capsule.direction = 0;
 			Vector3 startPos = grandfather.position;
 			Vector3 endPos = new Vector3(startPos.x - 2f, startPos.y - .5f, startPos.z);
