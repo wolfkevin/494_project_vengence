@@ -49,7 +49,7 @@ public class TranformPlayer : MonoBehaviour {
             return;
         }
 
-		if (!switching && !walled && inputDevice.Action2.IsPressed && pm.IsGrounded()) {
+		if (!switching && !walled && inputDevice.Action2.IsPressed && pm.IsGrounded() && (grandfather.position.y < 1.6f)) {
 			rb.velocity = new Vector2(0f, rb.velocity.y);
 			walled = true;
             //pm.FixPosition();
