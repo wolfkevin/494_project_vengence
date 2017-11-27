@@ -6,7 +6,8 @@ using InControl;
 
 public class TranformPlayer : MonoBehaviour {
 
-	public float switchTime = 2f;
+
+	public float switchTime = .1f;
     private float xInput;
     private float yInput;
 
@@ -54,11 +55,14 @@ public class TranformPlayer : MonoBehaviour {
 			walled = true;
             //pm.FixPosition();
 			pm.DisallowMotion();
+			switching = true;
 			StartCoroutine(Swap());
 
 
 		} else if (inputDevice.Action2.WasReleased && walled){
+			StopCoroutine("Swap");
 			walled = false;
+			switching = false;
             //pm.UnfixPosition();
 			pm.AllowMotion();
 			StartCoroutine(ResetPlayerBody());
@@ -89,6 +93,7 @@ public class TranformPlayer : MonoBehaviour {
 				yield return null;
 			}
 		} else {
+			splashSound.Play();
 			capsule.direction = 0;
 			Vector3 endPos;
 			if (xInput > .6f) {
