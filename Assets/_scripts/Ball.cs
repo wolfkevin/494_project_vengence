@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour {
 
     private float maxSpeed = 50;
-
+    public AudioSource clinkSound;
     private Rigidbody rb;
 	private ParticleSystem ps;
 
@@ -13,7 +13,8 @@ public class Ball : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        rb = GetComponent<Rigidbody>();
+    clinkSound = GetComponent<AudioSource>();
+    rb = GetComponent<Rigidbody>();
 		ps = GameObject.FindGameObjectWithTag ("explosion").GetComponent<ParticleSystem>();
 		ps.Stop ();
 	}
@@ -36,8 +37,10 @@ public class Ball : MonoBehaviour {
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("ground")) {
-			Explode ();
+			      Explode ();
             GameManager.instance.BallDown(gameObject);
+        } else {
+          clinkSound.Play();
         }
     }
 
