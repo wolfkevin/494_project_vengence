@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float lastXinput;
     private float lastYinput;
+    AudioSource dashSound;
 
 	private bool onPartner = false;
 
@@ -66,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
 
         followBall = this.GetComponentInChildren<FollowBall>();
         pupilDashIndicator = this.GetComponentInChildren<PupilDashIndicator>();
+        dashSound = GetComponent<AudioSource>();
 
     }
 
@@ -215,9 +217,9 @@ public class PlayerMovement : MonoBehaviour
             lastYinput = 0f;
         }
 
-		if (isOnSameTeam(collision.gameObject) && this.transform.position.y > collision.gameObject.transform.position.y) {
-			onPartner = true;
-		}
+  		if (isOnSameTeam(collision.gameObject) && this.transform.position.y > collision.gameObject.transform.position.y) {
+  			onPartner = true;
+  		}
     }
 
     private void Shake() {
@@ -226,6 +228,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator Dash(Vector2 direction)
     {
+        dashSound.Play();
         dashed = true;
         dashing = true;
         var chargeFactor = Mathf.Min(dashChargeFactor, maxDashChargeFactor);
