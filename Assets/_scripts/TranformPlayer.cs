@@ -38,6 +38,8 @@ public class TranformPlayer : MonoBehaviour {
 	Transform grandfather;
 
 	AudioSource splashSound;
+	AudioSource upSound;
+	AudioSource[] aSources;
 
 	void Start() {
 		grandfather = transform.parent.parent;
@@ -45,13 +47,15 @@ public class TranformPlayer : MonoBehaviour {
 		inputDevice = GetComponentInParent<PlayerInputDevice>().inputDevice;
 		pm = GetComponentInParent<PlayerMovement>();
 		rb = GetComponentInParent<Rigidbody>();
-		splashSound = GetComponent<AudioSource>();
+		aSources = GetComponents<AudioSource>();
+		splashSound = aSources[0];
+		upSound = aSources[1];
 	}
 
 	void Update() {
-        if (inputDevice == null) {
-            return;
-        }
+      if (inputDevice == null) {
+          return;
+      }
 
 		if (!switching && !walled && inputDevice.Action2.IsPressed && pm.IsGrounded() && (grandfather.position.y < 1.6f)) {
 			rb.velocity = new Vector2(0f, rb.velocity.y);
@@ -60,7 +64,6 @@ public class TranformPlayer : MonoBehaviour {
 			pm.DisallowMotion();
 			switching = true;
 			StartCoroutine(Swap());
-
 
 		} else if (inputDevice.Action2.WasReleased && walled){
 			StopCoroutine("Swap");
@@ -80,6 +83,7 @@ public class TranformPlayer : MonoBehaviour {
 		Vector3 startPos = grandfather.position;
 		if (yInput > .6f){
 			capsule.direction = 1;
+			upSound.Play();
 			Vector3 endPos = new Vector3(startPos.x, startPos.y + 2f, startPos.z);
 			for (float t = 0; t < switchTime; t += Time.deltaTime) {
 				float p = t / switchTime;
@@ -96,7 +100,6 @@ public class TranformPlayer : MonoBehaviour {
 				yield return null;
 			}
 		} else {
-			splashSound.Play();
 			capsule.direction = 0;
 			Vector3 endPos;
 			if (xInput > .6f) {
@@ -115,6 +118,7 @@ public class TranformPlayer : MonoBehaviour {
 			} else {
 				endPos = new Vector3(startPos.x, startPos.y - .5f, startPos.z);
 			}
+			splashSound.Play();
 			for (float t = 0; t < switchTime; t += Time.deltaTime) {
 				float p = t / switchTime;
 				p = curve.Evaluate(p);
