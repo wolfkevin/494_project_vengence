@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
+    AudioSource cheerSound;
     public static GameManager instance;
     public GameObject ball;
     public GameObject[] players;
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour {
         }
 		serve = ball.GetComponent<ServeBall> ();
         ResetScores();
+        cheerSound = GetComponent<AudioSource>();
 	}
 
 	// Update is called once per frame
@@ -86,6 +88,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private IEnumerator WinGame(Teams winningTeam) {
+        cheerSound.Play();
         switch(winningTeam) {
             case Teams.TeamA:
                 blueCelebration.SetActive(true);
@@ -147,11 +150,11 @@ public class GameManager : MonoBehaviour {
 
         // Display message
         //if (leftSideScore == 6 && rightSideScore == 6)
-        if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin - 1 && leftSideScore == rightSideScore) 
+        if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin - 1 && leftSideScore == rightSideScore)
 	    {
 	        id.DisplayMessage(id.WIN_BY_TWO);
-	    } 
-        else if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin - 1 && !WinningByAtLeast2()) 
+	    }
+        else if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin - 1 && !WinningByAtLeast2())
 	    {
             id.DisplayMessage(id.GAME_POINT);
         }
