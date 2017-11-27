@@ -24,7 +24,7 @@ public class TranformPlayer : MonoBehaviour {
 	float sphereLength = 2f;
 
 	float minSphereLength = 1f;
-	float maxSphereLength = 4f;
+	float maxSphereLength = 6f;
 
 
 	public AnimationCurve curve;
@@ -77,7 +77,7 @@ public class TranformPlayer : MonoBehaviour {
 		if (yInput > .75f){
 			capsule.direction = 1;
 			Vector3 startPos = grandfather.position;
-			Vector3 endPos = new Vector3(startPos.x, startPos.y + 1f, startPos.z);
+			Vector3 endPos = new Vector3(startPos.x, startPos.y + 2f, startPos.z);
 			for (float t = 0; t < switchTime; t += Time.deltaTime) {
 				float p = t / switchTime;
 				p = curve.Evaluate(p);
@@ -95,7 +95,7 @@ public class TranformPlayer : MonoBehaviour {
 		} else if (xInput > .75f) {
 			capsule.direction = 0;
 			Vector3 startPos = grandfather.position;
-			Vector3 endPos = new Vector3(startPos.x + 1f, startPos.y, startPos.z);
+			Vector3 endPos = new Vector3(startPos.x + 2f, startPos.y, startPos.z);
 			for (float t = 0; t < switchTime; t += Time.deltaTime) {
 				float p = t / switchTime;
 				p = curve.Evaluate(p);
@@ -113,7 +113,7 @@ public class TranformPlayer : MonoBehaviour {
 		} else if (xInput < -.75f) {
 			capsule.direction = 0;
 			Vector3 startPos = grandfather.position;
-			Vector3 endPos = new Vector3(startPos.x - 1f, startPos.y, startPos.z);
+			Vector3 endPos = new Vector3(startPos.x - 2f, startPos.y, startPos.z);
 			for (float t = 0; t < switchTime; t += Time.deltaTime) {
 				float p = t / switchTime;
 				p = curve.Evaluate(p);
