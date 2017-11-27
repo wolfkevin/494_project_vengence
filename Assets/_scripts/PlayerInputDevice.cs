@@ -9,7 +9,7 @@ public class PlayerInputDevice : MonoBehaviour
     public InputDevice inputDevice;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         if (playerNumber < InputManager.Devices.Count) {
             inputDevice = InputManager.Devices[playerNumber];
