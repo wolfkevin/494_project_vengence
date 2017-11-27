@@ -6,7 +6,7 @@ using InControl;
 
 public class DashIndicator : MonoBehaviour {
 
-	const float bodyOffsetForDirectionalArrow = 1.6f;
+	const float bodyOffsetForDirectionalArrow = 1f;
 
 	PlayerMovement pm;
 	GameObject directionalArrow;
@@ -32,6 +32,7 @@ public class DashIndicator : MonoBehaviour {
 			xInput = inputDevice.LeftStickX;
 			yInput = inputDevice.LeftStickY;
 			directionalArrow.transform.localRotation = Quaternion.AngleAxis(Mathf.Atan2(yInput, xInput) * Mathf.Rad2Deg - 90, Vector3.forward);
+
 			directionalArrow.transform.localPosition = new Vector3 (xInput * bodyOffsetForDirectionalArrow, yInput * bodyOffsetForDirectionalArrow, 0);
 		} else {
 			directionalArrow.SetActive (false);
