@@ -37,12 +37,15 @@ public class TranformPlayer : MonoBehaviour {
 
 	Transform grandfather;
 
+	AudioSource splashSound;
+
 	void Start() {
 		grandfather = transform.parent.parent;
 		capsule = this.GetComponent<CapsuleCollider>();
 		inputDevice = GetComponentInParent<PlayerInputDevice>().inputDevice;
 		pm = GetComponentInParent<PlayerMovement>();
 		rb = GetComponentInParent<Rigidbody>();
+		splashSound = GetComponent<AudioSource>();
 	}
 
 	void Update() {
