@@ -32,7 +32,7 @@ Issue: difficult to know which direction player will dash in, so missing the bal
 Improvement: added dash indicator to show direction player will dash in
 
 Issue: hard to make saves if far away from ball
-Improvement: added dive / trampoline mechanic on B button; increased movement speed
+Improvement: added dive / trampoline mechanic on B button with left stick directions; increased movement speed
 
 Issue: lack of feedback
 Improvement: added sounds like dash whoosh, ball bounce and ball explosion
@@ -49,5 +49,11 @@ Improvement: capped ball charge, and also ball speed
 Issue: ball could fly off screen, creating soft lock
 Improvement: used continuous collision detection to prevent escape
 
-Issue: player grounded was buggy
-Improvement: used Thomas' implementation shown in class to smoothen player movement
+Issue: player movement was buggy
+Improvement: used Thomas' implementation shown in class to smoothen player movement with jumping and grounded
+
+Issue: wanted player to be able to block at net
+Improvement: can use B and left stick up to make player taller
+
+Issue: game was kind of quiet and unexciting in beginning
+Improvement: added background music
