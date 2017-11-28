@@ -14,6 +14,7 @@ public class DashIndicator : MonoBehaviour {
 	private InputDevice inputDevice;
 	private float xInput;
 	private float yInput;
+	Vector3 dashScale;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +23,7 @@ public class DashIndicator : MonoBehaviour {
 		directionalArrow.SetActive(false);
 
 		inputDevice = GetComponentInParent<PlayerInputDevice>().inputDevice;
+		dashScale = this.transform.localScale;
 	}
 
 	// Update is called once per frame
@@ -35,7 +37,16 @@ public class DashIndicator : MonoBehaviour {
 
 			directionalArrow.transform.localPosition = new Vector3 (xInput * bodyOffsetForDirectionalArrow, yInput * bodyOffsetForDirectionalArrow, 0);
 		} else {
-			directionalArrow.SetActive (false);
+			ResetDash();
 		}
+	}
+
+	public void ResetDash() {
+			this.transform.localScale = dashScale;
+			directionalArrow.SetActive (false);
+	}
+
+	public void GrowDash() {
+		this.transform.localScale *= 1.01f;
 	}
 }

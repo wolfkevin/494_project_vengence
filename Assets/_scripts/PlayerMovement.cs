@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
     private FollowBall followBall;
     private PupilDashIndicator pupilDashIndicator;
+    DashIndicator dashIndicator;
 
     private float lastXinput;
     private float lastYinput;
@@ -68,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
 
         followBall = this.GetComponentInChildren<FollowBall>();
         pupilDashIndicator = this.GetComponentInChildren<PupilDashIndicator>();
+        dashIndicator = this.GetComponentInChildren<DashIndicator>();
         dashSound = GetComponent<AudioSource>();
 
     }
@@ -117,6 +119,7 @@ public class PlayerMovement : MonoBehaviour
         if (!actionButtonIsPressed) {
             charging = false;
             pupilDashIndicator.ResetPupil();
+            dashIndicator.ResetDash();
         }
 
         // Simple movement, on the ground or in the air
@@ -160,6 +163,7 @@ public class PlayerMovement : MonoBehaviour
             Shake();
             followBall.PauseFollowBall();
             pupilDashIndicator.GrowPupil();
+            dashIndicator.GrowDash();
             newXVelocity = 0;
             newYVelocity = 0;
             dashChargeFactor += .012f;
@@ -169,12 +173,14 @@ public class PlayerMovement : MonoBehaviour
                 dashed = true;
                 dashChargeFactor = 1f;
                 pupilDashIndicator.ResetPupil();
+                dashIndicator.ResetDash();
             }
         }
         // Activate dash
         else if (actionButtonWasReleased && jumped && !dashed)
         {
             pupilDashIndicator.ResetPupil();
+            dashIndicator.ResetDash();
             charging = false;
             var dashDirection = ((xInput != 0f) && (yInput != 0f)) ? new Vector2(xInput, yInput) : new Vector2(lastXinput, lastYinput);
             StartCoroutine(Dash(dashDirection));
@@ -274,6 +280,7 @@ public class PlayerMovement : MonoBehaviour
         dashing = false;
         charging = false;
         pupilDashIndicator.ResetPupil();
+        dashIndicator.ResetDash();
     }
 
     public bool IsDashing() {
