@@ -50,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
     AudioSource dashSound;
 
 	private bool onPartner = false;
+  bool onPlayer = false;
 
     // Use this for initialization
     void Start()
@@ -194,7 +195,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         grounded = false;
-
+        onPlayer = false;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -210,7 +211,7 @@ public class PlayerMovement : MonoBehaviour
         if (Vector3.Dot(collision.contacts[0].normal, Vector3.up) > .65)
         {
             grounded = true;
-			onPartner = false;
+			      onPartner = false;
             jumped = false;
             dashed = false;
             lastXinput = 0f;
@@ -219,7 +220,9 @@ public class PlayerMovement : MonoBehaviour
 
   		if (isOnSameTeam(collision.gameObject) && this.transform.position.y > collision.gameObject.transform.position.y) {
   			onPartner = true;
+        onPlayer = true;
   		}
+      SetIsOnPlayer(collision.gameObject);
     }
 
     private void Shake() {
@@ -290,8 +293,18 @@ public class PlayerMovement : MonoBehaviour
 			return true;
 		} else if (otherPlayer.GetComponent<BlueTeam> () && this.GetComponent<BlueTeam> ()) {
 			return true;
-		} else {
-			return false;
 		}
+    return false;
 	}
+
+   void SetIsOnPlayer(GameObject otherPlayer){
+    if (otherPlayer.GetComponent<BlueTeam> () || otherPlayer.GetComponent<RedTeam> ()) {
+			onPlayer = true;
+		}
+  }
+
+  public bool OnPlayer(){
+    return onPlayer;
+  }
+
 }
