@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class Ball : MonoBehaviour {
 
     bool isMainScene;
-    bool boxIsBroken = true;
     private float maxSpeed = 50;
     public AudioSource clinkSound;
     private Rigidbody rb;
@@ -62,8 +61,4 @@ public class Ball : MonoBehaviour {
 		ps.Play ();
 		ps.GetComponent<ExplosionKnockback> ().ExplodeAndKnockBack ();
 	}
-
-  public void setBoxIsBroken(bool boxExists){
-    boxIsBroken = boxExists;
-  }
 }
