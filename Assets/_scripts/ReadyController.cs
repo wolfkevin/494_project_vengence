@@ -16,9 +16,7 @@ public class ReadyController : MonoBehaviour {
 		foreach (bool ready in readyCount) {
 			if (!ready) return;
 		}
-        //Initiate.Fade("title_scene", Color.black, 1f);
-		//SceneManager.LoadScene("main_scene");
-        StartCoroutine(LoadMainScene());
+      StartCoroutine(LoadMainScene());
 	}
 
     IEnumerator LoadMainScene() {

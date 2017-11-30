@@ -21,7 +21,6 @@ public class TranformPlayer : MonoBehaviour {
 	float minCapsuleLength = 0f;
 	float maxCapsuleLength = 1f;
 
-	float sphereRadius = .5f;
 	float sphereLength = 2f;
 
 	float minSphereLength = 1f;
