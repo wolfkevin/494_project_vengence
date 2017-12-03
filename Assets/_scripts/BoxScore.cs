@@ -39,11 +39,18 @@ public class BoxScore : MonoBehaviour
             } else {
                 GameData.BoxScore[pid.playerNumber].hits += 1;
             }
+            PrintStats(GameData.BoxScore[pid.playerNumber]);
         }
 
         if (other.CompareTag("ground")) {
             PlayerInputDevice pid = cb.LastHitBy().GetComponent<PlayerInputDevice>();
             GameData.BoxScore[pid.playerNumber].points += 1;
+            PrintStats(GameData.BoxScore[pid.playerNumber]);
         }
+    }
+
+    void PrintStats(Stats stats)
+    {
+        Debug.Log(stats.ToString());
     }
 }
