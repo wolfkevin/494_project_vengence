@@ -29,14 +29,17 @@ public class DashIndicator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         inputDevice = GetComponentInParent<PlayerInputDevice>().inputDevice;
-		if (pm.IsCharging ()) {
+        xInput = inputDevice.LeftStickX;
+        yInput = inputDevice.LeftStickY;
+        if (pm.IsCharging() && Mathf.Abs(Mathf.Max(xInput, yInput)) > .05) {
 			directionalArrow.SetActive (true);
-			xInput = inputDevice.LeftStickX;
-			yInput = inputDevice.LeftStickY;
 			directionalArrow.transform.localRotation = Quaternion.AngleAxis(Mathf.Atan2(yInput, xInput) * Mathf.Rad2Deg - 90, Vector3.forward);
 
 			directionalArrow.transform.localPosition = new Vector3 (xInput * bodyOffsetForDirectionalArrow, yInput * bodyOffsetForDirectionalArrow, 0);
-		} else {
+		} 
+        else if (pm.IsCharging()) {
+            directionalArrow.SetActive(false);
+        }else {
 			ResetDash();
 		}
 	}

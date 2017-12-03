@@ -42,9 +42,6 @@ public class TranformPlayer : MonoBehaviour {
 	AudioSource upSound;
 	AudioSource[] aSources;
 
-
-	    bool isMainScene;
-
 	void Start() {
 		grandfather = transform.parent.parent;
 		capsule = this.GetComponent<CapsuleCollider>();
@@ -54,23 +51,22 @@ public class TranformPlayer : MonoBehaviour {
 		aSources = GetComponents<AudioSource>();
 		splashSound = aSources[0];
 		upSound = aSources[1];
-		if (SceneManager.GetActiveScene().name == "main_scene"){
-			isMainScene = true;
-		} else {
-			isMainScene = false;
-		}
 	}
 
 	void Update() {
-      if (inputDevice == null) {
-          return;
-      }
+        if (inputDevice == null) {
+            return;
+        }
 
-		if (!switching && !walled && inputDevice.Action2.IsPressed && pm.IsGrounded() && !pm.OnPlayer()) {
+		if (!switching 
+            && !walled 
+            && inputDevice.Action2.IsPressed 
+            //&& pm.IsGrounded() 
+            && !pm.OnPlayer()) {
 			rb.velocity = new Vector2(0f, rb.velocity.y);
 			walled = true;
-            //pm.FixPosition();
-			pm.DisallowMotion();
+            pm.DisallowMotion();
+            pm.FixPosition();
 			switching = true;
 			StartCoroutine(Swap());
 
@@ -78,13 +74,15 @@ public class TranformPlayer : MonoBehaviour {
 			StopCoroutine("Swap");
 			walled = false;
 			switching = false;
-            //pm.UnfixPosition();
-			pm.AllowMotion();
+            pm.AllowMotion();
+            pm.UnfixPosition();
 			StartCoroutine(ResetPlayerBody());
 		}
 	}
 
 	IEnumerator Swap() {
+        pm.KillDash();
+
 		switching = true;
 
 		xInput = inputDevice.LeftStickX;
@@ -168,6 +166,13 @@ public class TranformPlayer : MonoBehaviour {
         transform.localScale = new Vector3(2, 2, 2);
 		switching = false;
 	}
-	// IEnumerator Wal()
+
+
+    //IEnumerator Flash() {
+    //    while (true) {
+    //        GetComponent<MeshRenderer>().enabled = false;
+    //        yield return new WaitForSeconds
+    //    }
+    //}
 
 }

@@ -31,7 +31,7 @@ public class PupilDashIndicator : MonoBehaviour {
 
 	public void GrowPupil() {
 		transform.localPosition = pupilHomePosition;
-			this.transform.localScale *= 1.01f;
+		this.transform.localScale *= 1.01f;
 	}
 
 }

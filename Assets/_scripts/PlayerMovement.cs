@@ -81,11 +81,6 @@ public class PlayerMovement : MonoBehaviour
         // and we don't know which Start() runs first I don't think
         inputDevice = this.gameObject.GetComponent<PlayerInputDevice>().inputDevice;
 
-        if (fix)
-        {
-            rb.transform.position = fixPosition;
-        }
-
         if (!allowMotion) { return; }
 
         // For storing new velocity values
@@ -253,23 +248,21 @@ public class PlayerMovement : MonoBehaviour
 
     public void DisallowMotion() {
         allowMotion = false;
-        rb.mass = 999999;
+        //rb.mass = 999999;
     }
 
     public void AllowMotion() {
         allowMotion = true;
-        rb.mass = 1;
+        //rb.mass = 1;
     }
 
-    private Vector2 fixPosition;
-    private bool fix = false;
+
     public void FixPosition() {
-        fixPosition = transform.position;
-        fix = true;
+        rb.isKinematic = true;
     }
 
     public void UnfixPosition() {
-        fix = false;
+        rb.isKinematic = false;
     }
 
     public void ResetPlayer()
@@ -290,6 +283,14 @@ public class PlayerMovement : MonoBehaviour
 	public bool IsCharging(){
 		return charging;
 	}
+
+    // For when the player walls while charging
+    public void KillDash() {
+        charging = false;
+        dashed = true;
+        pupilDashIndicator.ResetPupil();
+        dashIndicator.ResetDash();
+    }
 
   	public bool IsGrounded(){
     	return grounded;
