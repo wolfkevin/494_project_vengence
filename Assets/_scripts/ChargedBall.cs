@@ -94,4 +94,9 @@ public class ChargedBall : MonoBehaviour {
             r.material = lastHitBy.GetComponentInChildren<MeshRenderer>().material;
         }
     }
+
+    public GameObject LastHitBy()
+    {
+        return lastHitBy;
+    }
 }
