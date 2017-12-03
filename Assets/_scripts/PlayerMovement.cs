@@ -49,6 +49,8 @@ public class PlayerMovement : MonoBehaviour
     private float lastXinput;
     private float lastYinput;
     AudioSource dashSound;
+    AudioSource superJumpSound;
+    AudioSource[] sounds;
 
 	private bool onPartner = false;
   bool onPlayer = false;
@@ -70,8 +72,9 @@ public class PlayerMovement : MonoBehaviour
         followBall = this.GetComponentInChildren<FollowBall>();
         pupilDashIndicator = this.GetComponentInChildren<PupilDashIndicator>();
         dashIndicator = this.GetComponentInChildren<DashIndicator>();
-        dashSound = GetComponent<AudioSource>();
-
+        sounds = GetComponents<AudioSource>();;
+        dashSound = sounds[0];
+        superJumpSound = sounds[1];
     }
 
     // Update is called once per frame
@@ -136,6 +139,7 @@ public class PlayerMovement : MonoBehaviour
 
 			if (onPartner) {
 				newYVelocity += higherJumpOnPartnerVelocity;
+        superJumpSound.Play();
 			}
         }
         // Jump early abort (small jump)

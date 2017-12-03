@@ -9,3 +9,4 @@ Ball Sound: http://soundbible.com/1742-Anvil-Impact-1x.html
 Vertical Transform: http://soundbible.com/2067-Blop.html
 Glass Break: http://soundbible.com/1765-Glass-Break.html
 Dash Sound: http://soundbible.com/2068-Woosh.html
+Super Jump Sound: http://soundbible.com/1343-Jump.html
