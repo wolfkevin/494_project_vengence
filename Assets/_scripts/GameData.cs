@@ -1,6 +1,5 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 public static class GameData {
     public static int LeftSideScore { get; set; }
@@ -35,5 +34,10 @@ public class Stats
     public int TotalHits()
     {
         return hits + dashHits;
+    }
+
+    public override string ToString()
+    {
+        return String.Format("Points: {0}, Hits: {1}, Dash Hits: {2}", points, hits, dashHits);
     }
 }
