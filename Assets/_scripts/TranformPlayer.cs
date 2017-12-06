@@ -58,10 +58,10 @@ public class TranformPlayer : MonoBehaviour {
             return;
         }
 
-		if (!switching 
-            && !walled 
-            && inputDevice.Action2.IsPressed 
-            //&& pm.IsGrounded() 
+		if (!switching
+            && !walled
+            && inputDevice.Action2.IsPressed
+            //&& pm.IsGrounded()
             && !pm.OnPlayer()) {
 			rb.velocity = new Vector2(0f, rb.velocity.y);
 			walled = true;
@@ -88,10 +88,20 @@ public class TranformPlayer : MonoBehaviour {
 		xInput = inputDevice.LeftStickX;
 		yInput = inputDevice.LeftStickY;
 		Vector3 startPos = grandfather.position;
-		if (yInput > .6f){
+		if (Mathf.Abs(yInput) > .6f){
 			capsule.direction = 1;
+			Vector3 endPos;
+			if (yInput < 0) {
+				 Vector3 down = grandfather.TransformDirection(Vector3.down);
+				 if (Physics.Raycast(grandfather.position, down, 1)){
+					 Debug.Log("down ray hit");
+					 yield break;
+				 }
+				endPos = new Vector3(startPos.x, startPos.y - 2f, startPos.z);
+			} else {
+				endPos = new Vector3(startPos.x, startPos.y + 2f, startPos.z);
+			}
 			upSound.Play();
-			Vector3 endPos = new Vector3(startPos.x, startPos.y + 2f, startPos.z);
 			for (float t = 0; t < switchTime; t += Time.deltaTime) {
 				float p = t / switchTime;
 				p = curve.Evaluate(p);
