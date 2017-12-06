@@ -74,7 +74,7 @@ public class BreakWall : MonoBehaviour {
       StartCoroutine(SplitMesh());
 			Destroy(this.transform.parent.gameObject);
 			grandfather.GetComponentInChildren<Checkbox>().SetCheckboxImage (true);
-			//rc.SetReady (grandfather.GetComponent<PlayerSelection> ().GetPlayerNum ());
+			rc.SetReady (grandfather.GetComponentInChildren<PlayerInputDevice> ().playerNumber);
 		}
 	}
 }
