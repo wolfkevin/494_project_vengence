@@ -54,7 +54,9 @@ public class PlayerMovement : MonoBehaviour
     AudioSource[] sounds;
 
 	private bool onPartner = false;
-  bool onPlayer = false;
+    bool onPlayer = false;
+
+    TranformPlayer transformPlayer;
 
     // Use this for initialization
     void Start()
@@ -76,6 +78,8 @@ public class PlayerMovement : MonoBehaviour
         sounds = GetComponents<AudioSource>();;
         dashSound = sounds[0];
         superJumpSound = sounds[1];
+
+        transformPlayer = GetComponentInChildren<TranformPlayer>();
     }
 
     // Update is called once per frame
@@ -288,6 +292,8 @@ public class PlayerMovement : MonoBehaviour
         charging = false;
         pupilDashIndicator.ResetPupil();
         dashIndicator.ResetDash();
+
+        transformPlayer.ResetWallState();
     }
 
     public bool IsDashing() {

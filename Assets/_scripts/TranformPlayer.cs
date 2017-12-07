@@ -42,6 +42,13 @@ public class TranformPlayer : MonoBehaviour {
 	AudioSource upSound;
 	AudioSource[] aSources;
 
+    private PupilDashIndicator pupilDashIndicator;
+
+    PlayerMovement playerMovement;
+
+    int wallFrames = 0;
+    bool canWall = true;
+
 	void Start() {
 		grandfather = transform.parent.parent;
 		capsule = this.GetComponent<CapsuleCollider>();
@@ -51,6 +58,9 @@ public class TranformPlayer : MonoBehaviour {
 		aSources = GetComponents<AudioSource>();
 		splashSound = aSources[0];
 		upSound = aSources[1];
+        pupilDashIndicator = transform.parent.parent.GetComponentInChildren<PupilDashIndicator>();
+
+        playerMovement = transform.parent.parent.GetComponent<PlayerMovement>();
 	}
 
 	void Update() {
@@ -59,6 +69,7 @@ public class TranformPlayer : MonoBehaviour {
         }
 
 		if (!switching
+            && canWall
             && !walled
             && inputDevice.Action2.IsPressed
             //&& pm.IsGrounded()
@@ -70,15 +81,37 @@ public class TranformPlayer : MonoBehaviour {
 			switching = true;
 			StartCoroutine(Swap());
 
-		} else if (inputDevice.Action2.WasReleased && walled){
+
+		} 
+
+        else if (walled && (inputDevice.Action2.WasReleased || wallFrames > 85)){
 			StopCoroutine("Swap");
 			walled = false;
 			switching = false;
             pm.AllowMotion();
             pm.UnfixPosition();
 			StartCoroutine(ResetPlayerBody());
+            pupilDashIndicator.ResetPupil();
+            wallFrames = 0;
+            canWall = false;
 		}
+
+        else if (walled) {
+            pupilDashIndicator.GrowPupil();
+            wallFrames += 1;
+        }
+
+        if (playerMovement.IsGrounded()) {
+            canWall = true;
+        }
 	}
+
+    public void ResetWallState() {
+        canWall = true;
+        wallFrames = 0;
+        walled = false;
+        switching = false;
+    }
 
 	IEnumerator Swap() {
         pm.KillDash();
