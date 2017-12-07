@@ -135,7 +135,9 @@ public class PlayerMovement : MonoBehaviour
 
 			if (onPartner) {
 				newYVelocity += higherJumpOnPartnerVelocity;
-        superJumpSound.Play();
+                particleSystem.Play();
+                StartCoroutine(StopParticleSys());
+                superJumpSound.Play();
 			}
         }
         // Jump early abort (small jump)
@@ -198,6 +200,11 @@ public class PlayerMovement : MonoBehaviour
             // Update velocity
             rb.velocity = new Vector3(newXVelocity, newYVelocity, 0);
         }
+    }
+
+    IEnumerator StopParticleSys() {
+        yield return new WaitForSeconds(.4f);
+        particleSystem.Stop();
     }
 
     private void FixedUpdate()
