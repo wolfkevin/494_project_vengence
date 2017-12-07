@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     private float maxDashChargeFactor = 2.5f;
     private Vector3 positionStartedCharging;
 
-    private bool allowMotion = true;
+    public bool allowMotion = true;
 
     private ParticleSystem particleSystem;
 
@@ -306,10 +306,12 @@ public class PlayerMovement : MonoBehaviour
 
     // For when the player walls while charging
     public void KillDash() {
-        charging = false;
-        dashed = true;
-        pupilDashIndicator.ResetPupil();
-        dashIndicator.ResetDash();
+        if (IsCharging()) {
+            charging = false;
+            dashed = true;
+            pupilDashIndicator.ResetPupil();
+            dashIndicator.ResetDash();
+        }
     }
 
   	public bool IsGrounded(){

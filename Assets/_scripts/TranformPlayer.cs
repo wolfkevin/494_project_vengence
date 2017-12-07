@@ -113,7 +113,7 @@ public class TranformPlayer : MonoBehaviour {
         switching = false;
     }
 
-	IEnumerator Swap() {
+	public IEnumerator Swap() {
         pm.KillDash();
 
 		switching = true;
@@ -187,7 +187,7 @@ public class TranformPlayer : MonoBehaviour {
 		switching = false;
 	}
 
-	IEnumerator ResetPlayerBody(){
+	public IEnumerator ResetPlayerBody(){
 		Vector3 scale = transform.localScale;
 		float curSphereX = scale.x;
 		float curSphereY = scale.y;

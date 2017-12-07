@@ -84,6 +84,9 @@ public class GameManager : MonoBehaviour {
             players[i].transform.position = playerHomePositions[i];
             players[i].GetComponent<Rigidbody>().velocity = Vector2.zero;
             players[i].GetComponent<PlayerMovement>().ResetPlayer();
+            //StopCoroutine(players[i].GetComponentInChildren<TranformPlayer>().Swap());
+            //StartCoroutine(players[i].GetComponentInChildren<TranformPlayer>().ResetPlayerBody());
+            //players[i].GetComponentInChildren<TranformPlayer>().ResetWallState();
         }
     }
 
@@ -130,7 +133,16 @@ public class GameManager : MonoBehaviour {
 	{
 		ball.SetActive (false);
         //Time.timeScale = 0.1f;
+
+
         DisallowPlayerMotion();
+        //for (int i = 0; i < players.Length; ++i)
+        //{
+        //    StopCoroutine(players[i].GetComponentInChildren<TranformPlayer>().Swap());
+        //    StartCoroutine(players[i].GetComponentInChildren<TranformPlayer>().ResetPlayerBody());
+        //    players[i].GetComponentInChildren<TranformPlayer>().ResetWallState();
+        //}
+
         Camera.main.GetComponent<CameraShake>().shakeDuration = 1.5f;
 		yield return new WaitForSeconds(1.5f);
         if (leftSideScore >= scoreToWin && WinningByAtLeast2())
