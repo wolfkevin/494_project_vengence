@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private bool dashed = false;
     private bool dashing = false;
     private bool charging = false;
+    private bool dash_expire = false;
     private float minJumpHeight = .5f;
     private float maxJumpHeight = 6f;
     private float minJumpVelocity;
@@ -170,17 +171,19 @@ public class PlayerMovement : MonoBehaviour
             if (dashChargeFactor > 2f) {
                 charging = false;
                 dashed = true;
-                dashChargeFactor = 1f;
-                pupilDashIndicator.ResetPupil();
-                dashIndicator.ResetDash();
+                dash_expire = true;
+                //dashChargeFactor = 1f;
+                //pupilDashIndicator.ResetPupil();
+                //dashIndicator.ResetDash();
             }
         }
         // Activate dash
-        else if (actionButtonWasReleased && jumped && !dashed)
+        else if ((actionButtonWasReleased && jumped && !dashed) || dash_expire)
         {
             pupilDashIndicator.ResetPupil();
             dashIndicator.ResetDash();
             charging = false;
+            dash_expire = false;
             var dashDirection = ((xInput != 0f) && (yInput != 0f)) ? new Vector2(xInput, yInput) : new Vector2(lastXinput, lastYinput);
             StartCoroutine(Dash(dashDirection));
         }
