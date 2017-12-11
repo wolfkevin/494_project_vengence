@@ -62,8 +62,7 @@ public class SandboxManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        Debug.Log("A");
-        Debug.Log(players.Length);
+        CheckAllPlayersReady();
         for (int i = 0; i < InputManager.Devices.Count; ++i) {
             if (InputManager.Devices[i].AnyButton) {
                 Debug.Log("PRESSED BUTTON");
@@ -76,6 +75,18 @@ public class SandboxManager : MonoBehaviour {
             }
         }
 	}
+
+    private void CheckAllPlayersReady() {
+        bool allPlayersReady = true;
+        for (int i = 0; i < players.Length; ++i) {
+            if (!players[i].GetComponent<TutorialPromptController>().IsReady()) {
+                allPlayersReady = false;
+            }
+        }
+        if (allPlayersReady) {
+            Initiate.Fade("main_scene", Color.black, 1f);
+        }
+    }
 
     public void BallDown(GameObject ball) {
   //      Teams teamThatScored;
