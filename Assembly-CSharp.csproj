@@ -70,6 +70,7 @@
      <Compile Include="Assets\_scripts\InstructionDisplayer.cs" />
      <Compile Include="Assets\_scripts\LeftTeamScore.cs" />
      <Compile Include="Assets\_scripts\MakeUnstuck.cs" />
+     <Compile Include="Assets\_scripts\PlayerAnimation.cs" />
      <Compile Include="Assets\_scripts\PlayerInputDevice.cs" />
      <Compile Include="Assets\_scripts\PlayerMovement.cs" />
      <Compile Include="Assets\_scripts\PupilDashIndicator.cs" />
