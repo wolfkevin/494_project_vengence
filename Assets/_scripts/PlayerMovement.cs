@@ -58,6 +58,8 @@ public class PlayerMovement : MonoBehaviour
 
     TranformPlayer transformPlayer;
 
+    private bool didDashOnce = false;
+
     // Use this for initialization
     void Start()
     {
@@ -250,6 +252,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator Dash(Vector2 direction)
     {
+        didDashOnce = true;
         dashSound.Play();
         dashed = true;
         dashing = true;
@@ -274,6 +277,9 @@ public class PlayerMovement : MonoBehaviour
         //rb.mass = 1;
     }
 
+    public bool DidDashOnce() {
+        return didDashOnce; 
+    }
 
     public void FixPosition() {
         rb.isKinematic = true;

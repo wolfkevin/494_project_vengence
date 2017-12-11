@@ -49,6 +49,9 @@ public class TranformPlayer : MonoBehaviour {
     int wallFrames = 0;
     bool canWall = true;
 
+    private bool didTrampOnce = false;
+    private bool didWallOnce = false;
+
 	void Start() {
 		grandfather = transform.parent.parent;
 		capsule = this.GetComponent<CapsuleCollider>();
@@ -122,6 +125,7 @@ public class TranformPlayer : MonoBehaviour {
 		yInput = inputDevice.LeftStickY;
 		Vector3 startPos = grandfather.position;
 		if (Mathf.Abs(yInput) > .6f){
+            didWallOnce = true;
 			capsule.direction = 1;
 			Vector3 endPos;
 			if (yInput < 0) {
@@ -150,6 +154,7 @@ public class TranformPlayer : MonoBehaviour {
 				yield return null;
 			}
 		} else {
+            didTrampOnce = true;
 			capsule.direction = 0;
 			Vector3 endPos;
 			if (xInput > .6f) {
@@ -218,4 +223,15 @@ public class TranformPlayer : MonoBehaviour {
     //    }
     //}
 
+    public bool DidTrampOnce() {
+        return didTrampOnce;
+    }
+
+    public bool DidWallOnce() {
+        return didWallOnce;
+    }
+
+    public bool IsSwitching() {
+        return switching;
+    }
 }
