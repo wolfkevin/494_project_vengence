@@ -17,7 +17,7 @@ public class TitleScreen : MonoBehaviour {
 
 	public void Play() {
 		Debug.Log("play game");
-        Initiate.Fade("selection_scene", Color.black, 1f);
+        Initiate.Fade("sandbox_scene", Color.black, 1f);
 		//SceneManager.LoadScene("selection_scene");
 	}
 
