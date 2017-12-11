@@ -8272,6 +8272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f925bef56404b599214fb43a1e7dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allowMotion: 1
 --- !u!198 &857361361
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -12213,6 +12214,7 @@ GameObject:
   - component: {fileID: 1210681417}
   - component: {fileID: 1210681418}
   - component: {fileID: 1210681419}
+  - component: {fileID: 1210681420}
   m_Layer: 8
   m_Name: SplitMetalBall
   m_TagString: ball
@@ -12372,7 +12374,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 311451972
+  randomSeed: -1109864819
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -15731,6 +15733,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1210681420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1210681408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c1ec59cd654744edb8102b86ca3a439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1226849649
 Prefab:
   m_ObjectHideFlags: 0
