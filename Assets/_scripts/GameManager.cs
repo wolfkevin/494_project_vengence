@@ -160,13 +160,18 @@ public class GameManager : MonoBehaviour {
             ResetPlayers();
         }
 
-        // Display message
-        //if (leftSideScore == 6 && rightSideScore == 6)
+        // If a team has at least 6 and they are TIED
         if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin - 1 && leftSideScore == rightSideScore)
 	    {
 	        id.DisplayMessage(id.WIN_BY_TWO);
 	    }
-        else if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin - 1 && !WinningByAtLeast2())
+
+        else if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin && WinningByAtLeast2()) {
+            // NOTHING
+        }
+
+        // If a team has at least six and THEY ARE NOT TIED
+        else if (Mathf.Max(leftSideScore, rightSideScore) >= scoreToWin - 1)
 	    {
             id.DisplayMessage(id.GAME_POINT);
         }
