@@ -19,11 +19,11 @@ public class DashIndicator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		pm = this.gameObject.GetComponentInParent<PlayerMovement> ();
-		directionalArrow = this.transform.GetChild (0).gameObject;
+        directionalArrow = transform.Find("DirectionalArrow").gameObject;
 		directionalArrow.SetActive(false);
 
 		inputDevice = GetComponentInParent<PlayerInputDevice>().inputDevice;
-		dashScale = this.transform.localScale;
+        dashScale = directionalArrow.transform.localScale;
 	}
 
 	// Update is called once per frame
@@ -46,11 +46,11 @@ public class DashIndicator : MonoBehaviour {
 	}
 
 	public void ResetDash() {
-			this.transform.localScale = dashScale;
+            directionalArrow.transform.localScale = dashScale;
 			directionalArrow.SetActive (false);
 	}
 
 	public void GrowDash() {
-		this.transform.localScale *= 1.01f;
+        directionalArrow.transform.localScale *= 1.01f;
 	}
 }

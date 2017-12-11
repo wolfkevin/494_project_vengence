@@ -16,17 +16,15 @@ public class Ball : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-    clinkSound = GetComponent<AudioSource>();
-    rb = GetComponent<Rigidbody>();
+        clinkSound = GetComponent<AudioSource>();
+        rb = GetComponent<Rigidbody>();
 		ps = GameObject.FindGameObjectWithTag ("explosion").GetComponent<ParticleSystem>();
 		ps.Stop ();
-    if (SceneManager.GetActiveScene().name == "main_scene"){
+        if (SceneManager.GetActiveScene().name == "main_scene"){
 			isMainScene = true;
 		} else {
-      isMainScene = false;
-    }
-
-
+            isMainScene = false;
+        }
 	}
 
 	// Update is called once per frame
