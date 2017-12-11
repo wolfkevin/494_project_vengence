@@ -37,7 +37,6 @@ public class ChargedBall : MonoBehaviour {
             // someone hit the ball
             if (lastHitBy == null) {
                 // first hit (serve)
-                lastHitBy = other;
                 AddCharge();
             } else {
                 // grab PlayerMovement script
@@ -51,10 +50,10 @@ public class ChargedBall : MonoBehaviour {
                     // only do something if a different player hits the ball
                     if (other != lastHitBy) {
                         AddCharge();
-                        lastHitBy = other;
                     }
                 }
             }
+            lastHitBy = other;
         }
 
         if (other.CompareTag("ground")) {
@@ -71,8 +70,6 @@ public class ChargedBall : MonoBehaviour {
         Debug.Log("resetting charge");
         // reset charge
         charge = DEFAULT_CHARGE;
-        // reset lastHitBy
-        lastHitBy = null;
     }
 
     void ApplyCharge() {

@@ -38,6 +38,6 @@ public class Stats
 
     public override string ToString()
     {
-        return String.Format("Points: {0}, Hits: {1}, Dash Hits: {2}", points, hits, dashHits);
+        return String.Format("{0}\n{1}\n{2}", points, hits, dashHits);
     }
 }
