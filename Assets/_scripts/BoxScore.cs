@@ -45,9 +45,19 @@ public class BoxScore : MonoBehaviour
         if (other.CompareTag("ground")) {
             PlayerInputDevice pid = cb.LastHitBy().GetComponent<PlayerInputDevice>();
 
-            if ((pid.playerNumber <= 1 && transform.position.x > 0) || (pid.playerNumber >= 2 && transform.position.x < 0))
+            if (transform.position.x > 0)
             {
-                GameData.BoxScore[pid.playerNumber].points += 1;
+                if (pid.playerNumber == 0 || pid.playerNumber == 2)
+                {
+                    GameData.BoxScore[pid.playerNumber].points += 1;
+                }
+            }
+            else if (transform.position.x < 0)
+            {
+                if (pid.playerNumber == 1 || pid.playerNumber == 3)
+                {
+                    GameData.BoxScore[pid.playerNumber].points += 1;
+                }
             }
             Debug.Log(GameData.BoxScore[pid.playerNumber]);
         }
